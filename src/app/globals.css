@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+  font-family: "Lato", sans-serif;
+}
+body {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Typographies */
+.largeText {
+  position: relative;
+  color: #414141;
+  opacity: 0.2;
+  letter-spacing: -3px;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 90px;
+  top: 30px;
+}
+.titleTextLG {
+  position: relative;
+  color: #414141;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 42px;
+}
+.titleTextLG::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  left: 50%;
+  width: 100px;
+  transform: translateX(-50%);
+  background: #cfa144;
+  bottom: -10px;
+}
+.titleTextSM {
+  position: relative;
+  color: #414141;
+  font-size: 20px;
+  font-weight: 700;
+}
+.titleTextSM::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  background: #cfa144;
+  bottom: -10px;
+}
+
+.smallTitleText {
+  font-size: 14px;
+  line-height: 25px;
+  margin-top: 70px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 600;
+  color: #434343;
+}
+
+.title {
+  color: #414141;
+  font-weight: 700;
+  text-align: center;
+  font-size: 36px;
+  line-height: 42px;
+}
+.paragraph {
+  font-size: 16px;
+  line-height: 25px;
+  color: #434343;
+  opacity: 0.8;
+  text-align: left;
+  max-width: 900px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .largeText {
+    font-size: 60px;
+    line-height: 50px;
+    top: 20px;
+  }
+  .titleTextLG {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .title {
+    font-size: 25px;
+    line-height: 20px;
+  }
+  .slick-dots {
+    bottom: -50px !important;
+  }
+}
