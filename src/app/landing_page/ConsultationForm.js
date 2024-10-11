@@ -51,7 +51,7 @@ const ConsultationForm = () => {
         <h2 className="title">
           Let's Talk Growth: Your Free 30-Minute Power Session Awaits!
         </h2>
-        <p className="paragraph text-center">
+        <p className="paragraph text-center sm:px-14">
           Unlock your business’s next big move with a no-strings-attached,
           30-minute strategy session. Drop your deets below, and let’s make some
           magic happen.

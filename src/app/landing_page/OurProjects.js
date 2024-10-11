@@ -74,7 +74,7 @@ const OurProjects = () => {
     prevArrow: <CustomPrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1167,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -91,7 +91,7 @@ const OurProjects = () => {
   };
 
   return (
-    <section className="md:p-32 p-20 bg-[#F7F7F7]" id="projects">
+    <section className="md:p-20 p-20 bg-[#F7F7F7]" id="projects">
       {/* title */}
       <div className="text-center mb-14 md:mb-32">
         <h1 className="largeText mb-4">we do magic</h1>

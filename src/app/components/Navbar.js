@@ -72,7 +72,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 20 }}
             exit={{ opacity: 0, y: -10 }} // Exit transition
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className={`flex flex-col absolute bg-gray-100/80 w-full left-0 top-16 p-4 text-black ${
+            className={`flex flex-col absolute bg-gray-100/80 w-full left-0 top-14 p-4 text-black ${
               isOpen ? "block" : "hidden"
             } md:hidden`}
           >

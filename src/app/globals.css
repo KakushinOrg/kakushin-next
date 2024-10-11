@@ -6,6 +6,9 @@ html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
   font-family: "Lato", sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 body {
   scroll-behavior: smooth;
@@ -103,7 +106,7 @@ body {
   }
   .title {
     font-size: 25px;
-    line-height: 20px;
+    line-height: 30px;
   }
   .slick-dots {
     bottom: -50px !important;

@@ -25,11 +25,14 @@ const images = [
 
 const OurServices = () => {
   return (
-    <section className="md:p-32 py-16 px-28" id="services">
+    <section
+      className="flex justify-center items-center py-16 md:flex md:gap-10"
+      id="services"
+    >
       <div>
         <h2 className="titleTextLG text-center mb-4">Our Services</h2>
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 p-4">
             {images.map((box) => (
               <div key={box.name}>
                 <div className="relative h-80 min-w-[380px] w-full max-w-[430px] bg-cover bg-center overflow-hidden group mt-10 md:mt-20">
