@@ -10,7 +10,7 @@ import quote_right from "/public/icons/quote-right.svg";
 const CustomNextArrow = ({ onClick }) => {
   return (
     <div
-      className="absolute top-1/2 -right-10 z-10 transform -translate-y-1/2 cursor-pointer"
+      className="absolute top-0 md:top-1/2 -right-10 z-10 transform -translate-y-1/2 cursor-pointer"
       onClick={onClick}
     >
       <Image src="/icons/arrow-right.svg" alt="next" width={70} height={70} />
@@ -21,7 +21,7 @@ const CustomNextArrow = ({ onClick }) => {
 const CustomPrevArrow = ({ onClick }) => {
   return (
     <div
-      className="absolute top-1/2 -left-10 z-10 transform -translate-y-1/2 cursor-pointer"
+      className="absolute bottom-0 md:bottom-[30%] -left-10 z-10 transform -translate-y-1/2 cursor-pointer"
       onClick={onClick}
     >
       <Image
@@ -115,7 +115,7 @@ const Testimonials = () => {
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
           <div key={index} className="text-center">
-            <div className="relative flex flex-col items-center bg-[#f5ead3] shadow-sm rounded-lg w-[25rem] xl:w-[65rem] p-10 mx-auto my-10">
+            <div className="relative flex flex-col items-center bg-[#f5ead3] shadow-sm rounded-lg w-[22rem] sm:w-[25rem] xl:w-[65rem] p-10 mx-auto my-10">
               <div className="absolute top-0 right-0 w-[4rem] h-[4rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute top-0 left-0 w-[2rem] h-[2rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
               <h3 className=" text-lg">{testimonial.text}</h3>
