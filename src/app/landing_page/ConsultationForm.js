@@ -25,13 +25,13 @@ const ConsultationForm = () => {
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "goldenrod",
+        borderColor: "#D41689",
       },
       "&:hover fieldset": {
-        borderColor: "goldenrod",
+        borderColor: "#D41689",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "goldenrod",
+        borderColor: "#D41689",
       },
     },
     "& .MuiInputLabel-root": {
@@ -41,7 +41,7 @@ const ConsultationForm = () => {
       color: "black",
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "goldenrod",
+      borderBottomColor: "#D41689",
     },
   };
 
