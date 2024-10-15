@@ -43,7 +43,7 @@ body {
   left: 50%;
   width: 100px;
   transform: translateX(-50%);
-  background: #C81984;
+  background: #daa520;
   bottom: -10px;
 }
 .titleTextSM {
@@ -60,7 +60,7 @@ body {
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
-  background: #C81984;
+  background: #daa520;
   bottom: -10px;
 }
 
