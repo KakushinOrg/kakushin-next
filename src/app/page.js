@@ -7,6 +7,7 @@ import OurProjects from "./landing_page/OurProjects";
 import Testimonials from "./landing_page/Testimonials";
 import Achievements from "./landing_page/Achievements";
 import BlogsSection from "./landing_page/BlogsSection";
+import Contact from "./landing_page/Contact";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Testimonials />
       <Achievements />
       <BlogsSection />
+      <Contact/>
     </div>
   );
 }
