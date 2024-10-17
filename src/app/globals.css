@@ -93,6 +93,7 @@ body {
   max-width: 900px;
 }
 
+
 /* Media Queries */
 @media (max-width: 768px) {
   .largeText {
