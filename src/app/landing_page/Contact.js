@@ -84,8 +84,11 @@ const Contact = () => {
           <h2 className="titleTextLG text-center">Contact</h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 md:gap-10 items-center justify-center md:mt-20 mt-10">
-          <form onSubmit={handleSubmit}>
+        <div className="flex flex-col md:gap-10 items-center justify-center md:mt-20 mt-10">
+          <form
+            className="flex flex-col md:flex-row gap-10"
+            onSubmit={handleSubmit}
+          >
             <TextField
               label="Your Name"
               type="text"
@@ -113,7 +116,7 @@ const Contact = () => {
               onChange={(e) => setEverything(e.target.value)}
               sx={textFieldStyles}
             />
-            <div className="flex items-center flex-col justify-center mt-10 w-full">
+            <div className="flex items-center flex-col">
               <Button
                 className="bg-[#801d53d2] rounded-xl px-5 py-2 text-[15px] font-medium"
                 type="submit"
