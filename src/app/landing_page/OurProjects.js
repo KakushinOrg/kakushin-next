@@ -100,9 +100,7 @@ const OurProjects = () => {
           <div key={index} className="text-center">
             <div className="relative flex flex-col items-center justify-between bg-white shadow-md rounded-lg h-[380px] w-[300px] mx-auto my-10 border-2 border-gray-100">
               <div className="relative w-full h-[240px] overflow-hidden rounded-t-lg">
-                <Image
-                  height={180}
-                  width={280}
+                <img
                   src={project.image}
                   alt={project.title}
                   className="object-contain w-full h-full"
