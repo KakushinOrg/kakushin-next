@@ -34,32 +34,39 @@ const CustomPrevArrow = ({ onClick }) => {
 
 const OurProjects = () => {
   let projects = [
-    { title: "Debate", image: "/projects/debate.png" },
-    { title: "L3arn", image: "/projects/l3arn.png" },
-    { title: "Kakushin Blog", image: "/projects/kakushinBlog.png" },
-    { title: "Kakushin Postcard", image: "/projects/kakushinPostCard.png" },
-    { title: "Kinex AI", image: "/projects/kinexaiApp.png" },
-    { title: "Kinex AI", image: "/projects/kinexAIApp2.png" },
+    { title: "Debate", image: "/images/projects/debate.png" },
+    { title: "L3arn", image: "/images/projects/l3arn.png" },
+    { title: "Kakushin Blog", image: "/images/projects/kakushinBlog.png" },
+    {
+      title: "Kakushin Postcard",
+      image: "/images/projects/kakushinPostCard.png",
+    },
+    { title: "Kinex AI", image: "/images/projects/kinexaiApp.png" },
+    { title: "Kinex AI", image: "/images/projects/kinexAIApp2.png" },
     {
       title: "Kinex AI Illustration",
-      image: "/projects/kinexAIIllustration.png",
+      image: "/images/projects/kinexAIIllustration.png",
     },
-    { title: "My BNB", image: "/projects/myBnb.png" },
-    { title: "My Sizer", image: "/projects/mySizer.png" },
-    { title: "My Sizer App", image: "/projects/mysizerApp.png" },
-    { title: "Riddl3", image: "/projects/riddl3.png" },
-    { title: "Urban", image: "/projects/urban.png" },
-    { title: "Urbane", image: "/projects/urbane.png" },
-    { title: "RAID", image: "/projects/raid.png" },
-    { title: "Kakushin Illustration", image: "/projects/P2.png" },
-    { title: "Kakushin Illustration", image: "/projects/P7.png" },
-    { title: "Kakushin Illustration", image: "/projects/P9.png" },
-    { title: "Kakushin Illustration", image: "/projects/P10.png" },
-    { title: "Kakushin Illustration", image: "/projects/P17.png" },
-    { title: "Kakushin Illustration", image: "/projects/P19.png" },
-    { title: "Kakushin Illustration", image: "/projects/P21.png" },
-    { title: "Kakushin Illustration", image: "/projects/P22.png" },
+    { title: "My BNB", image: "/images/projects/myBnb.png" },
+    { title: "My Sizer", image: "/images/projects/mySizer.png" },
+    { title: "My Sizer App", image: "/images/projects/mysizerApp.png" },
+    { title: "Riddl3", image: "/images/projects/riddl3.png" },
+    { title: "Urban", image: "/images/projects/urban.png" },
+    { title: "Urbane", image: "/images/projects/urbane.png" },
+    { title: "RAID", image: "/images/projects/raid.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P2.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P7.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P9.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P10.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P17.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P19.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P21.png" },
+    { title: "Kakushin Illustration", image: "/images/projects/P22.png" },
   ];
+
+  projects.map((project) => {
+    console.log(project.image);
+  });
 
   const settings = {
     dots: true,
