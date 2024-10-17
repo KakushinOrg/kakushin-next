@@ -172,7 +172,14 @@ const Contact = () => {
             </div>
 
             <h2 className="mt-5">Chat Now</h2>
-            <Link href="/"> +357 96 590911</Link>
+            <Link
+              href="https://wa.me/35796590911"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+            >
+              +357 96 590911
+            </Link>
           </div>
         </div>
       </div>

@@ -43,7 +43,12 @@ const BlogBox = ({ blogBoxImage, blogBoxTitle, blogBoxBody, slug }) => {
       </div>
       <div className="flex justify-end items-end h-full w-full mt-4 underline font-semibold">
         <button>
-          <Link href={`/blogs/${slug}`}>Read More</Link>
+          <Link
+            href={`/blogs/${slug}`}
+            aria-label={`Read more about ${blogBoxTitle}`}
+          >
+            Read More about {truncateWords(blogBoxTitle, 3)}
+          </Link>
         </button>
       </div>
     </div>
