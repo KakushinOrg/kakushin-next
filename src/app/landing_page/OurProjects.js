@@ -33,7 +33,7 @@ const CustomPrevArrow = ({ onClick }) => {
 };
 
 const OurProjects = () => {
-  const projects = [
+  let projects = [
     { title: "Debate", image: "/images/projects/debate.png" },
     { title: "L3arn", image: "/images/projects/l3arn.png" },
     { title: "Kakushin Blog", image: "/images/projects/kakushinBlog.png" },

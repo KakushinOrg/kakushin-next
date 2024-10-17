@@ -118,7 +118,7 @@ const Contact = () => {
             />
             <div className="flex items-center flex-col">
               <Button
-                className="bg-[#801d53d2] rounded-xl px-5 py-2 text-[15px] font-medium"
+                className="bg-[#DAA520] rounded-xl px-5 py-2 text-[15px] font-medium"
                 type="submit"
                 variant="contained"
               >
