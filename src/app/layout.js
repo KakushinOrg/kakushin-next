@@ -10,7 +10,10 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Kakushin",
+  title: {
+    template: "%s - Kakushin",
+    default: "Kakushin",
+  },
   description: "Kakushin - Digital Solutions for Startups",
   openGraph: {
     type: "website",
@@ -22,10 +25,6 @@ export const metadata = {
     {
       name: "application-name",
       content: "Kakushin",
-    },
-    {
-      name: "description",
-      content: "Kakushin - Digital Solutions for Startups",
     },
   ],
   jsonLd: {

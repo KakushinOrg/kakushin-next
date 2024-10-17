@@ -56,7 +56,6 @@ const Contact = () => {
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
           alert("Message Sent Successfully!");
           // Reset form fields
           setName("");

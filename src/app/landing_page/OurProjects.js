@@ -64,10 +64,6 @@ let projects = [
 ];
 
 const OurProjects = () => {
-  projects.map((project) => {
-    console.log(project.image);
-  });
-
   const settings = {
     dots: true,
     infinite: true,
