@@ -62,38 +62,6 @@ let projects = [
   { title: "Kakushin Illustration", src: "/images/Projects/P21.png" },
   { title: "Kakushin Illustration", src: "/images/Projects/P22.png" },
 ];
-const OurProjects = () => {
-  const projects = [
-    { title: "Debate", image: "/images/projects/debate.png" },
-    { title: "L3arn", image: "/images/projects/l3arn.png" },
-    { title: "Kakushin Blog", image: "/images/projects/kakushinBlog.png" },
-    {
-      title: "Kakushin Postcard",
-      image: "/images/projects/kakushinPostCard.png",
-    },
-    { title: "Kinex AI", image: "/images/projects/kinexaiApp.png" },
-    { title: "Kinex AI", image: "/images/projects/kinexAIApp2.png" },
-    {
-      title: "Kinex AI Illustration",
-      image: "/images/projects/kinexAIIllustration.png",
-    },
-    { title: "My BNB", image: "/images/projects/myBnb.png" },
-    { title: "My Sizer", image: "/images/projects/mySizer.png" },
-    { title: "My Sizer App", image: "/images/projects/mysizerApp.png" },
-    { title: "Riddl3", image: "/images/projects/riddl3.png" },
-    { title: "Urban", image: "/images/projects/urban.png" },
-    { title: "Urbane", image: "/images/projects/urbane.png" },
-    { title: "RAID", image: "/images/projects/raid.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P2.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P7.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P9.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P10.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P17.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P19.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P21.png" },
-    { title: "Kakushin Illustration", image: "/images/projects/P22.png" },
-  ];
-
 
 const OurProjects = () => {
   const settings = {

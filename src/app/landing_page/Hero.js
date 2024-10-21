@@ -27,7 +27,9 @@ const Hero = () => {
       <div className="absolute !z-99999999">
         <Link
           className="fixed right-3 bottom-5 md:right-8 md:bottom-10"
-          href="/"
+          href="https://wa.me/35796590911"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <Image alt="Whatsapp" src={Whatsapp} width={40} height={40} />
         </Link>
