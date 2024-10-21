@@ -93,7 +93,6 @@ body {
   max-width: 900px;
 }
 
-
 /* Media Queries */
 @media (max-width: 768px) {
   .largeText {
@@ -110,6 +109,6 @@ body {
     line-height: 30px;
   }
   .slick-dots {
-    bottom: -50px !important;
+    bottom: -73px !important;
   }
 }

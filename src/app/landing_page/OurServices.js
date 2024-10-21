@@ -35,10 +35,10 @@ const OurServices = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 p-4">
             {images.map((box) => (
               <div key={box.name}>
-                <div className="relative h-80 min-w-[380px] w-full max-w-[430px] bg-cover bg-center overflow-hidden group mt-10 md:mt-20">
+                <div className="relative h-80 min-w-[320px] w-full  bg-cover bg-center overflow-hidden group mt-10 md:mt-20">
                   <Image
-                    width={430}
-                    height={430}
+                    width={450}
+                    height={450}
                     src={box.src}
                     alt={box.name}
                     className="absolute inset-0 cover"
