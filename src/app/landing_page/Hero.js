@@ -1,4 +1,7 @@
 import React from "react";
+import Whatsapp from "../../../public/images/whatsapp_social.svg";
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -19,6 +22,15 @@ const Hero = () => {
         <h1 className="largeText mb-4">Moving</h1>
         <h2 className="titleTextLG">boundaries</h2>
         <p className="smallTitleText">Into digital solutions</p>
+      </div>
+
+      <div className="absolute !z-99999999">
+        <Link
+          className="fixed right-3 bottom-5 md:right-8 md:bottom-10"
+          href="/"
+        >
+          <Image alt="Whatsapp" src={Whatsapp} width={40} height={40} />
+        </Link>
       </div>
     </main>
   );
