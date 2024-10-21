@@ -73,7 +73,7 @@ const Achievements = () => {
               data-index={index}
               className="flex flex-col justify-center items-center bg-white bg-opacity-80 p-8 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
             >
-              <div className="text-5xl font-bold text-[#CFA144] mb-4">
+              <div className="text-5xl font-bold text-[#C81984] mb-4">
                 {/* Pass isVisible status to AnimatedNumber */}
                 <AnimatedNumber
                   value={item.number}

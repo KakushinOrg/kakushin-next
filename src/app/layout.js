@@ -1,6 +1,5 @@
 import { Lato } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
@@ -11,8 +10,34 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Kakushin",
+  title: {
+    template: "%s - Kakushin",
+    default: "Kakushin",
+  },
   description: "Kakushin - Digital Solutions for Startups",
+  openGraph: {
+    type: "website",
+    url: "https://www.kakushin.io",
+    title: "Kakushin",
+    description: "Kakushin - Digital Solutions for Startups",
+  },
+  additionalMetaTags: [
+    {
+      name: "application-name",
+      content: "Kakushin",
+    },
+  ],
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Kakushin",
+    url: "https://www.kakushin.io",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://www.kakushin.io/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
 };
 
 // Root Layout
@@ -20,8 +45,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${lato.variable} antialiased`}>
-        {" "}
-        {/* Check if this class is applied */}
         <Navbar />
         {children}
         <Footer />

@@ -62,7 +62,6 @@ let projects = [
   { title: "Kakushin Illustration", src: "/images/Projects/P21.png" },
   { title: "Kakushin Illustration", src: "/images/Projects/P22.png" },
 ];
-
 const OurProjects = () => {
   const projects = [
     { title: "Debate", image: "/images/projects/debate.png" },
@@ -95,6 +94,8 @@ const OurProjects = () => {
     { title: "Kakushin Illustration", image: "/images/projects/P22.png" },
   ];
 
+
+const OurProjects = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -135,9 +136,9 @@ const OurProjects = () => {
             <div className="relative flex flex-col items-center justify-between bg-white shadow-md rounded-lg h-[380px] w-[225px] mx-auto my-10 border-2 border-gray-100">
               <div className="relative w-full h-[240px] overflow-hidden rounded-t-lg">
                 <Image
-                  height={180}
-                  width={280}
-                  src={project.image}
+                  width={430}
+                  height={430}
+                  src={project.src}
                   alt={project.title}
                   className="object-contain w-full h-full"
                 />

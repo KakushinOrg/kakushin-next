@@ -56,7 +56,6 @@ const Contact = () => {
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
           alert("Message Sent Successfully!");
           // Reset form fields
           setName("");
@@ -118,7 +117,7 @@ const Contact = () => {
             />
             <div className="flex items-center flex-col">
               <Button
-                className="bg-[#801d53d2] rounded-xl px-5 py-2 text-[15px] font-medium"
+                className="bg-[#DAA520] rounded-xl px-5 py-2 text-[15px] font-medium"
                 type="submit"
                 variant="contained"
               >
@@ -173,7 +172,14 @@ const Contact = () => {
             </div>
 
             <h2 className="mt-5">Chat Now</h2>
-            <Link href="/"> +357 96 590911</Link>
+            <Link
+              href="https://wa.me/35796590911"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+            >
+              +357 96 590911
+            </Link>
           </div>
         </div>
       </div>

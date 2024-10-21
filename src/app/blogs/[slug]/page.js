@@ -2,6 +2,16 @@ import { fetchBlogs } from "@/app/lib/getBlogData";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const blogData = await fetchBlogs();
+  const blogPost = blogData.find((blog) => blog.slug === slug);
+
+  return {
+    title: blogPost?.title,
+  };
+}
+
 export default async function BlogPost({ params }) {
   const { slug } = params;
   const blogData = await fetchBlogs();
