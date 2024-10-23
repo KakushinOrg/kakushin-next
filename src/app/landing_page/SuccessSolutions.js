@@ -50,8 +50,9 @@ const SuccessSolutions = () => {
       {/* Boxes */}
       <div
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:mt-20 mt-10 items-center justify-center p-10 md:p-20 bg-no-repeat bg-center bg-cover bg-fixed"
-        style={{ backgroundImage: "url('/images/leaf-background.jpg')" }}
+        style={{ backgroundImage: "url('/images/leaf-background.webp')" }}
       >
+
         {solutions.map((solution, index) => (
           <div
             key={index}
