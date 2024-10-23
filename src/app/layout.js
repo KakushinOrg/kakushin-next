@@ -8,38 +8,6 @@ const lato = Lato({
   variable: "--font-lato",
   weight: ["100", "300", "400", "700", "900"],
 });
-
-export const metadata = {
-  title: {
-    template: "%s - Kakushin",
-    default: "Kakushin",
-  },
-  description: "Kakushin - Digital Solutions for Startups",
-  openGraph: {
-    type: "website",
-    url: "https://www.kakushin.io",
-    title: "Kakushin",
-    description: "Kakushin - Digital Solutions for Startups",
-  },
-  additionalMetaTags: [
-    {
-      name: "application-name",
-      content: "Kakushin",
-    },
-  ],
-  jsonLd: {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Kakushin",
-    url: "https://www.kakushin.io",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://www.kakushin.io/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  },
-};
-
 // Root Layout
 export default function RootLayout({ children }) {
   return (

@@ -72,12 +72,6 @@ const Contact = () => {
   return (
     <>
       <div>
-        {/* Display API info */}
-        <div className="text-center">
-          <p>{apiKey}</p>
-          <p>{apiUrl}</p>
-        </div>
-
         <div className="w-full flex flex-col md:mb-20 mb-10">
           <h1 className="largeText mb-5 text-center">get in touch</h1>
           <h2 className="titleTextLG text-center">Contact</h2>

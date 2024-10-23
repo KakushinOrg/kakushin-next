@@ -92,12 +92,24 @@ const ConsultationForm = () => {
             ))}
           </TextField>
           <Button
-            className="bg-[#DAA520] rounded-xl px-5 py-2 text-[15px] font-medium"
+            aria-label="Submit consultation form"
+            sx={{
+              backgroundColor: "#DAA520",
+              borderRadius: "8px",
+              padding: "8px 20px",
+              fontSize: "15px",
+              fontWeight: "500",
+              "&:hover": {
+                backgroundColor: "#c9951c",
+              },
+            }}
             type="submit"
             variant="contained"
           >
             Send
           </Button>
+
+
         </form>
       </div>
     </section>
