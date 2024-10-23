@@ -7,8 +7,44 @@ export async function generateMetadata({ params }) {
   const blogData = await fetchBlogs();
   const blogPost = blogData.find((blog) => blog.slug === slug);
 
+  if (!blogPost) {
+    return { title: "Blog not found" };
+  }
+
+  const { title, blogMedia, publishedDate, author } = blogPost;
+  const imageUrl = blogMedia.fields.file.url.startsWith("//")
+    ? `https:${blogMedia.fields.file.url}`
+    : blogMedia.fields.file.url;
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "image": imageUrl,
+    "author": {
+      "@type": "Person",
+      "name": author,
+    },
+    "datePublished": publishedDate,
+    "url": `https://www.kakushin.io/blogs/${slug}`,
+  };
+
   return {
-    title: blogPost?.title,
+    title,
+    description: `${title} - Kakushin Blog Post`,
+    openGraph: {
+      title,
+      description: `${title} - Kakushin Blog Post`,
+      images: [imageUrl],
+      url: `https://www.kakushin.io/blogs/${slug}`,
+    },
+    additionalMetaTags: [
+      {
+        name: "application-name",
+        content: "Kakushin",
+      },
+    ],
+    jsonLd: blogSchema,
   };
 }
 
