@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import AnimatedNumber from "../components/AnimateNumber";
+import styles from './Acheivements.module.css';
 import Image from "next/image";
 
 const Achievements = () => {
@@ -61,8 +62,7 @@ const Achievements = () => {
 
   return (
     <section
-      className="px-4 py-8 md:px-32 md:py-16 bg-gradient-to-r from-gray-100 to-gray-300 relative -z-10"
-      style={{ backgroundImage: "/images/achievements-background.png" }}
+      className={`px-4 py-8 md:px-32 md:py-16 bg-gradient-to-r from-gray-100 to-gray-300 relative -z-10 ${styles["achievements-section"]}`}
     >
       <div className="section p-4">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

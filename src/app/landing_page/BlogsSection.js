@@ -32,6 +32,7 @@ const BlogBox = ({ blogBoxImage, blogBoxTitle, blogBoxBody, slug }) => {
         src={blogBoxImage}
         alt={blogBoxTitle}
         className="h-[150px] w-full object-fill"
+        loading="lazy" 
       />
       <div className="flex flex-col justify-left items-center gap-4 mt-2">
         <h5 className="text-lg font-semibold text-left w-full">
@@ -42,14 +43,14 @@ const BlogBox = ({ blogBoxImage, blogBoxTitle, blogBoxBody, slug }) => {
         </p>
       </div>
       <div className="flex justify-end items-end h-full w-full mt-4 underline font-semibold">
-        <button>
-          <Link
-            href={`/blogs/${slug}`}
-            aria-label={`Read more about ${blogBoxTitle}`}
-          >
-            Read More about {truncateWords(blogBoxTitle, 3)}
-          </Link>
-        </button>
+      <Link
+          href={`/blogs/${slug}`}
+          aria-label={`Read more about ${blogBoxTitle}`}
+          className="underline font-semibold"
+        >
+          Read More about {truncateWords(blogBoxTitle, 3)}
+        </Link>
+
       </div>
     </div>
   );

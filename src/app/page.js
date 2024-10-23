@@ -12,6 +12,31 @@ const OurProjects = dynamic(() => import('./landing_page/OurProjects'));
 const Testimonials = dynamic(() => import('./landing_page/Testimonials'));
 
 
+export const metadata = {
+  title: 'Welcome to Kakushin',
+  description: 'Your trusted partner for digital transformation.',
+  other: {
+    'application/ld+json': {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': 'Kakushin',
+      'description': 'Your trusted partner for digital transformation.',
+      'url': 'https://kakushin.io/',
+      'mainEntity': {
+        '@type': 'Organization',
+        'name': 'Kakushin',
+        'url': 'https://kakushin.io',
+        'logo': 'https://kakushin.io/logo.png',
+        'sameAs': [
+          'https://www.linkedin.com/company/kakushin',
+          'https://twitter.com/kakushin'
+        ]
+      }
+    }
+  }
+};
+
+
 export default function Home() {
   return (
     <div className="">

@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import styles from "./SuccessSolutions.module.css"; // Import the CSS module
+
 
 const SuccessSolutions = () => {
   const solutions = [
@@ -49,14 +51,13 @@ const SuccessSolutions = () => {
       </div>
       {/* Boxes */}
       <div
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:mt-20 mt-10 items-center justify-center p-10 md:p-20 bg-no-repeat bg-center bg-cover bg-fixed"
-        style={{ backgroundImage: "url('/images/leaf-background.webp')" }}
+        className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:mt-20 mt-10 items-center justify-center p-10 md:p-20 ${styles["solutions-section"]}`}
       >
 
         {solutions.map((solution, index) => (
           <div
             key={index}
-            className="p-6 bg-white/90 shadow-md rounded-lg flex flex-col items-center justify-center text-center m-auto"
+            className={styles["solution-box"]}
           >
             <h3 className="text-xl font-bold mb-2">{solution.title}</h3>
             <Image
