@@ -72,6 +72,7 @@ const OurProjects = () => {
     slidesToScroll: 3,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+    lazyLoad: 'ondemand', // Enable lazy loading
     responsive: [
       {
         breakpoint: 1167,
@@ -89,6 +90,7 @@ const OurProjects = () => {
       },
     ],
   };
+  
 
   return (
     <section className="md:p-20 p-20 bg-[#F7F7F7]" id="projects">

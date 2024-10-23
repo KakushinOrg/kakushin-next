@@ -84,15 +84,31 @@ const Testimonials = () => {
 
   const settings = {
     dots: true,
-    fade: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    waitForAnimate: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+    lazyLoad: 'ondemand', // Enable lazy loading
+    responsive: [
+      {
+        breakpoint: 1167,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+  
 
   return (
     <section className="p-10 md:px-20 py-40 bg-[#F7F7F7] relative overflow-hidden">
