@@ -124,7 +124,7 @@ const Testimonials = () => {
       />
       {/* text */}
       <div className="text-center mb-14 md:mb-32">
-        <h1 className="largeText mb-4">Testimonials</h1>
+        <h2 className="largeText mb-4">Testimonials</h2>
         <h2 className="titleTextLG">What our clients say</h2>
       </div>
       {/* carousel */}

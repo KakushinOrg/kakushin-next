@@ -10,7 +10,11 @@ const Footer = () => {
         <Logo color="white" className="h-14" />
       </div>
       <div className="bg-[#1e1e1e] flex justify-center items-center gap-10 py-5 border-b-2 border-t-2 border-gray-50/10">
-        <Link href="https://www.facebook.com/profile.php?id=100087154231923">
+        <Link
+          href="https://www.facebook.com/profile.php?id=100087154231923"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             alt="Facebook"
             className="inline-block mx-2"
@@ -19,13 +23,43 @@ const Footer = () => {
             height={15}
           />
         </Link>
-        <Link href="https://www.linkedin.com/company/86423797/admin/dashboard/">
+        <Link
+          href="https://www.linkedin.com/company/86423797/admin/dashboard/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             alt="LinkedIn"
             className="inline-block mx-2"
             src="/icons/linkedin.svg"
             width={15}
             height={15}
+          />
+        </Link>
+        <Link
+          href="https://www.instagram.com/kakushin.io?igsh=MXE0b3MyZjB0dDA3dw=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            alt="Instagram"
+            className="inline-block mx-2"
+            src="/icons/instagram.svg"
+            width={18}
+            height={18}
+          />
+        </Link>
+        <Link
+          href="http://www.youtube.com/channel/UC52etC2bqDY4K-fHF4OUgYQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            alt="Youtube"
+            className="inline-block mx-2"
+            src="/icons/youtube.svg"
+            width={18}
+            height={18}
           />
         </Link>
       </div>

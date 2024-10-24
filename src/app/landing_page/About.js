@@ -4,9 +4,9 @@ const About = () => {
   return (
     <section className="p-10 md:p-20 bg-[#F7F7F7]" id="about">
       <div className="flex flex-col gap-5 items-center justify-center mt-10 md:my-20 ">
-        <h1 className="largeText mb-4 text-center">
+        <h2 className="largeText mb-4 text-center">
           Where dreams become innovations
-        </h1>
+        </h2>
         <h2 className="titleTextLG text-center mb-4">Kakushin</h2>
         <p className="paragraph">
           Kakushin is dedicated to transforming startup dreams into tangible

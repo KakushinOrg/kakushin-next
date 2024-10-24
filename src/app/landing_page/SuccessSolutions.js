@@ -46,7 +46,7 @@ const SuccessSolutions = () => {
     <section>
       {/* Title */}
       <div className="relative z-10 text-center text-white md:p-32 p-4">
-        <h1 className="largeText mb-4">Choose Excellence with Us </h1>
+        <h2 className="largeText mb-4">Choose Excellence with Us </h2>
         <h2 className="titleTextLG">Kakushin Success Solutions</h2>
       </div>
       {/* Boxes */}
