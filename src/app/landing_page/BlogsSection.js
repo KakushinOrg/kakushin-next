@@ -56,7 +56,7 @@ export default async function BlogsSection() {
   return (
     <section className="py-16 sm:px-20">
       <div className="w-full flex flex-col md:mb-20 mb-10">
-        <h1 className="largeText mb-4 text-center">Latest news</h1>
+        <h2 className="largeText mb-4 text-center">Latest news</h2>
         <h2 className="titleTextLG text-center">Blogs</h2>
       </div>
       <div className="flex flex-wrap justify-center gap-6">

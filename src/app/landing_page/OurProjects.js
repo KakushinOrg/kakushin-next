@@ -94,7 +94,7 @@ const OurProjects = () => {
     <section className="md:p-20 p-20 bg-[#F7F7F7]" id="projects">
       {/* title */}
       <div className="text-center mb-14 md:mb-32">
-        <h1 className="largeText mb-4">we do magic</h1>
+        <h2 className="largeText mb-4">we do magic</h2>
         <h2 className="titleTextLG">Our Projects</h2>
       </div>
       {/* carousel */}

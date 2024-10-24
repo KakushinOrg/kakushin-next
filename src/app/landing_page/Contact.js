@@ -71,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div className="bg-[#F7F7F7] md:mt-10 md:pt-8">
       <div>
         {/* Display API info */}
         <div className="text-center">
@@ -80,11 +80,11 @@ const Contact = () => {
         </div>
 
         <div className="w-full flex flex-col md:mb-20 mb-10">
-          <h1 className="largeText mb-5 text-center">get in touch</h1>
+          <h2 className="largeText mb-5 text-center">get in touch</h2>
           <h2 className="titleTextLG text-center">Contact</h2>
         </div>
 
-        <div className="flex flex-col md:gap-10 items-center justify-center md:mt-20 mt-10">
+        <div className="flex flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
           <form
             className="flex flex-col md:flex-row gap-10"
             onSubmit={handleSubmit}
@@ -128,7 +128,7 @@ const Contact = () => {
           </form>
         </div>
 
-        <div className="my-24 flex flex-wrap flex-col gap-10 items-center md:flex-row md:items-start md:justify-evenly">
+        <div className="py-24 flex flex-wrap flex-col gap-10 items-center md:flex-row md:items-start md:justify-evenly">
           <div className="flex flex-wrap flex-col items-center">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#CFA144]">
               <Image
@@ -177,7 +177,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

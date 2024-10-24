@@ -18,7 +18,7 @@ export default async function BlogPost({ params }) {
 
   return (
     <div className="mx-auto px-[4rem] lg:px-[13rem] 2xl:px-[15rem] py-10 mt-16 md:mt-32">
-      <h1 className="text-2xl font-bold mb-6 text-center">{title}</h1>
+      <h2 className="text-2xl font-bold mb-6 text-center">{title}</h2>
       <Image
         src={imageUrl}
         width={500}
