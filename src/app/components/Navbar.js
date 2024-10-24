@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/components/Logo";
+import { Button } from "@mui/material";
 
 const menuItems = ["Home", "About", "Services", "Projects", "Contact"];
 
@@ -49,7 +50,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between bg-gray-100/80 text-white px-10 md:px-20 lg:px-60 z-50 ${
+      className={`flex items-center justify-between bg-gray-100/80 text-white px-10 md:px-12 lg:px-32 z-50 ${
         isScrolled ? "py-4" : "py-6"
       } fixed top-0 left-0 w-full transition-all duration-300`}
     >
@@ -89,12 +90,22 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            
+            <li className="mt-4">
+              <Button
+                href="https://calendly.com/kakushin/30-minute-consultation"
+                target="_blank"
+                className="text-white hover:bg-[#c9951c] p-2 bg-[#DAA520] rounded-lg w-full"
+              >
+                Free Consultation
+              </Button>
+            </li>
           </motion.ul>
         )}
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex md:flex-row md:space-x-6 text-black">
+      <ul className="hidden md:flex md:flex-row md:gap-4 lg:gap-5 text-black">
         {menuItems.map((item, index) => (
           <motion.li
             key={item}
@@ -120,6 +131,14 @@ const Navbar = () => {
           </motion.li>
         ))}
       </ul>
+
+      <Button
+        href="https://calendly.com/kakushin/30-minute-consultation"
+        target="_blank"
+        className="text-white hover:bg-[#c9951c] p-2 bg-[#DAA520] rounded-lg hidden md:flex md:flex-wrap"
+      >
+        Free Consultation
+      </Button>
     </nav>
   );
 };
