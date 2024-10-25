@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import quote_left from "/public/icons/quote-left.svg";
 import quote_right from "/public/icons/quote-right.svg";
+import TestimonialCarousel from "../components/TestimonialCarousel/testimonialCarousel";
 
 const CustomNextArrow = ({ onClick }) => {
   return (
@@ -111,6 +112,7 @@ const Testimonials = () => {
   
 
   return (
+    <div>
     <section className="p-10 md:px-20 py-40 bg-[#F7F7F7] relative overflow-hidden">
       <Image
         className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
@@ -128,25 +130,9 @@ const Testimonials = () => {
         <h2 className="titleTextLG">What our clients say</h2>
       </div>
       {/* carousel */}
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="text-center">
-            <div className="relative flex flex-col items-center bg-[#f5ead3] shadow-sm rounded-lg w-[20rem] sm:w-[25rem] xl:w-[65rem] p-10 mx-auto my-10">
-              <div className="absolute top-0 right-0 w-[4rem] h-[4rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute top-0 left-0 w-[2rem] h-[2rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-              <h3 className=" text-lg">{testimonial.text}</h3>
-              <div className="flex flex-col items-end w-full mr-4 mt-4">
-                <h4 className="font-semibold text-lg">
-                  {" "}
-                  <span> - </span>
-                  {testimonial.name}
-                </h4>
-              </div>
-            </div>
-          </div>
-        ))}
-      </Slider>
+      <TestimonialCarousel />
     </section>
+    </div>
   );
 };
 
