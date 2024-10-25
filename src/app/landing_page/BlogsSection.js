@@ -1,6 +1,7 @@
 import { fetchBlogs } from "@/app/lib/getBlogData";
 import Image from "next/image";
 import { BLOCKS } from "@contentful/rich-text-types";
+import BlogsCarousel from "../components/BlogsCarousel/BlogsCarousel";
 import Link from "next/link";
 
 const extractText = (richTextDocument) => {
@@ -58,30 +59,25 @@ const BlogBox = ({ blogBoxImage, blogBoxTitle, blogBoxBody, slug }) => {
 
 export default async function BlogsSection() {
   const blogData = await fetchBlogs();
+  const blogs = blogData.map((blog) => ({
+    id: blog.blogID,
+    title: blog.title,
+    body: blog.blogBody,
+    slug: blog.slug,
+    image: blog.blogMedia.fields.file.url.startsWith("//")
+      ? `https:${blog.blogMedia.fields.file.url}`
+      : blog.blogMedia.fields.file.url,
+  }));
 
   return (
+
     <section className="py-16 sm:px-20">
       <div className="w-full flex flex-col md:mb-20 mb-10">
         <h1 className="largeText mb-4 text-center">Latest news</h1>
         <h2 className="titleTextLG text-center">Blogs</h2>
       </div>
-      <div className="flex flex-wrap justify-center gap-6">
-        {blogData.slice(0, 6).map((blog) => {
-          const imageUrl = blog.blogMedia.fields.file.url.startsWith("//")
-            ? `https:${blog.blogMedia.fields.file.url}`
-            : blog.blogMedia.fields.file.url;
+      <BlogsCarousel blogs={blogs} />
 
-          return (
-            <BlogBox
-              key={blog.blogID}
-              slug={blog.slug}
-              blogBoxImage={imageUrl}
-              blogBoxTitle={blog.title}
-              blogBoxBody={blog.blogBody}
-            />
-          );
-        })}
-      </div>
     </section>
   );
 }
