@@ -4,10 +4,10 @@ import EmblaCarousel from './EmblaCarousel';
 
 const OPTIONS = {slidesToScroll: 'auto' }
 
-const BlogsCarousel = ({ blogs }) => (
+const ProjectCarousel = ({ projects }) => (
     <>
-      <EmblaCarousel blogs={blogs} options={OPTIONS} />
+      <EmblaCarousel projects={projects} options={OPTIONS} />
     </>
 );
 
-export default BlogsCarousel;
+export default ProjectCarousel;
