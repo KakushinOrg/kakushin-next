@@ -45,18 +45,6 @@ const Testimonials = () => {
       name: "Ramneek",
     },
     {
-      text: "Kakushin's approach is refreshingly client-focused. They totally got what our brand was all about, and the rebrand they pulled off really hit home with our audience. The smart ideas they tossed our way made the whole process a breeze.",
-      name: "Ali",
-    },
-    {
-      text: "My tenure as a full-stack developer with Kakushin is marked by a profound dedication to excellence. Across diverse projects encompassing app, extension, and website development, Kakushin upholds rigorous standards of innovation and precision.",
-      name: "Zeeshan",
-    },
-    {
-      text: "Kakushin's work was next level. Every design they did was spot-on, and their strategic guidance was smart. Their support team was just a message away, always there to guide us through the rebranding journey.",
-      name: "Waseem",
-    },
-    {
       text: "The Kakushin squad put us first. They really listened to what we needed, and their support was super personalized. Their creative skills are off the charts, and our new brand identity is the coolest.",
       name: "James",
     },
@@ -92,6 +80,7 @@ const Testimonials = () => {
     waitForAnimate: false,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+<<<<<<< Updated upstream
   };
 
   return (
@@ -131,6 +120,49 @@ const Testimonials = () => {
         ))}
       </Slider>
     </section>
+=======
+    lazyLoad: "ondemand", // Enable lazy loading
+    responsive: [
+      {
+        breakpoint: 1167,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <section className="p-10 md:px-20 py-40 bg-[#F7F7F7] relative overflow-hidden">
+        <Image
+          className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
+          src={quote_right}
+          alt="quote-right"
+        />
+        <Image
+          className="absolute -top-[10%] right-[1rem] -rotate-[20deg] lg:h-[250px] md:h-[140px] w-auto hidden md:block"
+          src={quote_left}
+          alt="quote-left"
+        />
+        {/* text */}
+        <div className="text-center mb-14 md:mb-32">
+          <h2 className="largeText mb-4">Testimonials</h2>
+          <h2 className="titleTextLG">What our clients say</h2>
+        </div>
+        {/* carousel */}
+        <TestimonialCarousel />
+      </section>
+    </div>
+>>>>>>> Stashed changes
   );
 };
 
