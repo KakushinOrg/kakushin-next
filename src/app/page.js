@@ -7,6 +7,8 @@ import BlogsSection from "./landing_page/BlogsSection";
 import Contact from "./landing_page/Contact";
 import dynamic from 'next/dynamic';
 import TestimonialCarousel from "./components/TestimonialCarousel/testimonialCarousel";
+import OurStorySection from "./landing_page/NewAbout";
+import Task from "./landing_page/Task";
 const ConsultationForm = dynamic(() => import('./landing_page/ConsultationForm'));
 const OurProjects = dynamic(() => import('./landing_page/OurProjects'));
 const Testimonials = dynamic(() => import('./landing_page/Testimonials'));
@@ -40,9 +42,12 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="">
-      <Hero />
-      <ConsultationForm />
+      <OurStorySection />
+
+      {/* <Hero /> */}
+      {/* <ConsultationForm /> */}
       <About />
+
       <OurServices />
       <OurProjects />
       <SuccessSolutions />
@@ -50,6 +55,7 @@ export default function Home() {
       <Achievements />
       <BlogsSection />
       <Contact/>
+      <Task />
     </div>
   );
 }
