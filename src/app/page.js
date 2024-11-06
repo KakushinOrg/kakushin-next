@@ -5,14 +5,14 @@ import SuccessSolutions from "./landing_page/SuccessSolutions";
 import Achievements from "./landing_page/Achievements";
 import BlogsSection from "./landing_page/BlogsSection";
 import Contact from "./landing_page/Contact";
-import dynamic from 'next/dynamic';
-import TestimonialCarousel from "./components/TestimonialCarousel/testimonialCarousel";
-import OurStorySection from "./landing_page/NewAbout";
-import Task from "./landing_page/Task";
-const ConsultationForm = dynamic(() => import('./landing_page/ConsultationForm'));
-const OurProjects = dynamic(() => import('./landing_page/OurProjects'));
-const Testimonials = dynamic(() => import('./landing_page/Testimonials'));
-
+import dynamic from "next/dynamic";
+// import TestimonialCarousel from "./components/TestimonialCarousel/testimonialCarousel";
+// import Task from "./landing_page/Task";
+// const ConsultationForm = dynamic(() =>
+//   import("./landing_page/ConsultationForm")
+// );
+// const OurProjects = dynamic(() => import("./landing_page/OurProjects"));
+// const Testimonials = dynamic(() => import("./landing_page/Testimonials"));
 
 export const metadata = {
   title: 'Welcome to Kakushin',
@@ -54,7 +54,7 @@ export default function Home() {
       <Testimonials />
       <Achievements />
       <BlogsSection />
-      <Contact/>
+      <Contact />
       <Task />
     </div>
   );
