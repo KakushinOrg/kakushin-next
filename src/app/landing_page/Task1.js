@@ -26,21 +26,15 @@ const Task = () => {
 
   return (
     <div>
-      <div className="my-16 md:my-40 flex flex-wrap mx-4 flex-col md:flex-row gap-8 md:gap-28 items-start justify-center">
-        <div className="">
-          <Image
-            className="rounded-2xl"
-            src={Img}
-            width={450}
-            height={450}
-            alt="Growth Navigator"
-          />
-        </div>
+      <div className="relative my-16 md:my-40 flex flex-wrap mx-4 flex-col md:flex-row gap-8 md:gap-28 items-start justify-center">
         <div className="mt-4">
-          <h2 className="text-4xl">The Future Of Connection</h2>
+          <h2 className="text-3xl font-semibold w-96">
+            Al to help you discover new possibilities and expand your world
+          </h2>
           <p className="my-5 mr-2 w-80 md:w-96">
-            We're moving beyond 2D screens and into immersive experiences in the
-            metaverse, helping create the next evolution of social technology.
+            Through new experiences In Meta Al, and enhanced capabilities in
+            Llama 3.1, we're creating the next generation of Al to help you
+            discover new possibilities and expand your world.
           </p>
           <Button
             className="bg-blue-600 rounded-full px-5 py-2 text-[15px] font-medium"
@@ -84,6 +78,15 @@ const Task = () => {
               ))}
             </div>
           </div>
+        </div>
+        <div className="sticky top-0">
+          <Image
+            className="rounded-2xl"
+            src={Img}
+            width={450}
+            height={450}
+            alt="Growth Navigator"
+          />
         </div>
       </div>
     </div>
