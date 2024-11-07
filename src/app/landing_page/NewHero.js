@@ -4,16 +4,11 @@ import { motion, useTransform, useScroll, useMotionValueEvent } from "framer-mot
 export default function OurStorySection() {
   const { scrollY } = useScroll();
 
-  // Debugging scroll position
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
 
-  // Adjusted input range to [0, 1900] for all transforms
   const yImage1 = useTransform(scrollY, [0, 1900], [0, -150]);
   const yImage2 = useTransform(scrollY, [0, 1900], [0, -250]);
   const yImage3 = useTransform(scrollY, [0, 1900], [0, -250]);
-  const yImage4 = useTransform(scrollY, [0, 1900], [0, -1100]); // Moves faster
+  const yImage4 = useTransform(scrollY, [0, 1900], [0, -1100]);
   const yBlurred1 = useTransform(scrollY, [0, 1900], [0, -600]);
   const yBlurred2 = useTransform(scrollY, [0, 1900], [0, 50]);
   const textY = useTransform(scrollY, [0, 1900], [0, 800]);
@@ -24,8 +19,8 @@ export default function OurStorySection() {
       {/* Main Image Section */}
       <div className="relative w-full flex justify-center h-[840px]">
         <motion.div style={{ y: textY }} className="text-center z-20 max-w-2xl py-52">
-          <h2 className="titleTextAboutUs text-4xl font-bold mb-4">Our Story</h2>
-          <p className="text-lg max-w-xl mx-auto paragraphAboutUs">
+          <h2 className="titleText text-4xl font-bold mb-4">Our Story</h2>
+          <p className="text-lg max-w-xl mx-auto paragraph">
             When Facebook launched in 2004, it changed the way people connect. Apps like Messenger, Instagram, and WhatsApp further empowered billions around the world. Now, Meta is moving beyond 2D screens toward immersive experiences like augmented, virtual, and mixed reality to help build the next evolution in social technology.
           </p>
         </motion.div>

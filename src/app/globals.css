@@ -32,7 +32,7 @@ body {
   top: 30px;
 }
 
-.titleTextAboutUs{
+.titleText{
   color: #414141;
   font-size: 45px;
   font-weight: 700;
@@ -42,11 +42,11 @@ body {
 
 
 .titleTextLG {
-  position: relative;
-  color: #414141;
-  font-size: 45px;
-  font-weight: 700;
-  line-height: 42px;
+    position: relative;
+    color: #414141;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 42px;
 }
 .titleTextLG::before {
   content: "";
@@ -59,6 +59,16 @@ body {
   background: #daa520;
   bottom: -10px;
 }
+
+.newTitleTextSM{
+
+  color: #414141;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 42px;
+
+}
+
 .titleTextSM {
   position: relative;
   color: #414141;
@@ -95,22 +105,13 @@ body {
   line-height: 42px;
 }
 
-.paragraphAboutUs{
-  font-size: 16px;
-  line-height: 25px;
-  color: #434343;
-  opacity: 0.8;
 
-
-}
 
 .paragraph {
   font-size: 16px;
   line-height: 25px;
   color: #434343;
   opacity: 0.8;
-  text-align: left;
-  max-width: 900px;
 }
 
 /* Media Queries */

@@ -1,4 +1,7 @@
 "use client";
+import Image from "next/image";
+import quote_left from "/public/icons/quote-left.svg";
+import quote_right from "/public/icons/quote-right.svg";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
@@ -19,7 +22,7 @@ const CENTER_STAGGER = -65;
 
 const SECTION_HEIGHT = 700;
 
-export const StaggerTestimonials = () => {
+export const Testimonial = () => {
   const [cardSize, setCardSize] = useState(CARD_SIZE_LG);
 
   const [testimonials, setTestimonials] = useState(TESTIMONIAL_DATA);
@@ -73,42 +76,66 @@ export const StaggerTestimonials = () => {
   }, []);
 
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      style={{
-        height: SECTION_HEIGHT,
-      }}
-    >
-      {testimonials.map((t, idx) => {
-        let position = 0;
 
-        position = idx - Math.floor(testimonials.length / 2);
+    <div>
+      <section className="py-32 bg-[#F7F7F7] relative overflow-hidden">
+        <Image
+          className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
+          src={quote_right}
+          alt="quote-right"
+        />
+        <Image
+          className="absolute -top-[10%] right-[1rem] -rotate-[20deg] lg:h-[250px] md:h-[140px] w-auto hidden md:block"
+          src={quote_left}
+          alt="quote-left"
+        />
 
+        <div className="text-center mb-14 md:mb-32">
+          <h2 className="largeText mb-4">Testimonials</h2>
+          <h2 className="titleTextLG">What our clients say</h2>
+        </div>
 
-        return (
-          <TestimonialCard
-            key={t.tempId}
-            testimonial={t}
-            handleMove={handleMove}
-            position={position}
-            cardSize={cardSize}
-          />
-        );
-      })}
-      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 gap-8">
-        <button
-          onClick={() => handleMove(-1)}
-          className="mt-8 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-black hover:text-white"
+          <div
+          className="relative w-full overflow-hidden"
+          style={{
+            height: SECTION_HEIGHT,
+          }}
         >
-          <GoArrowLeft />
-        </button>
-        <button
-          onClick={() => handleMove(1)}
-          className=" mt-8 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-black hover:text-white"
-        >
-          <GoArrowRight />
-        </button>
-      </div>
+          {testimonials.map((t, idx) => {
+            let position = 0;
+
+            position = idx - Math.floor(testimonials.length / 2);
+
+
+            return (
+              <TestimonialCard
+                key={t.tempId}
+                testimonial={t}
+                handleMove={handleMove}
+                position={position}
+                cardSize={cardSize}
+              />
+            );
+          })}
+          <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 gap-8">
+            <button
+              onClick={() => handleMove(-1)}
+              className="mt-8 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-black hover:text-white"
+            >
+              <GoArrowLeft />
+            </button>
+            <button
+              onClick={() => handleMove(1)}
+              className=" mt-8 grid h-14 w-14 place-content-center text-3xl transition-colors hover:bg-black hover:text-white"
+            >
+              <GoArrowRight />
+            </button>
+          </div>
+        </div>
+
+
+      </section>
+
     </div>
   );
 };
@@ -142,9 +169,9 @@ const TestimonialCard = ({ position, testimonial, handleMove, cardSize }) => {
       }}
       transition={{
         type: "spring",
-        mass: 1,
-        stiffness: 150,
-        damping: 20,
+        mass: 3,
+        stiffness: 400,
+        damping: 50,
       }}
       
     >
