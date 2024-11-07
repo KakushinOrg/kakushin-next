@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import quote_left from "/public/icons/quote-left.svg";
 import quote_right from "/public/icons/quote-right.svg";
 import TestimonialCarousel from "../components/TestimonialCarousel/testimonialCarousel";
+import { StaggerTestimonials } from "./Testimonials2";
 
 const CustomNextArrow = ({ onClick }) => {
   return (
@@ -113,7 +114,7 @@ const Testimonials = () => {
 
   return (
     <div>
-    <section className="p-10 md:px-20 py-40 bg-[#F7F7F7] relative overflow-hidden">
+    <section className="py-32 bg-[#F7F7F7] relative overflow-hidden">
       <Image
         className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
         src={quote_right}
@@ -130,7 +131,8 @@ const Testimonials = () => {
         <h2 className="titleTextLG">What our clients say</h2>
       </div>
       {/* carousel */}
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
+      <StaggerTestimonials />
     </section>
     </div>
   );
