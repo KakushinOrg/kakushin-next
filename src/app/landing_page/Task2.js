@@ -2,123 +2,68 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Img from "../../../public/images/Growth_Navigator.jpg";
+import Accordion from "../components/Questions";
 
 const PrinciplesSection = () => {
-  const [expandedItem, setExpandedItem] = useState("voice");
+  const [expandedItem, setExpandedItem] = useState("development");
 
   const principles = [
     {
-      id: "voice",
-      title: "Give People a Voice",
+      id: "development",
+      title: "Web Development Wizardry",
       content:
-        "People deserve to be heard and to have a voice — even when that means defending the right of people we disagree with.",
+        "From sleek websites to robust web apps, our development team crafts digital experiences that don’t just look good—they convert. Built for performance and scalability, our code is as clean as our designs are bold. Ready to level up your online presence? We’re here to make it happen.",
     },
     {
-      id: "connection",
-      title: "Build Connection and Community",
+      id: "qa",
+      title: "QA That Never Sleeps",
       content:
-        "We aim to bring people together and build meaningful communities.",
+        "We’re obsessed with quality—every click, swipe, and scroll is tested to perfection. Our QA team digs deep to find what others might miss, ensuring your product doesn’t just work; it wows. Think of us as your digital bodyguard, ensuring nothing slips through the cracks.",
     },
     {
-      id: "serve",
-      title: "Serve Everyone",
+      id: "branding",
+      title: "Branding Brilliance",
       content:
-        "Our services are designed to be accessible and valuable to everyone.",
+        "Your brand should be as bold as your vision. From unforgettable logos to storytelling that sells, we create brands that not only stand out but stick around. Let’s build a brand that not only talks the talk but walks the walk in a crowded market.",
     },
     {
-      id: "safety",
-      title: "Keep People Safe and Protect Privacy",
+      id: "business",
+      title: "Business Consultation Goldmine",
       content:
-        "We are committed to protecting user safety and privacy in all our services.",
+        "Think of us as your secret weapon for growth. Whether it’s fine-tuning your strategy, optimizing operations, or prepping for investment, our business consulting doesn’t just guide you—it drives you. We’re all about actionable insights that turn potential into profit.",
     },
     {
-      id: "opportunity",
-      title: "Promote Economic Opportunity",
+      id: "ai",
+      title: "AI That Knows What’s Next",
       content:
-        "We strive to create economic opportunities through our platform and services.",
+        "Why guess when you can know? Our AI solutions turn data into your business’s secret sauce—predicting trends, automating tasks, and delivering insights that keep you ahead of the game. Ready to make your startup smarter? Let’s teach your tech some tricks.",
     },
   ];
 
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-center w-full lg:justify-evenly flex-col lg:flex-row gap-8">
-        <div className="w-11/12 lg:w-[40%]">
-          <h2 className="text-3xl font-bold mb-2">Our principles</h2>
-          <p className="text-gray-600 mb-8">
-            They embody what we stand for and guide our approach to how we build
-            technology for people and their relationships.
-          </p>
+    <div className=" py-24 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+      <div>
+        <h2 className="titleText pb-4">Our Services</h2>
+        <p className="paragraph pb-16 max-w-2xl">
+          We deliver tailored solutions to help you thrive in an ever-changing digital world, combining innovation with excellence to drive meaningful results.
 
-          {/* Image for smaller screens */}
-          <div className="lg:hidden mb-8">
-            <div className="w-full rounded-2xl overflow-hidden">
-              <Image
-                src={Img}
-                className="w-full object-cover pt-1"
-                alt="Principles"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            {principles.map((principle) => (
-              <div key={principle.id} className="border-b border-gray-200">
-                <button
-                  className="flex justify-between items-center w-full py-4 text-left"
-                  onClick={() =>
-                    setExpandedItem(
-                      expandedItem === principle.id ? "" : principle.id
-                    )
-                  }
-                >
-                  <span className="font-semibold">{principle.title}</span>
-                  <div className="transition-transform duration-500">
-                    {expandedItem === principle.id ? (
-                      <Image
-                        alt="Minus"
-                        src="/icons/minus.svg"
-                        width={20}
-                        height={20}
-                        className="border-[1px] border-solid border-black rounded-full"
-                      />
-                    ) : (
-                      <Image
-                        alt="Plus"
-                        src="/icons/plus.svg"
-                        width={20}
-                        height={20}
-                        className="border-[1px] border-solid border-black rounded-full transform hover:rotate-90 transition duration-500"
-                      />
-                    )}
-                  </div>
-                </button>
-                <div
-                  className={`grid transition-[grid-template-rows] duration-700 ease-in-out ${
-                    expandedItem === principle.id
-                      ? "grid-rows-[1fr]"
-                      : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="pb-4 text-gray-600">{principle.content}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        </p>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+        {/* Text Section */}
+        <div className="flex-1">
+          <Accordion data={principles} variant="principles" />
         </div>
 
-        {/* Image for xl screens */}
-        <div className="hidden lg:block w-full lg:w-2/5">
-          <div className="rounded-2xl overflow-hidden">
-            <Image
-              src={Img}
-              alt="Principles"
-              width={450}
-              height={450}
-              className="md:pt-10 xl:pt-64"
-            />
-          </div>
+        {/* Image Section */}
+        <div className="flex-1">
+          <Image
+            src={Img}
+            alt="Principles Illustration"
+            width={750}
+            height={970}
+            className="rounded-3xl w-full h-auto object-cover"
+          />
         </div>
       </div>
     </div>

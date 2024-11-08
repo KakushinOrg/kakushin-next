@@ -3,31 +3,35 @@ import React, { useState } from "react";
 import Img from "../../../public/images/Growth_Navigator.jpg";
 import Image from "next/image";
 import DotExpandButton from "../components/DotExpandButton";
-import Questions from "../components/Questions";
+import Accordion from "../components/Questions";
 
 const AboutUs = () => {
   const kakushinQuestions = [
     {
-      question: "What services does Kakushin offer?",
-      answer:
+      id: "q1",
+      title: "What services does Kakushin offer?",
+      content:
         "Kakushin offers services like BrandCraft Tailored Triumph, LaunchPad Blitz, MVP Forge, and PivotPro Guidance to support startups from concept to market.",
     },
     {
-      question: "How does Kakushin support startups?",
-      answer:
+      id: "q2",
+      title: "How does Kakushin support startups?",
+      content:
         "By blending creativity with strategic execution, Kakushin helps startups navigate challenges and seize opportunities, turning their ideas into reality.",
     },
   ];
 
   const teamQuestions = [
     {
-      question: "Who is part of Kakushin's team?",
-      answer:
+      id: "q1",
+      title: "Who is part of Kakushin's team?",
+      content:
         "Our team includes strategic planners, tech innovators, research specialists, and communication experts working together to elevate startups.",
     },
     {
-      question: "What makes Kakushin unique?",
-      answer:
+      id: "q2",
+      title: "What makes Kakushin unique?",
+      content:
         "Kakushin integrates diverse expertise with a unified goal to transform complex challenges into scalable opportunities for startups.",
     },
   ];
@@ -38,7 +42,7 @@ const AboutUs = () => {
       <div className="my-16 md:my-24 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
         <div>
           <Image
-            className="rounded-2xl"
+            className="rounded-3xl"
             src={Img}
             width={650}
             height={550}
@@ -60,8 +64,8 @@ const AboutUs = () => {
               MORE ABOUT KAKUSHIN
             </h2>
 
-            <Questions questionsData={kakushinQuestions} />
-          </div>
+              <Accordion data={kakushinQuestions} />
+            </div>
         </div>
       </div>
 
@@ -82,13 +86,13 @@ const AboutUs = () => {
             <h2 className="text-gray-700 font-semibold text-lg mb-4">
               MORE ABOUT OUR TEAM
             </h2>
-            <Questions questionsData={teamQuestions} />
-          </div>
+              <Accordion data={teamQuestions} />
+            </div>
         </div>
 
         <div>
           <Image
-            className="rounded-2xl"
+            className="rounded-3xl"
             src={Img}
             width={650}
             height={650}

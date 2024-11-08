@@ -1,53 +1,69 @@
 "use client";
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { FiPlus, FiX } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiPlus, FiX, FiMinus } from "react-icons/fi"; // Import FiMinus
 import useMeasure from "react-use-measure";
 
-export const Questions = ({ questionsData }) => {
-  const [activeIndex, setActiveIndex] = useState(0); // First question open by default
+const Accordion = ({ data, defaultIndex = 0, variant = "default" }) => {
+  const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
   const handleToggle = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index)); // Toggle the active question
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   return (
-    <div className="space-y-4">
-      {questionsData.map((q, idx) => (
-        <Question
-          key={idx}
-          {...q}
+    <div className={variant === "default" ? "space-y-4" : ""}>
+      {data.map((item, idx) => (
+        <AccordionItem
+          key={item.id || idx}
+          title={item.title || item.question}
+          content={item.content || item.answer}
           isOpen={activeIndex === idx}
           onToggle={() => handleToggle(idx)}
+          isFirst={idx === 0} // Pass if it is the first item
+          variant={variant} // Pass the variant to the child
         />
       ))}
     </div>
   );
 };
 
-const Question = ({ question, answer, isOpen, onToggle }) => {
+const AccordionItem = ({ title, content, isOpen, onToggle, variant, isFirst }) => {
   const [ref, { height }] = useMeasure();
+
+  const borderClass = `rounded-lg px-4 ${
+    variant === "principles"
+      ? `border-b-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300 rounded-none`
+      : `border-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300`
+  }`;
+
+  const getIcon = () => {
+    if (isOpen) {
+      return variant === "principles" ? <FiMinus /> : <FiX />;
+    }
+    return <FiPlus />;
+  };
 
   return (
     <motion.div
       animate={isOpen ? "open" : "closed"}
-      className="rounded-lg border-[1px] border-gray-300 px-4"
+      className={borderClass} // Apply conditional border class
     >
       <button
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 py-4"
       >
-        <span className="text-left text-lg font-medium">{question}</span>
+        <span className="text-left text-lg font-medium">{title}</span>
         <motion.span
           variants={{
-            open: { rotate: "90deg" }, // Spin 90 degrees for open state
+            open: { rotate: variant === "principles" ? "180deg" : "90deg" },
             closed: { rotate: "0deg" },
           }}
           initial="closed"
           animate={isOpen ? "open" : "closed"}
           className="text-xl"
         >
-          {isOpen ? <FiX /> : <FiPlus />}
+          {getIcon()}
         </motion.span>
       </button>
       <motion.div
@@ -56,11 +72,11 @@ const Question = ({ question, answer, isOpen, onToggle }) => {
         className="overflow-hidden"
       >
         <div ref={ref} className="pb-4 text-sm text-gray-600">
-          {answer}
+          {content}
         </div>
       </motion.div>
     </motion.div>
   );
 };
 
-export default Questions;
+export default Accordion;
