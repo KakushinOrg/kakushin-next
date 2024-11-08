@@ -51,13 +51,13 @@ export default function Home() {
       {/* <Hero /> */}
       {/* <ConsultationForm /> */}
       {/* <About /> */}
-      <Task2 />
-      <Task3 />
       <OurServices />
       <OurProjects />
       <SuccessSolutions />
       <Testimonial />
-      <Achievements />
+      <Task2 />
+
+      {/* <Achievements /> */}
       <BlogsSection />
       <Contact />
     </div>
