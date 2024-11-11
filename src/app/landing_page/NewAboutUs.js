@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Img from "../../../public/images/Growth_Navigator.jpg";
 import Image from "next/image";
 import DotExpandButton from "../components/DotExpandButton";
-import Accordion from "../components/Questions";
+import Accordion from "../components/Accordion";
 
 const AboutUs = () => {
   const kakushinQuestions = [
@@ -40,15 +40,6 @@ const AboutUs = () => {
   return (
     <div className="">
       <div className="my-16 md:my-24 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
-        <div>
-          <Image
-            className="rounded-3xl"
-            src={Img}
-            width={650}
-            height={550}
-            alt="Growth Navigator"
-          />
-        </div>
         <div className="justify-center my-auto w-full xl:w-[35%] md:w-[50%]">
           <h2 className=" newTitleTextSM">Empowering Startup Dreams</h2>
           <p className="my-5 max-w-md paragraph">
@@ -67,10 +58,28 @@ const AboutUs = () => {
               <Accordion data={kakushinQuestions} />
             </div>
         </div>
+        <div>
+          <Image
+            className="rounded-3xl"
+            src={Img}
+            width={650}
+            height={550}
+            alt="Growth Navigator"
+          />
+        </div>
       </div>
 
 
       <div className="my-16 md:my-24 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
+        <div>
+          <Image
+            className="rounded-3xl"
+            src={Img}
+            width={650}
+            height={650}
+            alt="Growth Navigator"
+          />
+        </div>
         <div className="justify-center my-auto w-full xl:w-[35%] md:w-[50%]">
           <h2 className=" newTitleTextSM">
             Meet Our Team
@@ -88,16 +97,6 @@ const AboutUs = () => {
             </h2>
               <Accordion data={teamQuestions} />
             </div>
-        </div>
-
-        <div>
-          <Image
-            className="rounded-3xl"
-            src={Img}
-            width={650}
-            height={650}
-            alt="Growth Navigator"
-          />
         </div>
       </div>
     </div>
