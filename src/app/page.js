@@ -1,23 +1,17 @@
-import Hero from "./landing_page/Hero";
-import About from "./landing_page/About";
-import OurServices from "./landing_page/OurServices";
+
 import OurStorySection from "./landing_page/NewHero";
-import SuccessSolutions from "./landing_page/SuccessSolutions";
 import Achievements from "./landing_page/Achievements";
 import BlogsSection from "./landing_page/BlogsSection";
-import Contact from "./landing_page/Contact";
 import dynamic from "next/dynamic";
-
-import Task2 from "./landing_page/Task2";
-import Task3 from "./landing_page/Task3";
 import OurProjects from "./landing_page/OurProjects";
 import { Testimonial } from "./landing_page/NewTestimonials";
 import AboutUs from "./landing_page/NewAboutUs";
+import ContactForm from "./landing_page/NewContact";
+import ServicesSection from "./landing_page/NewOurServices";
 
 const ConsultationForm = dynamic(() =>
   import("./landing_page/ConsultationForm")
 );
-const Testimonials = dynamic(() => import("./landing_page/Testimonials"));
 
 export const metadata = {
   title: "Welcome to Kakushin",
@@ -48,18 +42,13 @@ export default function Home() {
     <div className="">
       <OurStorySection />
       <AboutUs />
-      {/* <Hero /> */}
-      {/* <ConsultationForm /> */}
-      {/* <About /> */}
-      <OurServices />
+      <ConsultationForm />
+      <ServicesSection />
       <OurProjects />
-      <SuccessSolutions />
       <Testimonial />
-      <Task2 />
-
-      {/* <Achievements /> */}
+      <Achievements />
       <BlogsSection />
-      <Contact />
+      <ContactForm />
     </div>
   );
 }

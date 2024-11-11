@@ -32,14 +32,14 @@ const AccordionItem = ({ title, content, isOpen, onToggle, variant, isFirst }) =
   const [ref, { height }] = useMeasure();
 
   const borderClass = `rounded-lg px-4 ${
-    variant === "principles"
+    variant === "services"
       ? `border-b-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300 rounded-none`
       : `border-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300`
   }`;
 
   const getIcon = () => {
     if (isOpen) {
-      return variant === "principles" ? <FiMinus /> : <FiX />;
+      return variant === "services" ? <FiMinus /> : <FiX />;
     }
     return <FiPlus />;
   };
@@ -56,7 +56,7 @@ const AccordionItem = ({ title, content, isOpen, onToggle, variant, isFirst }) =
         <span className="text-left text-lg font-medium">{title}</span>
         <motion.span
           variants={{
-            open: { rotate: variant === "principles" ? "180deg" : "90deg" },
+            open: { rotate: variant === "services" ? "180deg" : "90deg" },
             closed: { rotate: "0deg" },
           }}
           initial="closed"

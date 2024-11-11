@@ -75,7 +75,7 @@ const ContactForm = () => {
 
   return (
     <div
-      className="min-h-screen bg-gray-300 text-white p-8 relative"
+      className="min-h-screen bg-gray-300 text-white px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 relative"
       style={{
         backgroundImage: `url('/images/bg-black.webp')`,
         backgroundSize: "cover",
@@ -84,10 +84,10 @@ const ContactForm = () => {
     >
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Column - Contact Information */}
-        <div className="flex w-3/4 flex-col justify-center md:items-center gap-8">
+        <div className="flex flex-col justify-center  items-center md:items-start gap-8">
           <h2 className="text-4xl font-bold my-16">CONTACT US</h2>
           <div>
-            <div className="flex gap-5 mt-6">
+            <div className="flex gap-5">
               <Image
                 alt="Whatsapp"
                 src="/icons/whatsapp.svg"
