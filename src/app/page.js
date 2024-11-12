@@ -1,4 +1,3 @@
-
 import OurStorySection from "./landing_page/NewHero";
 import Achievements from "./landing_page/Achievements";
 import BlogsSection from "./landing_page/BlogsSection";
@@ -39,7 +38,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="space-y-0">
       <OurStorySection />
       <AboutUs />
       <ConsultationForm />

@@ -13,27 +13,6 @@ const ContactForm = () => {
   const [everything, setEverything] = useState("");
   const [address, setAddress] = useState("");
 
-  // const textFieldStyles = {
-  //   "& .MuiInput-underline:before": {
-  //     borderBottomColor: "white", // Default bottom border color
-  //   },
-  //   "& .MuiInput-underline:hover:before": {
-  //     borderBottomColor: "white", // Bottom border color on hover
-  //   },
-  //   "& .MuiInput-underline:after": {
-  //     borderBottomColor: "white", // Bottom border color when focused
-  //   },
-  //   "& .MuiInputLabel-root": {
-  //     color: "white",
-  //   },
-  //   "& .MuiInputLabel-root.Mui-focused": {
-  //     color: "white",
-  //   },
-  //   "& .MuiInputBase-input": {
-  //     color: "white", // Text color in input field
-  //   },
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -74,8 +53,9 @@ const ContactForm = () => {
   };
 
   return (
+    <section id='contact'>
     <div
-      className="min-h-screen bg-gray-300 text-white px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 relative"
+      className="bg-gray-300 text-white py-4 md:py-8 lg:py-16 xl:py-32 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 relative"
       style={{
         backgroundImage: `url('/images/bg-black.webp')`,
         backgroundSize: "cover",
@@ -139,66 +119,10 @@ const ContactForm = () => {
               <h2 className="text-2xl font-semibold">Mail Us</h2>
             </div>
             <div className="mt-2">
-              {/* <Image
-              className="ml-12"
-              width={170}
-              height={170}
-              src={mailimage}
-              alt="Mail Us"
-            /> */}
               <h2>{decodeEmail("aW5mb0BrYWt1c2hpbi5pbw==")}</h2>
             </div>
           </div>
         </div>
-
-        {/* Right Column - Contact Form */}
-        {/* <div className="flex text-white flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
-          <form
-            className="flex w-80 text-white flex-col gap-20"
-            onSubmit={handleSubmit}
-          >
-            <TextField
-              className="text-white"
-              label="Enter Your Name"
-              type="text"
-              variant="standard"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              sx={textFieldStyles}
-            />
-            <TextField
-              label="Enter Your Email"
-              type="email"
-              variant="standard"
-              required
-              value={mail}
-              onChange={(e) => setMail(e.target.value)}
-              sx={textFieldStyles}
-            />
-            <div>
-              <TextField
-                label="Tell Us Everything"
-                type="text"
-                variant="standard"
-                className="w-80"
-                required
-                value={everything}
-                onChange={(e) => setEverything(e.target.value)}
-                sx={textFieldStyles}
-              />
-            </div>
-            <div className="flex items-center flex-col">
-              <Button
-                className="bg-[#DAA520] rounded-xl px-5 w-full py-2 text-[15px] font-medium"
-                type="submit"
-                variant="contained"
-              >
-                Send
-              </Button>
-            </div>
-          </form>
-        </div> */}
 
         <div className="bg-cover bg-center bg-no-repeat bg-opacity-80 md:mt-48 p-6 md:p-6 w-full md:w-5/6 mx-auto text-white rounded-md shadow-md">
           <form onSubmit={handleSubmit} className="space-y-10">
@@ -273,6 +197,7 @@ const ContactForm = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
@@ -48,17 +51,7 @@ body {
     font-weight: 700;
     line-height: 42px;
 }
-.titleTextLG::before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 3px;
-  left: 50%;
-  width: 100px;
-  transform: translateX(-50%);
-  background: #daa520;
-  bottom: -10px;
-}
+
 
 .newTitleTextSM{
 

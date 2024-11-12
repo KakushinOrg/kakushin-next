@@ -2,7 +2,6 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-
 const lato = Lato({
   subsets: ["latin"],
   variable: "--font-lato",

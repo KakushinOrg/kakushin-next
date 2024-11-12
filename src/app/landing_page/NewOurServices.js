@@ -62,16 +62,17 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div>
-      <div className=" py-24 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
-        <div>
+
+    <section id='services'>
+      <div className="pt-20 my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+        <div className="flex flex-col items-center text-center">
           <h2 className="titleText pb-4">Our Services</h2>
           <p className="paragraph pb-16 max-w-2xl">
             We deliver tailored solutions to help you thrive in an ever-changing digital world, combining innovation with excellence to drive meaningful results.
 
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
           {/* Text Section */}
           <div className="flex-1">
             <Accordion data={services} variant="services" />
@@ -90,14 +91,14 @@ const ServicesSection = () => {
         </div>
       </div>
       
-      <div className="py-24 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
-        <div className=" max-w-2xl"> {/* Ensure left alignment */}
-          <h2 className="titleText pb-4">Empowering Startups</h2> {/* Added explicit text-left */}
-          <p className="paragraph pb-16"> {/* Ensure text-left utility is applied */}
+      <div className="my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+        <div className="flex flex-col items-center text-center">
+            <h2 className="titleText pb-4">Empowering Startups</h2> {/* Added explicit text-left */}
+          <p className="paragraph pb-16 max-w-2xl"> {/* Ensure text-left utility is applied */}
             Guiding startups from launch to scale with tailored strategies, strong branding, and operational excellence for sustainable growth.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
           {/* Text Section */}
           <div className="flex-1">
             <Image
@@ -114,7 +115,7 @@ const ServicesSection = () => {
         </div>
       </div>
  
-    </div>
+    </section>
   );
 };
 
