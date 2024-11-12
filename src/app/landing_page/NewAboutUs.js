@@ -38,8 +38,9 @@ const AboutUs = () => {
 
 
   return (
+    <section id="about" className="pt-20">
     <div className="">
-      <div className="my-16 md:my-24 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
+      <div className="flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
         <div className="justify-center my-auto w-full xl:w-[35%] md:w-[50%]">
           <h2 className=" newTitleTextSM">Empowering Startup Dreams</h2>
           <p className="my-5 max-w-md paragraph">
@@ -70,7 +71,7 @@ const AboutUs = () => {
       </div>
 
 
-      <div className="my-16 md:my-24 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
+      <div className="my-32 md:my-48 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
         <div>
           <Image
             className="rounded-3xl"
@@ -100,6 +101,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

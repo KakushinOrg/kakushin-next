@@ -78,20 +78,9 @@ export const Testimonial = () => {
   return (
 
     <div>
-      <section className="py-32 bg-[#F7F7F7] relative overflow-hidden">
-        <Image
-          className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
-          src={quote_right}
-          alt="quote-right"
-        />
-        <Image
-          className="absolute -top-[10%] right-[1rem] -rotate-[20deg] lg:h-[250px] md:h-[140px] w-auto hidden md:block"
-          src={quote_left}
-          alt="quote-left"
-        />
+      <section className="md:py-20 sm:py-16 py-10 relative overflow-hidden">
 
-        <div className="text-center mb-14 md:mb-32">
-          <h2 className="largeText mb-4">Testimonials</h2>
+        <div className="text-center mb-14 md:mb-20">
           <h2 className="titleTextLG">What our clients say</h2>
         </div>
 
@@ -229,18 +218,6 @@ const TESTIMONIAL_DATA = [
       tempId: 2,
       testimonial: "Kakushin's approach is refreshingly client-focused. They totally got what our brand was all about, and the rebrand they pulled off really hit home with our audience. The smart ideas they tossed our way made the whole process a breeze.",
       by: "Ali, CEO at COMPANY",
-      imgSrc: "/images/Growth_Navigator.jpg",
-    },
-    {
-      tempId: 3,
-      testimonial: "My tenure as a full-stack developer with Kakushin is marked by a profound dedication to excellence. Across diverse projects encompassing app, extension, and website development, Kakushin upholds rigorous standards of innovation and precision.",
-      by: "Zeeshan, CEO at COMPANY",
-      imgSrc: "/images/Growth_Navigator.jpg",
-    },
-    {
-      tempId: 4,
-      testimonial: "Kakushin's work was next level. Every design they did was spot-on, and their strategic guidance was smart. Their support team was just a message away, always there to guide us through the rebranding journey.",
-      by: "Waseem, CEO at COMPANY",
       imgSrc: "/images/Growth_Navigator.jpg",
     },
     {

@@ -46,7 +46,7 @@ const ConsultationForm = () => {
   };
 
   return (
-    <section className="md:p-32 p-20">
+    <section className="my-32 md:my-48">
       <div className="flex flex-col gap-5 items-center justify-center">
         <h2 className="title">
           Let's Talk Growth: Your Free 30-Minute Power Session Awaits!

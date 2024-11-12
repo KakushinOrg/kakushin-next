@@ -108,11 +108,7 @@ const Navbar = () => {
               href={`#${item.toLowerCase()}`}
               onClick={(e) => {
                 e.preventDefault();
-                if (item === "Home") {
-                  window.location.href = "/";
-                } else {
                   handleScrollToSection(item.toLowerCase());
-                }
               }}
             >
               {item}

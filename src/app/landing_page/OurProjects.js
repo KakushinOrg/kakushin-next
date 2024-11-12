@@ -57,8 +57,7 @@ const OurProjects = () => {
   return (
     <section className="md:p-20 sm:p-16 p-10 bg-[#F7F7F7]" id="projects">
       {/* title */}
-      <div className="text-center mb-14 md:mb-32 flex flex-col justify-center">
-        <h2 className="largeText mb-4">we do magic</h2>
+      <div className="text-center mb-14 md:mb-20 flex flex-col justify-center">
         <h2 className="titleTextLG">Our Projects</h2>
       </div>
       <ProjectCarousel projects={projects} />
