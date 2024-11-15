@@ -40,7 +40,7 @@ const ServicesSection = () => {
     },
   ];
 
-  const startups  = [
+  const startups = [
     {
       id: "growth",
       title: "Growth Navigator",
@@ -58,18 +58,21 @@ const ServicesSection = () => {
       title: "Visionary Image",
       content:
         "A service tailored for startups and research companies poised for scaling, Growth Navigator combines PivotPro Guidance with advanced operational and strategic support. It offers a roadmap for sustained growth, leveraging in-depth market research, strategic planning, and execution support to steer startups through scaling challenges, ensuring they remain agile and competitive. ",
-    }
+    },
   ];
 
   return (
-
-    <section id='services'>
-      <div className="pt-20 my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+    <section>
+      <div
+        id="services"
+        className="pt-20 my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60"
+      >
         <div className="flex flex-col items-center text-center">
           <h2 className="titleText pb-4">Our Services</h2>
           <p className="paragraph pb-16 max-w-2xl">
-            We deliver tailored solutions to help you thrive in an ever-changing digital world, combining innovation with excellence to drive meaningful results.
-
+            We deliver tailored solutions to help you thrive in an ever-changing
+            digital world, combining innovation with excellence to drive
+            meaningful results.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
@@ -90,12 +93,16 @@ const ServicesSection = () => {
           </div>
         </div>
       </div>
-      
-      <div className="my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+
+      <div id="empowering-startup" className="my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
         <div className="flex flex-col items-center text-center">
-            <h2 className="titleText pb-4">Empowering Startups</h2> {/* Added explicit text-left */}
-          <p className="paragraph pb-16 max-w-2xl"> {/* Ensure text-left utility is applied */}
-            Guiding startups from launch to scale with tailored strategies, strong branding, and operational excellence for sustainable growth.
+          <h2 className="titleText pb-4">Empowering Startups</h2>{" "}
+          {/* Added explicit text-left */}
+          <p className="paragraph pb-16 max-w-2xl">
+            {" "}
+            {/* Ensure text-left utility is applied */}
+            Guiding startups from launch to scale with tailored strategies,
+            strong branding, and operational excellence for sustainable growth.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
@@ -114,7 +121,6 @@ const ServicesSection = () => {
           </div>
         </div>
       </div>
- 
     </section>
   );
 };
