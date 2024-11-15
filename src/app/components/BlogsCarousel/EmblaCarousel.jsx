@@ -63,7 +63,7 @@ const BlogCarousel = (props) => {
         </div>
       </div>
 
-      <div className="blog-embla__controls px-2">
+      <div className="blog-embla__controls px-4">
         <div className="blog-embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />

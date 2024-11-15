@@ -2,8 +2,6 @@
 import React from "react";
 import ProjectCarousel from "../components/ProjectsCarousel/ProjectsCarousel";
 
-
-
 let projects = [
   {
     title: "RAID",
@@ -28,12 +26,12 @@ let projects = [
   {
     title: "Debate-z",
     src: "/images/Projects/debate.png",
-    description: "Debatez is an interactive platform where users join debates on diverse topics every 30 minutes. With profile and social features, it’s perfect for connecting with like-minded individuals while engaging in lively, time-boxed discussions."
+    description: "Debatez is an interactive platform where users join debates on diverse topics every 30 minutes. With profile and social features, it's perfect for connecting with like-minded individuals while engaging in lively, time-boxed discussions."
   },  
   {
     title: "Kinex AI",
     src: "/images/Projects/kinexaiApp.png",
-    description: "Kinex AI is pioneering biomechanical analysis with advanced technology, offering real-time insights into muscle movement and performance. Designed for athletes and researchers, Kinex AI’s Medical Sleeve delivers precision feedback to enhance training and recovery."
+    description: "Kinex AI is pioneering biomechanical analysis with advanced technology, offering real-time insights into muscle movement and performance. Designed for athletes and researchers, Kinex AI's Medical Sleeve delivers precision feedback to enhance training and recovery."
   },    
   {
     title: "My Sizer",
@@ -57,10 +55,9 @@ const OurProjects = () => {
   
 
   return (
-    <section className="md:p-20 p-20 bg-[#F7F7F7]" id="projects">
+    <section className="md:p-20 sm:p-16 p-10 bg-[#F7F7F7]" id="projects">
       {/* title */}
-      <div className="text-center mb-14 md:mb-32">
-        <h2 className="largeText mb-4">we do magic</h2>
+      <div className="text-center mb-14 md:mb-20 flex flex-col justify-center">
         <h2 className="titleTextLG">Our Projects</h2>
       </div>
       <ProjectCarousel projects={projects} />
