@@ -11,6 +11,7 @@ export const fetchBlogs = async () => {
     content_type: "blogPost",
     select: "fields.slug,fields.blogMedia,fields.title,fields.blogBody",
   });
+  // todo
 
   return res.items.map((item) => ({
     blogID: item.sys.id,
