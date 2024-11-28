@@ -76,12 +76,10 @@ const ServicesSection = () => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
-          {/* Text Section */}
           <div className="flex-1">
             <Accordion data={services} variant="services" />
           </div>
 
-          {/* Image Section */}
           <div className="flex-1">
             <Image
               src={Img}
@@ -94,19 +92,18 @@ const ServicesSection = () => {
         </div>
       </div>
 
-      <div id="empowering-startup" className="my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60">
+      <div
+        id="empowering-startup"
+        className="my-32 md:my-48 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 2xl:px-60"
+      >
         <div className="flex flex-col items-center text-center">
           <h2 className="titleText pb-4">Empowering Startups</h2>{" "}
-          {/* Added explicit text-left */}
           <p className="paragraph pb-16 max-w-2xl">
-            {" "}
-            {/* Ensure text-left utility is applied */}
             Guiding startups from launch to scale with tailored strategies,
             strong branding, and operational excellence for sustainable growth.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
-          {/* Text Section */}
           <div className="flex-1">
             <Image
               src={Img}

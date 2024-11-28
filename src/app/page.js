@@ -41,11 +41,11 @@ export default function Home() {
     <div className="space-y-0">
       <OurStorySection />
       <AboutUs />
+      {/* <ServicesSection /> */}
       <ConsultationForm />
-      <ServicesSection />
       <OurProjects />
       <Testimonial />
-      <Achievements />
+      {/* <Achievements /> */}
       <BlogsSection />
       <ContactForm />
     </div>

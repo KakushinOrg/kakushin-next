@@ -27,11 +27,11 @@ export default function OurStorySection() {
           >
             <h2 className="titleText text-4xl font-bold mb-4">Our Story</h2>
             <p className="text-lg max-w-xl mx-auto paragraph">
-              When Facebook launched in 2004, it changed the way people connect.
-              Apps like Messenger, Instagram, and WhatsApp further empowered
-              billions around the world. Now, Meta is moving beyond 2D screens
-              toward immersive experiences like augmented, virtual, and mixed
-              reality to help build the next evolution in social technology.
+              At Kakushin, we specialize in empowering startups, Non-Profit, and
+              businesses to thrive by providing tailored solutions that drive
+              innovation and sustainable growth. From MVP development and
+              AI-driven projects to branding and business strategy, we help turn
+              ideas into impactful realities.
             </p>
           </motion.div>
 

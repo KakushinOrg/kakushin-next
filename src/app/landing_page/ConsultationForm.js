@@ -58,7 +58,7 @@ const ConsultationForm = () => {
         </p>
       </div>
       <div>
-        <form className="flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-center md:mt-20 mt-10">
+        <form className="flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-center md:mt-20 mt-10 md:mb-32">
           <TextField
             label="Email"
             type="email"
@@ -108,8 +108,6 @@ const ConsultationForm = () => {
           >
             Send
           </Button>
-
-
         </form>
       </div>
     </section>

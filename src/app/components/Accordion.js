@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import { FiPlus, FiX, FiMinus } from "react-icons/fi"; // Import FiMinus
 import useMeasure from "react-use-measure";
 
-const Accordion = ({ data, defaultIndex = 0, variant = "default" }) => {
+const Accordion = ({
+  hasLink = true,
+  data,
+  defaultIndex = 0,
+  variant = "default",
+}) => {
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
   const handleToggle = (index) => {
@@ -15,6 +20,7 @@ const Accordion = ({ data, defaultIndex = 0, variant = "default" }) => {
     <div className={variant === "default" ? "space-y-4" : ""}>
       {data.map((item, idx) => (
         <AccordionItem
+          hasLink={hasLink}
           key={item.id || idx}
           title={item.title || item.question}
           content={item.content || item.answer}
@@ -28,12 +34,22 @@ const Accordion = ({ data, defaultIndex = 0, variant = "default" }) => {
   );
 };
 
-const AccordionItem = ({ title, content, isOpen, onToggle, variant, isFirst }) => {
+const AccordionItem = ({
+  title,
+  content,
+  isOpen,
+  onToggle,
+  variant,
+  isFirst,
+  hasLink = hasLink,
+}) => {
   const [ref, { height }] = useMeasure();
 
   const borderClass = `rounded-lg px-4 ${
     variant === "services"
-      ? `border-b-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300 rounded-none`
+      ? `border-b-[1px] ${
+          isFirst ? "border-t-[1px]" : ""
+        } border-gray-300 rounded-none`
       : `border-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300`
   }`;
 
@@ -73,6 +89,17 @@ const AccordionItem = ({ title, content, isOpen, onToggle, variant, isFirst }) =
       >
         <div ref={ref} className="pb-4 text-sm text-gray-600">
           {content}
+          {hasLink ? (
+            <a
+              className="block mt-1 underline text-blue-950"
+              href={`/aboutus/${encodeURIComponent(title)}`}
+              target="_blank"
+            >
+              Learn More
+            </a>
+          ) : (
+            ""
+          )}
         </div>
       </motion.div>
     </motion.div>
