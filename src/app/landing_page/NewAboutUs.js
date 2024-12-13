@@ -6,6 +6,8 @@ import DotExpandButton from "../components/DotExpandButton";
 import Accordion from "../components/Accordion";
 import { whatWeDo } from "@/app/components/whatWeDoData";
 
+import TabsFeatures from "@/app/components/TabComponent/tabComponent";
+
 const AboutUs = () => {
   // const kakushinQuestions = [
   //   {
@@ -23,7 +25,7 @@ const AboutUs = () => {
   // ];
 
   return (
-    <section id="about" className="pt-20">
+    <section id="about" className="py-40">
       <div className="">
         <div className="flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
           <div className="justify-center my-auto w-full xl:w-[35%] md:w-[50%]">
@@ -56,8 +58,7 @@ const AboutUs = () => {
             />
           </div>
         </div>
-
-        <div className="my-32 md:my-48 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
+        {/* <div className="my-32 md:my-48 flex flex-wrap mx-4 flex-col md:flex-row gap-10 lg:gap-20 xl:gap-28 items-start justify-center">
           <div>
             <Image
               className="rounded-3xl"
@@ -82,6 +83,18 @@ const AboutUs = () => {
               <Accordion data={whatWeDo} />
             </div>
           </div>
+        </div> */}
+        <div className="flex flex-col items-center justify-center my-40">
+          <div className="flex gap-4 flex-col items-center">
+            <h2 className="title mb-5">What We Do</h2>
+            <p className="my-2 max-w-xl paragraph text-center">
+              At Kakushin, we recognize that your journey is unique, and so are
+              your goals. That’s why we offer a comprehensive range of services
+              designed to empower your business and bring your vision to life.
+            </p>
+            <p></p>
+          </div>
+          <TabsFeatures />
         </div>
       </div>
     </section>
