@@ -15,12 +15,12 @@ let projects = [
     description:
       "Dinabite makes social media management easy for small businesses, providing AI-powered tools to streamline posting, scheduling, and cross-platform sharing. It keeps all your messages and posts in one place and simplifies engagement, so you can focus on growing your business.",
   },
-  {
-    title: "My BNB",
-    src: "/images/Projects/myBnb.png",
-    description:
-      "Mybnb offers seamless food delivery, personalized recommendations, and exclusive guest services. With tools for hosts to manage multiple locations, every stay becomes a comfortable and unique experience.",
-  },
+  // {
+  //   title: "My BNB",
+  //   src: "/images/Projects/myBnb.png",
+  //   description:
+  //     "Mybnb offers seamless food delivery, personalized recommendations, and exclusive guest services. With tools for hosts to manage multiple locations, every stay becomes a comfortable and unique experience.",
+  // },
   {
     title: "L3arn",
     src: "/images/Projects/l3arn.png",
