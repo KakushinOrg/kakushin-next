@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { FiPlus, FiX, FiMinus } from "react-icons/fi"; // Import FiMinus
 import useMeasure from "react-use-measure";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Accordion = ({
   hasLink = true,
@@ -45,11 +45,9 @@ const AccordionItem = ({
 }) => {
   const [ref, { height }] = useMeasure();
 
-  const borderClass = `rounded-lg px-4 ${
+  const borderClass = `rounded-lg px-4 border-[1px] rounded-[25px] my-[25px]  ${
     variant === "services"
-      ? `border-b-[1px] ${
-          isFirst ? "border-t-[1px]" : ""
-        } border-gray-300 rounded-none`
+      ? `border-b-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300`
       : `border-[1px] ${isFirst ? "border-t-[1px]" : ""} border-gray-300`
   }`;
 
