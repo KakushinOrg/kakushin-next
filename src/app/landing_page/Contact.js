@@ -6,6 +6,7 @@ import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import emailjs from "emailjs-com";
+import { ComplexButton } from "../components/Buttons/buttons";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -70,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#F7F7F7] md:mt-10 md:pt-8">
+    <div className="bg-[#F7F7F7] md:mt-10 md:pt-8" id="contact-section">
       <div>
         <div className="w-full flex flex-col md:mb-20 mb-10">
           <h2 className="largeText mb-5 text-center">get in touch</h2>
@@ -79,7 +80,7 @@ const Contact = () => {
 
         <div className="flex flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
           <form
-            className="flex flex-col md:flex-row gap-10"
+            className="flex flex-col md:flex-row justify-center items-end gap-10"
             onSubmit={handleSubmit}
           >
             <TextField
@@ -110,13 +111,7 @@ const Contact = () => {
               sx={textFieldStyles}
             />
             <div className="flex items-center flex-col">
-              <Button
-                className="bg-[#DAA520] rounded-xl px-5 py-2 text-[15px] font-medium"
-                type="submit"
-                variant="contained"
-              >
-                Send
-              </Button>
+              <ComplexButton type="submit" variant="contained" text="Send" />
             </div>
           </form>
         </div>

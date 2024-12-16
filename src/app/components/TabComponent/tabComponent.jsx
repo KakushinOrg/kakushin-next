@@ -1,4 +1,6 @@
-import { FiMonitor, FiSave, FiSearch } from "react-icons/fi";
+import { FiMonitor, FiSmartphone } from "react-icons/fi";
+import { GiArtificialIntelligence, GiGrowth } from "react-icons/gi";
+import { HiOutlineLightBulb } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import AboutUsItem from "@/app/components/AboutUsAccordion/aboutUsAccordion";
@@ -92,18 +94,18 @@ export default TabsFeatures;
 
 const FEATURES = [
   {
-    Icon: FiSearch,
-  },
-  {
-    Icon: FiSave,
-  },
-  {
     Icon: FiMonitor,
   },
   {
-    Icon: FiMonitor,
+    Icon: FiSmartphone,
   },
   {
-    Icon: FiMonitor,
+    Icon: GiArtificialIntelligence,
+  },
+  {
+    Icon: HiOutlineLightBulb,
+  },
+  {
+    Icon: GiGrowth,
   },
 ];

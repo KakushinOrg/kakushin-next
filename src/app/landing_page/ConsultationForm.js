@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import { ComplexButton } from "../components/Buttons/buttons";
 
 const ConsultationForm = () => {
   const [email, setEmail] = useState("");
@@ -91,25 +92,12 @@ const ConsultationForm = () => {
               </MenuItem>
             ))}
           </TextField>
-          <Button
+          <ComplexButton
+            text="Send"
             aria-label="Submit consultation form"
-            sx={{
-              backgroundColor: "#DAA520",
-              borderRadius: "8px",
-              padding: "8px 20px",
-              fontSize: "15px",
-              fontWeight: "500",
-              "&:hover": {
-                backgroundColor: "#c9951c",
-              },
-            }}
             type="submit"
             variant="contained"
-          >
-            Send
-          </Button>
-
-
+          />
         </form>
       </div>
     </section>
