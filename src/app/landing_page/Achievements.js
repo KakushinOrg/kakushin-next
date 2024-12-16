@@ -35,8 +35,7 @@ export const Achievements = () => {
     <div className="border-gray-100 border-y-2 py-32">
       <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
         <h2 className="mb-8 text-center text-base text-indigo-900 sm:text-lg md:mb-16">
-          BUILD TRUST WITH YOUR USERS WITH A
-          <span className="text-indigo-500"> BEAUTIFUL LANDING PAGE</span>
+          Our Achivements, so far
         </h2>
 
         <div className="flex flex-col items-center justify-center sm:flex-row">
