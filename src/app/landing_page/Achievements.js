@@ -53,24 +53,6 @@ export const Achievements = () => {
               />
             )
           )}
-          <Stat
-            num={45}
-            suffix="%"
-            subheading="Lorem ipsum dolor sit amet consectetur"
-          />
-          <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
-          <Stat
-            num={15.5}
-            decimals={1}
-            suffix="K+"
-            subheading="Lorem ipsum dolor sit amet consectetur"
-          />
-          <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
-          <Stat
-            num={20}
-            suffix="B+"
-            subheading="Lorem ipsum dolor sit amet consectetur"
-          />
         </div>
       </div>
     </div>
