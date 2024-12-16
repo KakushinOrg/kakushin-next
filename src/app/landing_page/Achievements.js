@@ -1,101 +1,106 @@
 "use client";
+import React, { useEffect, useRef } from "react";
+import { animate, useInView } from "framer-motion";
+import "./Acheivements.module.css";
 
-import React, { useEffect, useRef, useState } from "react";
-import AnimatedNumber from "../components/AnimateNumber";
-import styles from './Acheivements.module.css';
-import Image from "next/image";
+const achievementsData = [
+  {
+    number: 37,
+    icon: "/icons/achievement-branding.svg",
+    title: "Full Branding",
+    description: "Limitless options.",
+  },
+  {
+    number: 4,
+    icon: "/icons/achievement-algorithm.svg",
+    title: "Unique Algorithms",
+    description: "Carefully typed.",
+  },
+  {
+    number: 120,
+    icon: "/icons/achievement-website.svg",
+    title: "Websites",
+    description: "Always working.",
+  },
+  {
+    number: 87,
+    icon: "/icons/achievement-marketing.svg",
+    title: "Marketing Campaigns",
+    description: "Our achievements.",
+  },
+];
 
-const Achievements = () => {
-  const data = [
-    {
-      number: 37,
-      icon: "/icons/achievement-branding.svg",
-      title: "Full Branding",
-      description: "Limitless options.",
-    },
-    {
-      number: 4,
-      icon: "/icons/achievement-algorithm.svg",
-      title: "Unique Algorithms",
-      description: "Carefully typed.",
-    },
-    {
-      number: 120,
-      icon: "/icons/achievement-website.svg",
-      title: "Websites",
-      description: "Always working.",
-    },
-    {
-      number: 87,
-      icon: "/icons/achievement-marketing.svg",
-      title: "Marketing Campaigns",
-      description: "Our achievements.",
-    },
-  ];
-
-  const [isVisible, setIsVisible] = useState({});
-  const elementsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible((prev) => ({
-            ...prev,
-            [entry.target.dataset.index]: entry.isIntersecting,
-          }));
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    elementsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elementsRef.current.forEach((el) => {
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, []);
-
+export const Achievements = () => {
   return (
-    <section
-      className={`px-4 py-8 md:px-32 md:py-16 bg-gradient-to-r from-gray-100 to-gray-300 relative -z-10 ${styles["achievements-section"]}`}
-    >
-      <div className="section p-4">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              ref={(el) => (elementsRef.current[index] = el)}
-              data-index={index}
-              className="flex flex-col justify-center items-center bg-white bg-opacity-80 p-8 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
-            >
-              <div className="text-5xl font-bold text-[#C81984] mb-4">
-                {/* Pass isVisible status to AnimatedNumber */}
-                <AnimatedNumber
-                  value={item.number}
-                  isVisible={isVisible[index]}
-                />
-              </div>
-              <h6 className="text-lg font-semibold mb-2">{item.title}</h6>
-              <div className="my-4">
-                <Image
-                  height={20}
-                  width={20}
-                  src={item.icon}
-                  alt={item.title}
-                ></Image>
-              </div>
-              <p className="text-sm text-gray-500">{item.description}</p>
-            </div>
-          ))}
+    <div className="border-gray-100 border-y-2 py-32">
+      <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
+        <h2 className="mb-8 text-center text-base text-indigo-900 sm:text-lg md:mb-16">
+          BUILD TRUST WITH YOUR USERS WITH A
+          <span className="text-indigo-500"> BEAUTIFUL LANDING PAGE</span>
+        </h2>
+
+        <div className="flex flex-col items-center justify-center sm:flex-row">
+          {achievementsData.map(
+            (
+              achievement,
+              index // Fix map parameters order
+            ) => (
+              <Stat
+                key={index}
+                suffix=""
+                num={achievement.number}
+                subheading={achievement.description}
+              />
+            )
+          )}
+          <Stat
+            num={45}
+            suffix="%"
+            subheading="Lorem ipsum dolor sit amet consectetur"
+          />
+          <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
+          <Stat
+            num={15.5}
+            decimals={1}
+            suffix="K+"
+            subheading="Lorem ipsum dolor sit amet consectetur"
+          />
+          <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
+          <Stat
+            num={20}
+            suffix="B+"
+            subheading="Lorem ipsum dolor sit amet consectetur"
+          />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Achievements;
+const Stat = ({ num, suffix, decimals = 0, subheading }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    animate(0, num, {
+      duration: 2.5,
+      onUpdate(value) {
+        if (!ref.current) return;
+
+        ref.current.textContent = value.toFixed(decimals);
+      },
+    });
+  }, [num, decimals, isInView]);
+
+  return (
+    <div className="flex w-72 flex-col items-center py-8 sm:py-0">
+      <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl">
+        <span ref={ref}></span>
+        {suffix}
+      </p>
+      <p className="max-w-48 text-center text-neutral-600">{subheading}</p>
+    </div>
+  );
+};

@@ -19,9 +19,14 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
       <div className="relative z-10 text-center text-white">
-        <h1 className="largeText mb-4">Moving</h1>
-        <h2 className="titleTextLG">boundaries</h2>
-        <p className="smallTitleText">Into digital solutions</p>
+        <h2 className="titleTextLG text-[65px]">Our Story</h2>
+        <p className="font-normal mt-12 text-black text-[18px] max-w-[55rem]">
+          At Kakushin, we specialize in empowering startups, Non-Profit, and
+          businesses to thrive by providing tailored solutions that drive
+          innovation and sustainable growth. From MVP development and AI-driven
+          projects to branding and business strategy, we help turn ideas into
+          impactful realities.
+        </p>
       </div>
 
       <div className="absolute !z-99999999">
