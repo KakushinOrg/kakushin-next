@@ -112,7 +112,7 @@ const Testimonials = () => {
 
   return (
     <div>
-      <section className="py-10 md:py-40 bg-white relative overflow-hidden">
+      <section className="py-10 md:py-20 bg-white relative overflow-hidden">
         <Image
           className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
           src={quote_right}
