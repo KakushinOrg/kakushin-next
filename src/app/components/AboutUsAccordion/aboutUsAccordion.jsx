@@ -9,7 +9,9 @@ const AboutUsItem = ({ params }) => {
           <div id="empowering-startup" className="">
             <div className="flex gap-4 flex-col items-center">
               <h2 className="title mb-5">{params.title}</h2>
-              <p className="my-2 paragraph text-center">{params.subTitle}</p>
+              <p className="my-2 text-[#434343] text-center">
+                {params.subTitle}
+              </p>
               <p></p>
             </div>
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
