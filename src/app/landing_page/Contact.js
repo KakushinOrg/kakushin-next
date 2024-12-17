@@ -118,7 +118,7 @@ const Contact = () => {
 
         <div className="py-24 flex flex-wrap flex-col gap-10 items-center md:flex-row md:items-start md:justify-evenly">
           <div className="flex flex-wrap flex-col items-center">
-            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#CFA144]">
+            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
                 alt="Location"
                 src="/icons/location.svg"
@@ -137,7 +137,7 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-wrap flex-col items-center">
-            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#CFA144]">
+            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
                 alt="Email"
                 className="icons"
@@ -151,7 +151,7 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-wrap flex-col items-center">
-            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#CFA144]">
+            <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
                 alt="Whatsapp"
                 src="/icons/whatsapp.svg"
