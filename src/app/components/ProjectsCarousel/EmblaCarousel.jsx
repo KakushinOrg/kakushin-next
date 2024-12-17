@@ -16,8 +16,7 @@ const BREAKPOINTS = {
   lg: 1024,
 };
 
-const BlogPostCarousel = ({ projects }) => {
-  console.log(projects);
+const BlogPostCarousel = () => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
 
