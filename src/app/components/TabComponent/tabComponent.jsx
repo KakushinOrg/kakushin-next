@@ -11,7 +11,7 @@ const TabsFeatures = () => {
 
   return (
     <section className="p-4">
-      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-[25rem] px-4">
+      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-[30rem] px-4">
         {/* Render the tabs */}
         <Tabs selected={selected} setSelected={setSelected} />
 

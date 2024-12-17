@@ -92,7 +92,7 @@ const BlogPostCarousel = () => {
 const Post = ({ iconURL, author, title, description }) => {
   return (
     <div
-      className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 hover:drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] drop-shadow-[0px_0px_7px_rgba(28,108,168,0.1)]  p-4 m-4 rounded-[25px]"
+      className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 hover:drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] drop-shadow-[0px_0px_7px_rgba(28,108,168,0.1)] p-4 m-4 rounded-[25px]"
       style={{
         width: CARD_WIDTH,
         marginRight: MARGIN,
