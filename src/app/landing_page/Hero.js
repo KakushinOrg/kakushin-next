@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <main
-      className="flex md:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[4rem] gap-12 2xl:px-[10rem]"
+      className="flex lg:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[4rem] gap-12 2xl:px-[10rem]"
       id="home"
     >
       {/* <video

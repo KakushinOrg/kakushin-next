@@ -4,7 +4,7 @@ import TabsFeatures from "@/app/components/TabComponent/tabComponent";
 
 const OurServices = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 md:px-0 px-4">
       <div className="flex gap-4 flex-col items-center">
         <h2 className="titleTextLG text-center mb-4">What We Do</h2>
         <h6 className="my-2 max-w-xl text-center text-gray-800">

@@ -11,7 +11,7 @@ const TabsFeatures = () => {
 
   return (
     <section className="p-4">
-      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[30rem] w-[25rem] px-4">
+      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-[25rem] px-4">
         {/* Render the tabs */}
         <Tabs selected={selected} setSelected={setSelected} />
 
@@ -37,7 +37,7 @@ const TabsFeatures = () => {
 
 const Tabs = ({ selected, setSelected }) => {
   return (
-    <div className="flex overflow-x-scroll">
+    <div className="flex overflow-x-scroll pb-4">
       {whatWeDo.map((tab, index) => {
         return (
           <Tab

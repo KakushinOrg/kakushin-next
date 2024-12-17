@@ -112,3 +112,7 @@ body {
     bottom: -73px !important;
   }
 }
+
+.custom-fill {
+  fill: #1e74b4;
+}

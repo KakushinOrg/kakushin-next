@@ -39,9 +39,9 @@ const TestimonialList = ({ list, reverse = false, duration = 50 }) => {
         return (
           <div
             key={t.id}
-            className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative h-[11.5rem] drop-shadow-[0px_0px_5px_rgba(28,108,168,0.2)] bg-gradient-to-r from-[#fff] via-[#fff] to-[#fff] bg-[45deg]"
+            className="shrink-0 w-[300px] md:w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative h-[11.5rem] drop-shadow-[0px_0px_5px_rgba(28,108,168,0.2)] bg-gradient-to-r from-[#fff] via-[#fff] to-[#fff] bg-[45deg]"
           >
-            <div className="text-gray-700 p-4 flex flex-col w-[500px]">
+            <div className="text-gray-700 p-4 flex flex-col w-[300px] md:w-[500px]">
               <span className="block font-semibold text-lg mb-1">{t.name}</span>
               <span className="block mb-3 text-sm font-medium">{t.title}</span>
               <span className="block text-sm text-gray-700">{t.info}</span>
