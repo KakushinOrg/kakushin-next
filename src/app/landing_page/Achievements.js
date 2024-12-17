@@ -8,35 +8,35 @@ const achievementsData = [
     number: 37,
     icon: "/icons/achievement-branding.svg",
     title: "Full Branding",
-    description: "Limitless options.",
+    description: "Completed MVP's.",
   },
   {
     number: 4,
     icon: "/icons/achievement-algorithm.svg",
     title: "Unique Algorithms",
-    description: "Carefully typed.",
+    description: "Customized Algorithms.",
   },
   {
-    number: 120,
+    number: 69,
     icon: "/icons/achievement-website.svg",
     title: "Websites",
-    description: "Always working.",
+    description: "Digital Solutions.",
   },
   {
-    number: 87,
+    number: 28,
     icon: "/icons/achievement-marketing.svg",
     title: "Marketing Campaigns",
-    description: "Our achievements.",
+    description: "Growth Consultancy.",
   },
 ];
 
 export const Achievements = () => {
   return (
-    <div className="border-gray-100 border-y-2">
+    <div className="border-gray-100 border-y-2 bg-[#f4f4f7]">
       <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
         <div className="text-center mb-14 md:mb-32">
           <h2 className="largeText mb-4">Our Achivements,</h2>
-          <h2 className="titleTextLG">so far</h2>
+          <h2 className="titleTextLG">So Far</h2>
         </div>
         <div className="flex flex-col items-center justify-center sm:flex-row">
           {achievementsData.map(

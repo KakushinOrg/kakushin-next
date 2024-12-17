@@ -62,7 +62,7 @@ const Tab = ({ selected, Icon, title, setSelected, tabNum }) => {
         className="relative z-0 flex w-full flex-row items-center justify-center gap-4 border-b-4 border-slate-200 bg-white p-6 transition-colors hover:bg-slate-100 md:flex-col min-h-40"
       >
         <span
-          className={`rounded-lg bg-gradient-to-br from-[#f8de9d] from-10% to-[#d1ac4e] p-3 text-2xl text-white shadow-[#d4d0c3] transition-all duration-300 ${
+          className={`rounded-lg bg-gradient-to-br from-[#2692E3] from-10% to-[#1C6CA8] p-3 text-2xl text-white shadow-[#d4d0c3] transition-all duration-300 ${
             selected
               ? "scale-100 opacity-100 shadow-lg"
               : "scale-90 opacity-50 shadow"
@@ -83,7 +83,7 @@ const Tab = ({ selected, Icon, title, setSelected, tabNum }) => {
       {selected && (
         <motion.span
           layoutId="tabs-features-underline"
-          className="absolute bottom-0 left-0 right-0 z-10 h-1 bg-[#DAA520]"
+          className="absolute bottom-0 left-0 right-0 z-10 h-1 bg-[#1C6CA8]"
         />
       )}
     </div>

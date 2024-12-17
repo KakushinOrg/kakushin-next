@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <main
-      className="flex md:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[4rem] gap-12 2xl:px-[15rem]"
+      className="flex md:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[4rem] gap-12 2xl:px-[10rem]"
       id="home"
     >
       {/* <video
@@ -29,8 +29,8 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video> */}
 
-      <div className="relative z-10 text-center text-white">
-        <h2 className="titleTextLG text-[65px]">Our Story</h2>
+      <div className="relative z-10 text-left text-white">
+        <h2 className="text-[55px] text-gray-900">Our Story</h2>
         <p className="font-normal mt-12 text-gray-800 text-[18px] max-w-[55rem] text-left">
           At Kakushin, we specialize in empowering{" "}
           <span className="font-semibold text-[20px]">
@@ -44,20 +44,23 @@ const Hero = () => {
             {" "}
             sustainable growth.
           </span>{" "}
+        </p>
+        <p className="font-normal text-gray-800 text-[18px] max-w-[55rem] text-left">
           From MVP development and{" "}
           <span className="font-semibold text-[20px]">AI-driven </span>
           projects to branding and business strategy, we help turn ideas into
           impactful realities.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-row gap-4">
           <ComplexButton text="Contact Us" onClick={handleContactClick} />
+          <ComplexButton text="Launchpad" onClick={handleContactClick} />
         </div>
       </div>
       <div>
         <Image
           className="rounded-[35px] h-auto"
           src={hero_Image}
-          width={1200}
+          width={1300}
           height={750}
         />
       </div>

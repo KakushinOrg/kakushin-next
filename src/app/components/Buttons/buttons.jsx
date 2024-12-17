@@ -4,7 +4,7 @@ import styles from "./complexButton.module.css";
 
 export const ComplexButton = ({ text, onClick }) => {
   return (
-    <div className="min-h-fit flex items-center justify-center">
+    <div className="min-h-fit flex items-center justify-center w-fit">
       <ShinySkeuButton onClick={onClick} text={text} />
     </div>
   );
@@ -42,7 +42,7 @@ const ShinySkeuButton = ({ text, onClick }) => {
       <button
         onClick={onClick}
         ref={btnRef}
-        className={`overflow-hidden font-mono font-bold cursor-pointer text-white rounded px-4 py-2 bg-[radial-gradient(100%_100%_at_100%_0%,_#f0ce79_0%,_#dbad39_100%)] transition-[box-shadow_0.15s_ease,_transform_0.15s_ease] shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[inset_0px_3px_7px_#dbad39] ${styles.skeu}`}
+        className={`overflow-hidden font-bold cursor-pointer text-white rounded px-4 py-2 bg-[radial-gradient(100%_100%_at_100%_0%,_#3282F6_0%,_#1C6CA8_100%)] transition-[box-shadow_0.15s_ease,_transform_0.15s_ease] shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[inset_0px_3px_7px_#dbad39] ${styles.skeu}`}
       >
         {text}
       </button>

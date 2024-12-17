@@ -71,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#F7F7F7] md:mt-10 md:pt-8" id="contact-section">
+    <div className="bg-[#f4f4f7] md:mt-10 md:pt-8" id="contact-section">
       <div>
         <div className="w-full flex flex-col md:mb-20 mb-10">
           <h2 className="largeText mb-5 text-center">get in touch</h2>

@@ -1,63 +1,177 @@
 "use client";
 
 import React from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButton";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import useMeasure from "react-use-measure";
 import Image from "next/image";
+import projectImage from "/public/images/hero_Image.jpg";
+const CARD_WIDTH = 350;
+const MARGIN = 20;
+const CARD_SIZE = CARD_WIDTH + MARGIN;
 
-const EmblaCarousel = (props) => {
-  const { projects, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+const BREAKPOINTS = {
+  sm: 640,
+  lg: 1024,
+};
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
-  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
+const BlogPostCarousel = ({ projects }) => {
+  console.log(projects);
+  const [ref, { width }] = useMeasure();
+  const [offset, setOffset] = useState(0);
+
+  const CARD_BUFFER =
+    width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
+
+  const CAN_SHIFT_LEFT = offset < 0;
+
+  const CAN_SHIFT_RIGHT =
+    Math.abs(offset) < CARD_SIZE * (posts.length - CARD_BUFFER);
+
+  const shiftLeft = () => {
+    if (!CAN_SHIFT_LEFT) {
+      return;
+    }
+    setOffset((pv) => (pv += CARD_SIZE));
+  };
+
+  const shiftRight = () => {
+    if (!CAN_SHIFT_RIGHT) {
+      return;
+    }
+    setOffset((pv) => (pv -= CARD_SIZE));
+  };
 
   return (
-    <section className="project-embla">
-      <div className="project-embla__viewport px-4" ref={emblaRef}>
-        <div className="project-embla__container my-4">
-          {projects.map((project, index) => {
+    <section className="bg-[#f4f4f7] py-8" ref={ref}>
+      <div className="relative overflow-hidden p-4">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-center justify-between">
+            <h2 className="mb-4 text-4xl">The Team Blog</h2>
 
-            return (
-              <div className="project-embla__slide h-full transform transition-transform duration-300 hover:scale-105" key={index}>
-                <div className="bg-gray-100/80 p-6 rounded-lg shadow-md h-full flex flex-col justify-between">
-                  <Image
-                    src={project.src}
-                    alt={project.title}
-                    width={300}
-                    height={150}
-                    className="project-embla__image rounded-md mb-4"
-                    loading="lazy"
-                  />
-                  <h3 className="text-lg font-bold mb-2">{project.title}</h3>
-                  <p className="text-sm mb-4">{project.description}</p>
-                </div>
-              </div>
-
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="project-embla__controls px-2">
-        <div className="project-embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="project-embla__dots">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={`project-embla__dot ${index === selectedIndex ? 'project-embla__dot--selected' : ''}`}
-            />
-          ))}
+            <div className="flex items-center gap-2">
+              <button
+                className={`rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
+                  CAN_SHIFT_LEFT ? "" : "opacity-30"
+                }`}
+                disabled={!CAN_SHIFT_LEFT}
+                onClick={shiftLeft}
+              >
+                <FiArrowLeft />
+              </button>
+              <button
+                className={`rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
+                  CAN_SHIFT_RIGHT ? "" : "opacity-30"
+                }`}
+                disabled={!CAN_SHIFT_RIGHT}
+                onClick={shiftRight}
+              >
+                <FiArrowRight />
+              </button>
+            </div>
+          </div>
+          <motion.div
+            animate={{
+              x: offset,
+            }}
+            transition={{
+              ease: "easeInOut",
+            }}
+            className="flex"
+          >
+            {posts.map((post) => {
+              return <Post key={post.id} {...post} />;
+            })}
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-export default EmblaCarousel;
+const Post = ({ imgUrl, author, title, description }) => {
+  return (
+    <div
+      className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"
+      style={{
+        width: CARD_WIDTH,
+        marginRight: MARGIN,
+      }}
+    >
+      <Image
+        height={350}
+        width={350}
+        src={imgUrl}
+        className="mb-3 h-[200px] w-full rounded-lg object-cover"
+        alt={`An image for a fake blog post titled ${title}`}
+      />
+      <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
+        {author}
+      </span>
+      <p className="mt-1.5 text-lg font-medium">{title}</p>
+      <p className="text-sm text-neutral-500">{description}</p>
+    </div>
+  );
+};
+
+export default BlogPostCarousel;
+
+const posts = [
+  {
+    id: 1,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "John Anderson",
+    title: "We built an AI chess bot with ChatGPT",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 2,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Kyle Parsons",
+    title: "How to grow your personal brand as a web designer",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 3,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Andrea Bates",
+    title: "Calm down, monoliths are totally fine",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 4,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Jess Drum",
+    title: "A quick guide to Framer Motion (for dummies)",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 5,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Phil White",
+    title: "You probably don't need kubernetes",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 6,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Karen Peabody",
+    title: "State of JavaScript in 2024",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+  {
+    id: 7,
+    imgUrl: "/images/hero_Image.jpg",
+    author: "Dante Gordon",
+    title: "What's new in Python?",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+  },
+];
