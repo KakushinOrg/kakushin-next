@@ -11,7 +11,7 @@ const TabsFeatures = () => {
 
   return (
     <section className="p-4">
-      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-[30rem] px-4">
+      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-full px-0 md:px-4">
         {/* Render the tabs */}
         <Tabs selected={selected} setSelected={setSelected} />
 
@@ -56,7 +56,7 @@ const Tabs = ({ selected, setSelected }) => {
 
 const Tab = ({ selected, Icon, title, setSelected, tabNum }) => {
   return (
-    <div className="relative w-[20rem]">
+    <div className="relative w-[15rem] md:w-[20rem]">
       <button
         onClick={() => setSelected(tabNum)}
         className="relative z-0 flex w-full flex-row items-center justify-center gap-4 border-b-4 border-slate-200 bg-white p-6 transition-colors hover:bg-slate-100 md:flex-col min-h-40"

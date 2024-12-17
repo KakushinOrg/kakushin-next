@@ -14,21 +14,15 @@ const Hero = () => {
     }
   };
 
+  const handleLaunchpadClick = () => {
+    window.open("https://launchpad.kakushin.io", "_blank");
+  };
+
   return (
     <main
-      className="flex lg:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[4rem] gap-12 2xl:px-[10rem]"
+      className="flex lg:flex-row flex-col items-center justify-center my-36 md:my-64 bg-white relative md:px-[8rem] px-[2rem] gap-12 2xl:px-[10rem]"
       id="home"
     >
-      {/* <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/videos/landingPageVideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> */}
-
       <div className="relative z-10 text-left text-white">
         <h2 className="text-[55px] text-gray-900">Our Story</h2>
         <p className="font-normal mt-12 text-gray-800 text-[18px] max-w-[55rem] text-left">
@@ -53,7 +47,7 @@ const Hero = () => {
         </p>
         <div className="mt-10 flex flex-row gap-4">
           <ComplexButton text="Contact Us" onClick={handleContactClick} />
-          <ComplexButton text="Launchpad" onClick={handleContactClick} />
+          <ComplexButton text="Launchpad" onClick={handleLaunchpadClick} />
         </div>
       </div>
       <div>
