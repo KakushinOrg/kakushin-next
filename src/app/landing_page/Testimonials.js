@@ -91,7 +91,7 @@ const Testimonials = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
-    lazyLoad: 'ondemand', // Enable lazy loading
+    lazyLoad: "ondemand", // Enable lazy loading
     responsive: [
       {
         breakpoint: 1167,
@@ -109,29 +109,24 @@ const Testimonials = () => {
       },
     ],
   };
-  
 
   return (
     <div>
-    <section className="p-10 md:px-20 py-40 bg-[#F7F7F7] relative overflow-hidden">
-      <Image
-        className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
-        src={quote_right}
-        alt="quote-right"
-      />
-      <Image
-        className="absolute -top-[10%] right-[1rem] -rotate-[20deg] lg:h-[250px] md:h-[140px] w-auto hidden md:block"
-        src={quote_left}
-        alt="quote-left"
-      />
-      {/* text */}
-      <div className="text-center mb-14 md:mb-32">
-        <h2 className="largeText mb-4">Testimonials</h2>
-        <h2 className="titleTextLG">What our clients say</h2>
-      </div>
-      {/* carousel */}
-      <TestimonialCarousel />
-    </section>
+      <section className="py-10 md:py-40 bg-white relative overflow-hidden">
+        <Image
+          className="absolute -top-[10%] left-[1rem] w-auto rotate-[20deg] lg:h-[250px] md:h-[140px] hidden md:block"
+          src={quote_right}
+          alt="quote-right"
+        />
+        <Image
+          className="absolute -top-[10%] right-[1rem] -rotate-[20deg] lg:h-[250px] md:h-[140px] w-auto hidden md:block"
+          src={quote_left}
+          alt="quote-left"
+        />
+
+        {/* carousel */}
+        <TestimonialCarousel />
+      </section>
     </div>
   );
 };

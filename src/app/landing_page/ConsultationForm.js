@@ -1,48 +1,71 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
+import { ComplexButton } from "../components/Buttons/buttons";
+import emailjs from "@emailjs/browser";
 
 const ConsultationForm = () => {
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [consultationMethod, setConsultationMethod] = useState("");
+  const formRef = useRef();
+  const [formData, setFormData] = useState({
+    email: "",
+    website: "",
+    consultationMethod: "",
+  });
+  const [statusMessage, setStatusMessage] = useState("");
 
   const selections = [
-    {
-      label: "Receive Results via Email",
-    },
-    {
-      label: "30-Minute Free Consultation Call",
-    },
-    {
-      label: "1-Hour Consultation Call (€40)",
-    },
+    { label: "Receive Results via Email" },
+    { label: "30-Minute Free Consultation Call" },
+    { label: "1-Hour Consultation Call (€40)" },
   ];
 
-  // Define the common styles
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { email, website, consultationMethod } = formData;
+
+    // Simple Validation
+    if (!email || !website || !consultationMethod) {
+      setStatusMessage("Please fill in all fields.");
+      return;
+    }
+
+    // EmailJS Send Logic
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setStatusMessage(
+            "Your consultation request has been sent successfully!"
+          );
+          setFormData({ email: "", website: "", consultationMethod: "" });
+        },
+        (error) => {
+          setStatusMessage("Failed to send request. Please try again.");
+          console.error("EmailJS error:", error);
+        }
+      );
+  };
+
+  // Text Field Styles
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "#DAA520",
-      },
-      "&:hover fieldset": {
-        borderColor: "#DAA520",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#DAA520",
-      },
+      "& fieldset": { borderColor: "#1C6CA8" },
+      "&:hover fieldset": { borderColor: "#1C6CA8" },
+      "&.Mui-focused fieldset": { borderColor: "#1C6CA8" },
     },
-    "& .MuiInputLabel-root": {
-      color: "black",
-    },
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "black",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#DAA520",
-    },
+    "& .MuiInputLabel-root.Mui-focused": { color: "black" },
   };
 
   return (
@@ -58,31 +81,38 @@ const ConsultationForm = () => {
         </p>
       </div>
       <div>
-        <form className="flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-center md:mt-20 mt-10">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="flex flex-col md:flex-row gap-10 md:gap-5 items-center justify-center md:mt-20 mt-10"
+        >
           <TextField
+            id="email"
             label="Email"
             type="email"
             variant="standard"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
             sx={textFieldStyles}
           />
           <TextField
+            id="website"
             label="Website URL"
             type="url"
             variant="standard"
             required
-            onChange={(e) => setWebsite(e.target.value)}
+            value={formData.website}
+            onChange={handleChange}
             sx={textFieldStyles}
           />
           <TextField
-            id="outlined-select-currency"
+            id="consultationMethod"
             select
             label="Select"
             helperText="Select your preferred consultation method:"
-            value={consultationMethod}
-            onChange={(e) => setConsultationMethod(e.target.value)}
+            value={formData.consultationMethod}
+            onChange={handleChange}
             sx={textFieldStyles}
           >
             {selections.map((selection) => (
@@ -91,26 +121,24 @@ const ConsultationForm = () => {
               </MenuItem>
             ))}
           </TextField>
-          <Button
+          <ComplexButton
+            text="Send"
             aria-label="Submit consultation form"
-            sx={{
-              backgroundColor: "#DAA520",
-              borderRadius: "8px",
-              padding: "8px 20px",
-              fontSize: "15px",
-              fontWeight: "500",
-              "&:hover": {
-                backgroundColor: "#c9951c",
-              },
-            }}
-            type="submit"
             variant="contained"
-          >
-            Send
-          </Button>
-
-
+            onClick={handleSubmit}
+          />
         </form>
+        {statusMessage && (
+          <p
+            className={`mt-4 text-center ${
+              statusMessage.includes("success")
+                ? "text-green-500"
+                : "text-red-500"
+            }`}
+          >
+            {statusMessage}
+          </p>
+        )}
       </div>
     </section>
   );

@@ -2,32 +2,28 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="p-10 md:p-20 bg-[#F7F7F7]" id="about">
+    <section className="p-10 md:p-20 bg-[#f4f4f7]" id="about">
       <div className="flex flex-col gap-5 items-center justify-center mt-10 md:my-20 ">
         <h2 className="largeText mb-4 text-center">
           Where dreams become innovations
         </h2>
-        <h2 className="titleTextLG text-center mb-4">Kakushin</h2>
+        <h2 className="titleTextLG text-center mb-4">Who We Are</h2>
         <p className="paragraph">
-          Kakushin is dedicated to transforming startup dreams into tangible
-          successes. Our comprehensive suite of services, including BrandCraft
-          Tailored Triumph, LaunchPad Blitz, MVP Forge, and PivotPro Guidance,
-          ensures that every aspect of a startup's journey from concept to
-          market is meticulously catered to.{" "}
+          Our expertise extends across diverse sectors, including health tech,
+          EdTech, and environmental initiatives. We’re passionate about
+          supporting organizations that prioritize social impact,
+          sustainability, and innovation. Whether you’re launching a startup,
+          scaling a project, or pivoting your strategy, Kakushin partners with
+          you every step of the way to deliver measurable results.{" "}
         </p>
         <p className="paragraph">
-          We believe in the potential of every idea to innovate and disrupt, and
-          we commit ourselves fully to turn these ideas into reality.
-        </p>
-        <p className="paragraph">
-          By blending creativity with strategic execution, Kakushin acts as a
-          relentless ally to startups, helping them navigate challenges and
-          seize opportunities with precision and passion. We don't just support
-          startups; we elevate them, making their vision for innovation and
-          success a shared mission.{" "}
+          With a commitment to environmental awareness and socially responsible
+          practices, we believe in creating value not only for businesses but
+          also for the communities and ecosystems they serve. At Kakushin,
+          innovation meets purpose to transform visions into success stories.{" "}
         </p>
       </div>
-      <div className="flex flex-col gap-5 items-center justify-center mt-10 md:my-20 ">
+      {/* <div className="flex flex-col gap-5 items-center justify-center mt-10 md:my-20 ">
         <h2 className="titleTextLG text-center mb-4">Our Team</h2>
         <p className="paragraph">
           In the fast-paced startup ecosystem, our professionals—ranging from
@@ -45,7 +41,7 @@ const About = () => {
           challenges into scalable opportunities, making Kakushin the go-to
           partner for startups aiming to disrupt and lead in their industries.
         </p>
-      </div>
+      </div> */}
     </section>
   );
 };

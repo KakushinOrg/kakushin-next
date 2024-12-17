@@ -2,7 +2,11 @@
 
 import React, { useEffect, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButton";
+import {
+  NextButton,
+  PrevButton,
+  usePrevNextButtons,
+} from "./EmblaCarouselArrowButton";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 const TWEEN_FACTOR_BASE = 0.84;
@@ -22,7 +26,7 @@ const EmblaCarousel = (props) => {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
+    onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
   const setTweenFactor = useCallback((emblaApi) => {
@@ -33,7 +37,7 @@ const EmblaCarousel = (props) => {
     const engine = emblaApi.internalEngine();
     const scrollProgress = emblaApi.scrollProgress();
     const slidesInView = emblaApi.slidesInView();
-    const isScrollEvent = eventName === 'scroll';
+    const isScrollEvent = eventName === "scroll";
 
     emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
       let diffToTarget = scrollSnap - scrollProgress;
@@ -72,10 +76,10 @@ const EmblaCarousel = (props) => {
     setTweenFactor(emblaApi);
     tweenOpacity(emblaApi);
     emblaApi
-      .on('reInit', setTweenFactor)
-      .on('reInit', tweenOpacity)
-      .on('scroll', tweenOpacity)
-      .on('slideFocus', tweenOpacity);
+      .on("reInit", setTweenFactor)
+      .on("reInit", tweenOpacity)
+      .on("scroll", tweenOpacity)
+      .on("slideFocus", tweenOpacity);
   }, [emblaApi, tweenOpacity]);
 
   return (
@@ -85,8 +89,8 @@ const EmblaCarousel = (props) => {
           {testimonials.map((testimonial, index) => (
             <div className="testimonial-embla__slide" key={index}>
               <div className="relative flex flex-col items-center bg-[#f5ead3] shadow-sm rounded-lg p-10 mx-auto my-10 transform transition-transform duration-300 hover:scale-105">
-                <div className="absolute top-0 right-0 w-[4rem] h-[4rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute top-0 left-0 w-[2rem] h-[2rem] bg-[#F7F7F7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 right-0 w-[4rem] h-[4rem] bg-[#f4f4f7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute top-0 left-0 w-[2rem] h-[2rem] bg-[#f4f4f7] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
                 <p className="text-lg mb-4">{testimonial.text}</p>
                 <p className="font-semibold">- {testimonial.name}</p>
               </div>
@@ -106,7 +110,11 @@ const EmblaCarousel = (props) => {
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={`testimonial-embla__dot ${index === selectedIndex ? 'testimonial-embla__dot--selected' : ''}`}
+              className={`testimonial-embla__dot ${
+                index === selectedIndex
+                  ? "testimonial-embla__dot--selected"
+                  : ""
+              }`}
             />
           ))}
         </div>

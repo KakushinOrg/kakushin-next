@@ -1,13 +1,13 @@
-import React from 'react'; 
-import './embla.css';
-import EmblaCarousel from './EmblaCarousel';
+import React from "react";
+import "./embla.css";
+import BlogPostCarousel from "./EmblaCarousel";
 
-const OPTIONS = {slidesToScroll: 'auto' }
+const OPTIONS = { slidesToScroll: "auto" };
 
 const ProjectCarousel = ({ projects }) => (
-    <>
-      <EmblaCarousel projects={projects} options={OPTIONS} />
-    </>
+  <>
+    <BlogPostCarousel projects={projects} options={OPTIONS} />
+  </>
 );
 
 export default ProjectCarousel;

@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/components/Logo";
 
-const menuItems = ["Home", "About", "Services", "Projects", "Contact"];
+const menuItems = [
+  "Home",
+  "About",
+  "Services",
+  "Industry Verticals",
+  "Contact",
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
