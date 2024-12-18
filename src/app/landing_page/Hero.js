@@ -8,7 +8,7 @@ import { ComplexButton } from "@/app/components/Buttons/buttons";
 
 const Hero = () => {
   const handleContactClick = () => {
-    const contactEl = document.getElementById("contact-section");
+    const contactEl = document.getElementById("contact");
     if (contactEl) {
       contactEl.scrollIntoView({ behavior: "smooth" });
     }

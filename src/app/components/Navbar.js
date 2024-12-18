@@ -3,13 +3,15 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/components/Logo";
+import Link from "next/link";
 
-const menuItems = [
-  "Home",
-  "About",
-  "Services",
-  "Industry Verticals",
-  "Contact",
+const menuLinks = [
+  { name: "Home", link: "/" },
+  { name: "About", link: "/#about" },
+  { name: "Services", link: "/#services" },
+  { name: "Industry Verticals", link: "/#industry-verticals" },
+  { name: "Blogs", link: "/#blogs" },
+  { name: "Contact", link: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -40,6 +42,7 @@ const Navbar = () => {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
+    setIsOpen(false);
   };
 
   const menuVariants = {
@@ -55,7 +58,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between bg-gray-100/80 text-white px-10 md:px-20 lg:px-60 z-50 ${
+      className={`flex items-center justify-between bg-gray-100/80 text-white p-4 md:px-20 lg:px-60 z-[999] ${
         isScrolled ? "py-4" : "py-6"
       } fixed top-0 left-0 w-full transition-all duration-300`}
     >
@@ -70,59 +73,39 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.ul
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 20 }}
-            exit={{ opacity: 0, y: -10 }} // Exit transition
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className={`flex flex-col absolute bg-gray-100/80 w-full left-0 top-14 p-4 text-black ${
-              isOpen ? "block" : "hidden"
-            } md:hidden`}
+            className={`flex flex-col absolute bg-gray-100/80 w-full left-0 top-10 p-4 text-black md:hidden`}
           >
-            {menuItems.map((item) => (
-              <li key={item} className="py-2 font-medium pl-2">
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScrollToSection(item.toLowerCase());
-                  }}
-                >
-                  {item}
-                </a>
+            {menuLinks.map((item) => (
+              <li key={item.name} className="py-2 font-medium pl-2">
+                <Link href={item.link}  onClick={() => setIsOpen(false)}>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </motion.ul>
         )}
       </AnimatePresence>
 
-      {/* Desktop Menu */}
       <ul className="hidden md:flex md:flex-row md:space-x-6 text-black">
-        {menuItems.map((item, index) => (
+        {menuLinks.map((item, index) => (
           <motion.li
-            key={item}
+            key={item.name}
             className="py-2 md:py-0 font-medium"
             custom={index}
             initial="hidden"
             animate="visible"
             variants={menuVariants}
           >
-            <a
-              href={`#${item.toLowerCase()}`}
-              onClick={(e) => {
-                e.preventDefault();
-                if (item === "Home") {
-                  window.location.href = "/";
-                } else {
-                  handleScrollToSection(item.toLowerCase());
-                }
-              }}
-            >
-              {item}
-            </a>
+            <Link href={item.link}  onClick={() => setIsOpen(false)}>
+              {item.name}
+            </Link>
           </motion.li>
         ))}
       </ul>
