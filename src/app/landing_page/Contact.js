@@ -4,7 +4,6 @@ import mailimage from "../../../public/images/kakushin-gmail.png";
 import Image from "next/image";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import emailjs from "emailjs-com";
 import { ComplexButton } from "../components/Buttons/buttons";
 
@@ -12,6 +11,9 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [everything, setEverything] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+  const [isFormVisible, setFormVisible] = useState(true);
 
   const textFieldStyles = {
     "& .MuiOutlinedInput-root": {
@@ -36,9 +38,6 @@ const Contact = () => {
     },
   };
 
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -57,15 +56,20 @@ const Contact = () => {
       )
       .then(
         (response) => {
-          alert("Message Sent Successfully!");
-          // Reset form fields
+          setMessageType("success");
+          setStatusMessage("Your message has been sent successfully!");
+          setFormVisible(false);
+          setTimeout(() => {
+            setFormVisible(true);
+            setStatusMessage("");
+          }, 5000);
           setName("");
           setMail("");
           setEverything("");
         },
         (error) => {
-          console.error("FAILED...", error);
-          alert("Message Sending Failed!");
+          setMessageType("error");
+          setStatusMessage("Message sending failed. Please try again later.");
         }
       );
   };
@@ -79,41 +83,55 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
-          <form
-            className="flex flex-col md:flex-row justify-center items-end gap-10"
-            onSubmit={handleSubmit}
-          >
-            <TextField
-              label="Your Name"
-              type="text"
-              variant="standard"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              sx={textFieldStyles}
-            />
-            <TextField
-              label="Email"
-              type="email"
-              variant="standard"
-              required
-              value={mail}
-              onChange={(e) => setMail(e.target.value)}
-              sx={textFieldStyles}
-            />
-            <TextField
-              label="Tell Us Everything"
-              type="text"
-              variant="standard"
-              required
-              value={everything}
-              onChange={(e) => setEverything(e.target.value)}
-              sx={textFieldStyles}
-            />
-            <div className="flex items-center flex-col">
-              <ComplexButton type="submit" variant="contained" text="Send" />
+          {!isFormVisible && (
+            <div
+              className={`${
+                messageType === "success"
+                  ? "bg-green-100 border-green-500 text-green-700"
+                  : "bg-red-100 border-red-500 text-red-700"
+              } border-2 px-4 py-3 rounded w-3/4 text-center`}
+            >
+              <p>{statusMessage}</p>
             </div>
-          </form>
+          )}
+
+          {isFormVisible && (
+            <form
+              className="flex flex-col md:flex-row justify-center items-end gap-10"
+              onSubmit={handleSubmit}
+            >
+              <TextField
+                label="Your Name"
+                type="text"
+                variant="standard"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                sx={textFieldStyles}
+              />
+              <TextField
+                label="Email"
+                type="email"
+                variant="standard"
+                required
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                sx={textFieldStyles}
+              />
+              <TextField
+                label="Tell Us Everything"
+                type="text"
+                variant="standard"
+                required
+                value={everything}
+                onChange={(e) => setEverything(e.target.value)}
+                sx={textFieldStyles}
+              />
+              <div className="flex items-center flex-col">
+                <ComplexButton type="submit" variant="contained" text="Send" />
+              </div>
+            </form>
+          )}
         </div>
 
         <div className="py-24 flex flex-wrap flex-col gap-10 items-center md:flex-row md:items-start md:justify-evenly">
