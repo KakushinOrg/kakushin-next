@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/components/Logo";
-import Link from "next/link"; // Import Next.js Link
+import Link from "next/link";
 
 const menuLinks = [
   { name: "Home", link: "/" },
