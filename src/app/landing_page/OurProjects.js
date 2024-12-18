@@ -61,7 +61,7 @@ let projects = [
 
 const OurProjects = () => {
   return (
-    <section className="md:p-20 py-10 px-4 bg-[#f4f4f7]" id="projects">
+    <section className="md:p-20 py-10 px-4 bg-[#f4f4f7]" id="industry-verticals">
       {/* title */}
       <div className="text-center mb-14 md:mb-32">
         <h2 className="largeText mb-4">we do magic</h2>
