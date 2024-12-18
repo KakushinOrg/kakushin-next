@@ -35,7 +35,7 @@ export const Achievements = () => {
     <div className="border-gray-100 border-y-2 bg-[#f4f4f7]">
       <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
         <div className="text-center mb-14 md:mb-32">
-          <h2 className="largeText mb-4">Our Achivements,</h2>
+          <h2 className="largeText mb-4">Our Achievements,</h2>
           <h2 className="titleTextLG">So Far</h2>
         </div>
         <div className="flex flex-col items-center justify-center sm:flex-row">

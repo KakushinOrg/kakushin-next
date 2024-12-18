@@ -157,20 +157,25 @@ const Contact = () => {
           <div className="flex flex-wrap flex-col items-center">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
+                onClick={() => window.open("mailto:iokakushin@gmail.com")}
                 alt="Email"
-                className="icons"
+                className="icons hover:cursor-pointer"
                 src="/icons/email.svg"
                 width={30}
                 height={30}
               />
             </div>
             <h2 className="mt-5">Mail Us</h2>
-            <Image width={150} height={150} src={mailimage} alt="Mail Us" />
+            <p className="text-blue-900 underline">
+              <a href="mailto:iokakushin@gmail.com">Send email</a>
+            </p>
           </div>
 
           <div className="flex flex-wrap flex-col items-center">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
+                className="hover:cursor-pointer"
+                onClick={() => window.open("https://wa.me/35796590911")}
                 alt="Whatsapp"
                 src="/icons/whatsapp.svg"
                 width={30}
