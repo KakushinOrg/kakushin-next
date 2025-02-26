@@ -116,3 +116,89 @@ body {
 .custom-fill {
   fill: #1e74b4;
 }
+
+/* scrollbar effect */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Small width */
+  height: 6px;
+  border-radius: 6px;
+  background: transparent; /* Hidden by default */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3); /* Subtle color */
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6); /* Darker on hover */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.dark {
+  background-color: #1a202c !important;
+  color: #ffffff !important;
+}
+
+html.dark body,
+html.dark div,
+html.dark main,
+html.dark aside,
+html.dark h1,
+html.dark h6,
+html.dark span,
+html.dark section,
+html.dark label,
+html.dark input,
+html.dark ul,
+html.dark p,
+html.dark form,
+html.dark h3,
+html.dark li,
+html.dark button {
+  background-color: #1a202c !important;
+  color: #ffffff !important;
+}
+html.dark h2 {
+  color: #ffffff !important;
+}
+html.dark div li button {
+  border: 2px solid #6e6e6e !important;
+}
+html.dark div li button:hover {
+  border: 2px solid #ce3838 !important; /* Ensure border is visible */
+  background-color: rgba(206, 56, 56, 0.1); /* Optional: Light red background */
+}
+
+
+html.dark main div div div p {
+  color: #ffffff !important;
+
+}
+html.dark form  input{
+  color: #ffffff !important;
+
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #2d3748a2;
+}

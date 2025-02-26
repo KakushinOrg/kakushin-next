@@ -58,11 +58,26 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between bg-gray-100/80 text-white p-4 md:px-20 lg:px-60 z-[999] ${
-        isScrolled ? "py-4" : "py-6"
-      } fixed top-0 left-0 w-full transition-all duration-300`}
+      className={`flex items-center justify-between text-white p-4 md:px-20 lg:px-60 z-[999] ${isScrolled ? "py-4" : "py-6"
+        } fixed top-0 left-0 w-3/4 transition-all duration-300`}
     >
       <div className="text-xl font-bold">
+        <Logo />
+      </div>
+
+      {/* Social Icons */}
+      <div className="flex space-x-4">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
+        </a>
+      </div>
+      {/* <div className="text-xl font-bold">
         <Logo />
       </div>
       <div className="md:hidden" onClick={toggleMenu}>
@@ -108,7 +123,7 @@ const Navbar = () => {
             </Link>
           </motion.li>
         ))}
-      </ul>
+      </ul> */}
     </nav>
   );
 };

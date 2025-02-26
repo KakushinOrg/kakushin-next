@@ -58,7 +58,7 @@ const Hero = () => {
           height={750}
         />
       </div>
-      <div className="absolute !z-99999999">
+      {/* <div className="absolute !z-99999999">
         <Link
           className="fixed right-3 bottom-5 md:right-8 md:bottom-10"
           href="https://wa.me/35796590911"
@@ -67,7 +67,7 @@ const Hero = () => {
         >
           <Image alt="Whatsapp" src={Whatsapp} width={40} height={40} />
         </Link>
-      </div>
+      </div> */}
     </main>
   );
 };
