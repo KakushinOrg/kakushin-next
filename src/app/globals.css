@@ -165,9 +165,9 @@ html.dark span,
 html.dark section,
 html.dark label,
 html.dark input,
+html.dark form,
 html.dark ul,
 html.dark p,
-html.dark form,
 html.dark h3,
 html.dark li,
 html.dark button {
@@ -193,6 +193,12 @@ html.dark main div div div p {
 html.dark form  input{
   color: #ffffff !important;
 
+}
+html.dark div img {
+  background-image: url("/public/icons/asiD.png");
+}
+html.dark div div div form TextField{
+  color: white !important ;
 }
 
 html.dark ::-webkit-scrollbar-thumb {

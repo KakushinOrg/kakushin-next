@@ -44,7 +44,7 @@ export default function RightSideNavigation() {
         <>
 
             <div className="w-12 h-12 flex items-center justify-center mb-6">
-                <img src="../../icons/youtube.svg" alt="Logo" className="w-full h-full object-contain" />
+                <img src="../../icons/asiL.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
 
             <div className="flex flex-col items-center space-y-6 flex-1 justify-center">
@@ -56,15 +56,19 @@ export default function RightSideNavigation() {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
                         {menuLinks.map((item) => (
-                            <li key={item.name} className="py-2 pl-2">
-                                <button
-                                    onClick={() => setActiveTab(item.name)}
-                                    className={`p-2 rounded-full ${activeTab === item.name ? "bg-gray-300 hover:bg-gray-400" : "hover:bg-gray-300 hover:bg-gray-300"}`}
-                                >
-                                    <Link href={item.link}>{item.icon}</Link>
-                                </button>
+                            <li key={item.name} className="py-2 pl-2 relative group flex items-center">
+                            <button
+                                onClick={() => setActiveTab(item.name)}
+                                className={`p-2 rounded-full ${activeTab === item.name ? "bg-gray-300 hover:bg-gray-400" : "hover:bg-gray-300"
+                                    }`}
+                            >
+                                <Link href={item.link}>{item.icon}</Link>
+                            </button>
+                            <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                {item.name}
+                            </span>
+                        </li>
 
-                            </li>
                         ))}
                     </motion.ul>
                 </AnimatePresence>
