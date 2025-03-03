@@ -8,6 +8,8 @@ import Contact from "./landing_page/Contact";
 import dynamic from "next/dynamic";
 import TestimonialCarousel from "./components/TestimonialCarousel/testimonialCarousel";
 import MainLandingPage from "./landing_page/MainLandingPage";
+import { BlogProvider } from "@/app/context/blogContext";
+
 const ConsultationForm = dynamic(() =>
   import("./landing_page/ConsultationForm")
 );
@@ -40,19 +42,20 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="">
-      <MainLandingPage/>
-      <Hero />
-
-      <About />
-      <OurServices />
-      <OurProjects />
-      {/* <SuccessSolutions /> */}
-      {/* <ConsultationForm /> */}
-      <Testimonials />
-      <Achievements />
-      <BlogsSection />
-      <Contact />
-    </div>
+    <BlogProvider>
+      <div className="overflow-x-hidden">
+        <MainLandingPage />
+        <Hero />
+        <About />
+        <OurServices />
+        <OurProjects />
+        {/* <SuccessSolutions /> */}
+        {/* <ConsultationForm /> */}
+        <Testimonials />
+        <Achievements />
+        <BlogsSection />
+        <Contact />
+      </div>
+    </BlogProvider>
   );
 }

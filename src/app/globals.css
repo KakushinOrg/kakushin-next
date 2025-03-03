@@ -12,6 +12,7 @@ html {
 }
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @layer utilities {
@@ -144,11 +145,9 @@ body {
   background: transparent;
 }
 
-
 html {
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 .dark {
   background-color: #1a202c !important;
@@ -185,19 +184,16 @@ html.dark div li button:hover {
   background-color: rgba(206, 56, 56, 0.1); /* Optional: Light red background */
 }
 
-
 html.dark main div div div p {
   color: #ffffff !important;
-
 }
-html.dark form  input{
+html.dark form input {
   color: #ffffff !important;
-
 }
 html.dark div img {
   background-image: url("/public/icons/asiD.png");
 }
-html.dark div div div form TextField{
+html.dark div div div form TextField {
   color: white !important ;
 }
 
