@@ -14,7 +14,7 @@ const AboutUsItem = ({ params }) => {
               </p>
               <p></p>
             </div>
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start justify-center">
               <div className="">
                 {/* <h3 className="text-gray-700 font-semibold text-3xl mb-4 text-center">
                   {params.arrayTitle}
