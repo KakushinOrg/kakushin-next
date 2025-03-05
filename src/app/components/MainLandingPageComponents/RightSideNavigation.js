@@ -16,12 +16,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 const menuLinks = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "/#about" },
-  { name: "Services", link: "/#services" },
-  { name: "Industry Verticals", link: "/#industry-verticals" },
-  { name: "Blogs", link: "/#blogs" },
-  { name: "Contact", link: "/#contact" },
+  { name: "Home", link: "innovation" },
+  { name: "About", link: "about" },
+  { name: "Services", link: "services" },
+  { name: "Industry Verticals", link: "industry-vertical" },
+  { name: "Blogs", link: "blogs" },
+  { name: "Contact", link: "contact" },
 ];
 
 const iconMap = {
@@ -33,10 +33,10 @@ const iconMap = {
   Contact: <PhoneCallIcon size={24} />,
 };
 
-export default function RightSideNavigation() {
+export default function RightSideNavigation({ setSelectedChat }) {
   const [activeTab, setActiveTab] = useState("Home");
   const [darkMode, setDarkMode] = useState(false);
-  // Ref to track manual navigation state
+
   const manualNavigationRef = useRef(false);
 
   // Load theme from localStorage (default: light)
@@ -60,7 +60,6 @@ export default function RightSideNavigation() {
     setDarkMode(!darkMode);
   };
 
-  // Helper to extract section ID from link or fallback to lower-case name
   const getSectionId = (item) => {
     if (item.link.includes("#")) {
       return item.link.split("#")[1];
@@ -68,10 +67,8 @@ export default function RightSideNavigation() {
     return item.name.toLowerCase();
   };
 
-  // Scroll spy: update active tab when scrolling to a section
   useEffect(() => {
     const handleIntersect = (entries) => {
-      // If manual navigation is active, ignore scroll events
       if (manualNavigationRef.current) return;
 
       entries.forEach((entry) => {
@@ -103,7 +100,8 @@ export default function RightSideNavigation() {
 
   // Handle click: set manual flag and update active tab
   const handleClick = (item) => {
-    manualNavigationRef.current = true;
+    //manualNavigationRef.current = true;
+    setSelectedChat(item.link);
     setActiveTab(item.name);
     // Reset the flag after a short delay to re-enable the scroll spy
     setTimeout(() => {
@@ -145,14 +143,12 @@ export default function RightSideNavigation() {
                         }}
                       />
                     )}
-                    <Link href={item.link}>
                       <button
                         onClick={() => handleClick(item)}
                         className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-300"
                       >
                         {iconMap[item.name]}
                       </button>
-                    </Link>
                     <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                       {item.name}
                     </span>

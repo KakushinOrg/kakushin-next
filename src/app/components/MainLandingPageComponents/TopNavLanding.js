@@ -9,7 +9,6 @@ export default function TopNavLanding() {
                 <Logo />
             </div>
 
-            {/* Social Icons */}
             <div className="flex space-x-4">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                     <img src="/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />

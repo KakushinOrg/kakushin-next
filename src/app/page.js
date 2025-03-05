@@ -45,15 +45,14 @@ export default function Home() {
     <BlogProvider>
       <div className="overflow-x-hidden">
         <MainLandingPage />
-        <Hero />
+        {/* <Hero />
         <About />
         <OurServices />
-        <OurProjects />
-        {/* <SuccessSolutions /> */}
-        {/* <ConsultationForm /> */}
-        <Testimonials />
-        <Achievements />
-        <BlogsSection />
+        <OurProjects /> */}
+        {/* <Testimonials /> */}
+        {/* <Achievements /> */}
+        {/* <BlogsSection /> */}
+        {/* Remove this one if we donot want to keep the scroll one */}
         <Contact />
       </div>
     </BlogProvider>
