@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={`${lato.variable} antialiased`}>
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

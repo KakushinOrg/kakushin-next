@@ -53,7 +53,7 @@ export default function Home() {
         {/* <Achievements /> */}
         {/* <BlogsSection /> */}
         {/* Remove this one if we donot want to keep the scroll one */}
-        <Contact />
+        {/* <Contact /> */}
       </div>
     </BlogProvider>
   );
