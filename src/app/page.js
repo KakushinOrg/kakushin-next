@@ -45,10 +45,10 @@ export default function Home() {
     <BlogProvider>
       <div className="overflow-x-hidden">
         <MainLandingPage />
-        {/* <Hero />
-        <About />
-        <OurServices />
-        <OurProjects /> */}
+        {/* <Hero /> */}
+        {/* <About /> */}
+        {/* <OurServices /> */}
+        {/* <OurProjects /> */}
         {/* <Testimonials /> */}
         {/* <Achievements /> */}
         {/* <BlogsSection /> */}

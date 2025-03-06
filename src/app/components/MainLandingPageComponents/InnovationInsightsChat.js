@@ -143,23 +143,20 @@ export default function InnovationInsightsChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full ${
-            isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
-          } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+          className={`w-full ${isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
+            } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`flex ${
-                msg.sender === "user" ? "justify-end" : "justify-start"
-              } items-start`}
+              className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"
+                } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-2/5 ${
-                  msg.sender === "user"
-                    ? "bg-blue-100 text-blue-900 border rounded-full"
-                    : "bg-gray-100 text-gray-900 border rounded-full"
-                }`}
+                className={`p-2 rounded-lg w-2/5 ${msg.sender === "user"
+                  ? "bg-blue-100 text-blue-900 border rounded-full"
+                  : "bg-gray-100 text-gray-900 border rounded-full"
+                  }`}
               >
                 <p>
                   <b>{msg.sender === "user" ? "" : "Kakushin AI: "}</b>
@@ -181,11 +178,10 @@ export default function InnovationInsightsChat() {
             <button
               key={index}
               onClick={(e) => handleUserMessage(text, e)}
-              className={`px-4 py-2 border rounded-full shadow ${
-                isThinking
-                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-white hover:bg-gray-200"
-              }`}
+              className={`px-4 py-2 border rounded-full shadow ${isThinking
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-white hover:bg-gray-200"
+                }`}
               disabled={isThinking}
             >
               {text}
@@ -201,6 +197,8 @@ export default function InnovationInsightsChat() {
       </main>
 
       <aside className="w-1/4 bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+        {/* Change the heading name like the following so that all can look alike for about us section as well */}
+        <h2 className="titleTextLG text-center mb-5">Innovation Insights</h2>
         <ChatList selectedCategory="innovation" />
       </aside>
     </>

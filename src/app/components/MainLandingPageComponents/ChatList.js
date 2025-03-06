@@ -16,7 +16,7 @@ export default function ChatList({ selectedCategory }) {
   }
 
   const categoryMap = {
-    innovation: "Innovation Insights",
+    innovation: "",
     aboutus: "About Us",
     services: "Our Services",
     industry: "Industry Vertical",
@@ -41,7 +41,7 @@ export default function ChatList({ selectedCategory }) {
   return (
     <>
       <h1 className="text-xl mb-3">
-        {categoryMap[selectedCategory] || "Innovation Insights"}
+        {categoryMap[selectedCategory] || ""}
       </h1>
       <input
         type="text"

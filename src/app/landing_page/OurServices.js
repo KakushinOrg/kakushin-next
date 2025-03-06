@@ -4,16 +4,16 @@ import TabsFeatures from "@/app/components/TabComponent/tabComponent";
 
 const OurServices = () => {
   return (
-    <section className="py-16 md:px-0 px-4" id="services">
-      <div className="flex gap-4 flex-col items-center px-5">
-        <h2 className="titleTextLG text-center mb-4">What We Do</h2>
-        <h6 className="my-2 max-w-xl text-center text-gray-800">
+    <section className="w-full" id="services">
+      {/* <div className="flex flex-col items-center px-5"> */}
+        {/* <h2 className="titleTextLG text-center mb-4">What We Do</h2> */}
+        {/* <h6 className="my-2 max-w-xl text-center text-gray-800">
           At Kakushin, we recognize that your journey is unique, and so are your
           goals. That’s why we offer a comprehensive range of services designed
           to empower your business and bring your vision to life.
-        </h6>
+        </h6> */}
         <p></p>
-      </div>
+      {/* </div> */}
       <TabsFeatures />
     </section>
   );

@@ -43,10 +43,10 @@ const BlogPostCarousel = () => {
   };
 
   return (
-    <section className="bg-[#f4f4f7] py-8" ref={ref}>
-      <div className="relative overflow-hidden p-4">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center justify-between">
+    <section className="bg-transparent" ref={ref}>
+      <div className="relative overflow-hidden p-3">
+        {/* <div className="mx-auto max-w-6xl"> */}
+          {/* <div className="flex items-center justify-between">
             <h2 className="mb-4 text-4xl">The Team Blog</h2>
 
             <div className="flex items-center gap-2">
@@ -69,8 +69,8 @@ const BlogPostCarousel = () => {
                 <FiArrowRight />
               </button>
             </div>
-          </div>
-          <motion.div
+          </div> */}
+          {/* <motion.div
             animate={{
               x: offset,
             }}
@@ -82,9 +82,23 @@ const BlogPostCarousel = () => {
             {posts.map((post) => {
               return <Post key={post.id} {...post} />;
             })}
+          </motion.div> */}
+          <motion.div
+            animate={{
+              y: offset, // Animate vertically instead of horizontally
+            }}
+            transition={{
+              ease: "easeInOut",
+            }}
+            className="flex flex-col" // Stack posts vertically
+          >
+            {posts.map((post) => (
+              <Post key={post.id} {...post} />
+            ))}
           </motion.div>
-        </div>
-      </div>
+
+        {/* </div>*/}
+      </div> 
     </section>
   );
 };

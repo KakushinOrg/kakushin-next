@@ -4,11 +4,11 @@ import Accordion from "@/app/components/AboutUsAccordion/Accordion";
 const AboutUsItem = ({ params }) => {
   return (
     <div>
-      <main className="justify-center items-center flex my-10 md:my-28 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-48 2xl:px-60">
+      <main className="w-full mt-5">
         <section className="">
           <div id="empowering-startup" className="">
             <div className="flex gap-4 flex-col items-center">
-              <h2 className="title mb-5">{params.title}</h2>
+              <h1 className="text-2xl font-bold text-center">{params.title}</h1>
               <p className="my-2 text-[#434343] text-center">
                 {params.subTitle}
               </p>
