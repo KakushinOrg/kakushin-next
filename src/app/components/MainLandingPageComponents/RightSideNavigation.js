@@ -111,9 +111,9 @@ export default function RightSideNavigation({ setSelectedChat }) {
 
   return (
     <>
-      <div className="w-12 h-12 flex items-center justify-center mb-6">
+      <div className="w-12 h-12 flex mt-1 items-center justify-center mb-6">
         <img
-          src="../../icons/asiL.png"
+          src="../../icons/asiL.svg"
           alt="Logo"
           className="w-full h-full object-contain"
         />
@@ -143,12 +143,12 @@ export default function RightSideNavigation({ setSelectedChat }) {
                         }}
                       />
                     )}
-                      <button
-                        onClick={() => handleClick(item)}
-                        className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-300"
-                      >
-                        {iconMap[item.name]}
-                      </button>
+                    <button
+                      onClick={() => handleClick(item)}
+                      className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-300"
+                    >
+                      {iconMap[item.name]}
+                    </button>
                     <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                       {item.name}
                     </span>

@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body className={`${lato.variable} antialiased`}>
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         {/* <Footer /> */}
       </body>

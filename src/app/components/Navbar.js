@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/app/components/Logo";
 import Link from "next/link";
 
+// todo: cleanup
 const menuLinks = [
   { name: "Home", link: "/" },
   { name: "About", link: "/#about" },
@@ -14,7 +15,7 @@ const menuLinks = [
   { name: "Contact", link: "/#contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ isExpanded }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,6 +23,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // TODO: Remove the scroll its not need if we wont scorll anyway....
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -57,13 +59,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`flex items-center justify-between text-white p-4 md:px-20 lg:px-60 z-[999] bg-transparent ${
-        isScrolled
-        ? "py-4 w-full pr-16 bg-white border-b-2 border-[#e5e7eb] "
-        : "py-6 bg-transparent"
-      } fixed top-0 left-0 w-3/4 transition-all duration-300`}
-      >
+    <section
+      className={`flex items-center justify-between text-white ${
+        isExpanded ? "py-3" : "py-5"
+      } md:px-20 lg:pl-40 lg:pr-10 z-[999] bg-transparent bg-white shadow-sm w-full`}
+    >
       <div className="text-xl font-bold">
         <Logo />
       </div>
@@ -73,22 +73,22 @@ const Navbar = () => {
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
-          >
-          <img src="/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />
+        >
+          <img src="/icons/facebook.svg" alt="Facebook" className="w-4 h-4" />
         </a>
         <a
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
-          >
-          <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+        >
+          <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-4 h-4" />
         </a>
         <a
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          >
-          <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
+        >
+          <img src="/icons/instagram.svg" alt="Instagram" className="w-4 h-4" />
         </a>
       </div>
       {/* <div className="text-xl font-bold">
@@ -138,7 +138,7 @@ const Navbar = () => {
                 </motion.li>
                 ))}
                 </ul> */}
-    </nav>
+    </section>
   );
 };
 

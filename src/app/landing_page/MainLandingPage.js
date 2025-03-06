@@ -13,7 +13,6 @@ import BlogsChat from "../components/MainLandingPageComponents/BlogsChat";
 import { X, Menu } from "lucide-react";
 
 export default function MainLandingPage() {
-
   const [showPopup, setShowPopup] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedChat, setSelectedChat] = useState("innovation");
@@ -21,7 +20,9 @@ export default function MainLandingPage() {
   return (
     <div className="flex h-screen bg-gray-100 relative">
       {showPopup && <AnimatedPopup onClose={() => setShowPopup(false)} />}
-      {selectedChat === "innovation" && <InnovationInsightsChat />}
+      {selectedChat === "innovation" && (
+        <InnovationInsightsChat showPopup={showPopup} />
+      )}
       {selectedChat === "services" && <ServicesChat />}
       {selectedChat === "about" && <AboutUsChat />}
       {selectedChat === "industry-vertical" && <IndustryVerticalChat />}
@@ -48,8 +49,9 @@ export default function MainLandingPage() {
 
         <aside
           className={`md:w-16 bg-white flex flex-col items-center border-l z-[999] right-0 top-0 h-full fixed transition-transform duration-300 
-                ${showSidebar ? "translate-x-0" : "translate-x-full"
-            } lg:translate-x-0`}
+                ${
+                  showSidebar ? "translate-x-0" : "translate-x-full"
+                } lg:translate-x-0`}
         >
           <RightSideNavigation setSelectedChat={setSelectedChat} />
         </aside>
