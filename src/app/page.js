@@ -1,3 +1,4 @@
+// todo cleanup unusded imports
 import Hero from "./landing_page/Hero";
 import About from "./landing_page/About";
 import OurServices from "./landing_page/OurServices";
@@ -45,6 +46,7 @@ export default function Home() {
     <BlogProvider>
       <div className="overflow-x-hidden">
         <MainLandingPage />
+        {/* todo: cleanup */}
         {/* <Hero /> */}
         {/* <About /> */}
         {/* <OurServices /> */}

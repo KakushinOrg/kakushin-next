@@ -113,8 +113,8 @@ export default function BlogsChat() {
         <div className="lg:mt-6">
           <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
           <p className="text-gray-600 my-2">
-            In This section you will can learn about the services that we provide, what we do you can ask
-            more question if you have any
+            In This section you will can learn about the services that we
+            provide, what we do you can ask more question if you have any
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default function BlogsChat() {
         />
       </main>
 
-      <aside className="w-1/4 bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="w-[30%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <ChatList selectedCategory="blogs" />
       </aside>
     </>

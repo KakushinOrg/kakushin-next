@@ -1,18 +1,42 @@
 .boxWhiteMorph {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transform-origin: center;
+  will-change: transform, box-shadow;
 }
 
 .boxWhiteMorph:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.description {
-  max-height: 3em;
-  overflow-y: scroll;
-  transition: max-height 0.5s ease;
+/* Animate the description with smooth transitions */
+.blog-description {
+  position: relative;
+  max-height: 3.6em;
+  overflow: hidden;
+  opacity: 0.85;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.boxWhiteMorph:hover .description {
+.boxWhiteMorph:hover .blog-description {
   max-height: 250px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+/* Add a fade effect at the bottom of truncated text */
+.blog-description::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1.5em;
+  background: linear-gradient(to bottom, transparent, white);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.boxWhiteMorph:hover .blog-description::after {
+  opacity: 0;
 }

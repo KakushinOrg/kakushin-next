@@ -211,9 +211,7 @@ export default function InnovationInsightsChat() {
         />
       </main>
 
-      <aside className="w-1/4 bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
-        {/* Change the heading name like the following so that all can look alike for about us section as well */}
-        <h2 className="titleTextLG text-center mb-5">Innovation Insights</h2>
+      <aside className="w-[30%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <ChatList selectedCategory="innovation" />
       </aside>
     </>

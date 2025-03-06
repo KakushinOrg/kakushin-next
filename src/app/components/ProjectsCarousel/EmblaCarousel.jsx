@@ -7,7 +7,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import useMeasure from "react-use-measure";
 import Image from "next/image";
 
-const CARD_WIDTH = 350;
+const CARD_WIDTH = 400;
 const MARGIN = 20;
 const CARD_SIZE = CARD_WIDTH + MARGIN;
 
@@ -46,7 +46,7 @@ const BlogPostCarousel = () => {
     <section className="bg-transparent" ref={ref}>
       <div className="relative overflow-hidden p-3">
         {/* <div className="mx-auto max-w-6xl"> */}
-          {/* <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
             <h2 className="mb-4 text-4xl">The Team Blog</h2>
 
             <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ const BlogPostCarousel = () => {
               </button>
             </div>
           </div> */}
-          {/* <motion.div
+        {/* <motion.div
             animate={{
               x: offset,
             }}
@@ -83,22 +83,22 @@ const BlogPostCarousel = () => {
               return <Post key={post.id} {...post} />;
             })}
           </motion.div> */}
-          <motion.div
-            animate={{
-              y: offset, // Animate vertically instead of horizontally
-            }}
-            transition={{
-              ease: "easeInOut",
-            }}
-            className="flex flex-col" // Stack posts vertically
-          >
-            {posts.map((post) => (
-              <Post key={post.id} {...post} />
-            ))}
-          </motion.div>
+        <motion.div
+          animate={{
+            y: offset, // Animate vertically instead of horizontally
+          }}
+          transition={{
+            ease: "easeInOut",
+          }}
+          className="flex flex-col justify-center items-center" // Stack posts vertically
+        >
+          {posts.map((post) => (
+            <Post key={post.id} {...post} />
+          ))}
+        </motion.div>
 
         {/* </div>*/}
-      </div> 
+      </div>
     </section>
   );
 };
@@ -106,7 +106,7 @@ const BlogPostCarousel = () => {
 const Post = ({ iconURL, author, title, description }) => {
   return (
     <div
-      className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 hover:drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] drop-shadow-[0px_0px_7px_rgba(28,108,168,0.1)] p-4 m-4 rounded-[25px]"
+      className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 m-4 rounded-[25px]"
       style={{
         width: CARD_WIDTH,
         marginRight: MARGIN,

@@ -9,6 +9,7 @@ import {
   PhoneCallIcon,
   MoonIcon,
   Sun,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +23,7 @@ const menuLinks = [
   { name: "Industry Verticals", link: "industry-vertical" },
   { name: "Blogs", link: "blogs" },
   { name: "Contact", link: "contact" },
+  { name: "Elevate12", link: "https://elevate12.kakushin.io/" },
 ];
 
 const iconMap = {
@@ -30,6 +32,7 @@ const iconMap = {
   Services: <WorkflowIcon size={24} />,
   "Industry Verticals": <ComputerIcon size={24} />,
   Blogs: <ClipboardTypeIcon size={24} />,
+  Elevate12: <ExternalLink size={24} />,
   Contact: <PhoneCallIcon size={24} />,
 };
 
@@ -100,9 +103,16 @@ export default function RightSideNavigation({ setSelectedChat }) {
 
   // Handle click: set manual flag and update active tab
   const handleClick = (item) => {
-    //manualNavigationRef.current = true;
+    // Special case for Elevate12 - open the external link
+    if (item.name === "Elevate12") {
+      window.open(item.link, "_blank");
+      return;
+    }
+
+    // For other menu items, handle as before
     setSelectedChat(item.link);
     setActiveTab(item.name);
+
     // Reset the flag after a short delay to re-enable the scroll spy
     setTimeout(() => {
       manualNavigationRef.current = false;
@@ -147,7 +157,7 @@ export default function RightSideNavigation({ setSelectedChat }) {
                       onClick={() => handleClick(item)}
                       className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-300"
                     >
-                      {iconMap[item.name]}
+                      {iconMap[item.name] || <ExternalLink size={24} />}
                     </button>
                     <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                       {item.name}

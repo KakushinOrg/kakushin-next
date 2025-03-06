@@ -1,3 +1,4 @@
+// todo: rename file to something like getContentfulData.js
 require("dotenv").config();
 import { createClient } from "contentful";
 
@@ -21,4 +22,40 @@ export const fetchBlogs = async () => {
   }));
 };
 
-export default fetchBlogs;
+export const FetchWhoWeAreQandA = async () => {
+  const res = await client.getEntries({
+    content_type: "whoWeAreQandA",
+    select: "fields.question,fields.answer",
+  });
+
+  return res.items.map((item) => ({
+    QuestionID: item.sys.id,
+    Question: item.fields.question,
+    Answer: item.fields.answer,
+  }));
+};
+
+export const FetchOurServicesQandA = async () => {
+  const res = await client.getEntries({
+    content_type: "ourServicesQandA",
+    select: "fields.title,fields.answer",
+  });
+
+  return res.items.map((item) => ({
+    QuestionID: item.sys.id,
+    Question: item.fields.title,
+    Answer: item.fields.answer,
+  }));
+};
+
+export const FetchServiceGeneralInquiries = async () => {
+  const res = await client.getEntries({
+    content_type: "generalServiceRelatedInquiries",
+    select: "fields.generalInquiries",
+  });
+
+  return res.items.map((item) => ({
+    id: item.sys.id,
+    generalInquiries: item.fields.generalInquiries,
+  }));
+};

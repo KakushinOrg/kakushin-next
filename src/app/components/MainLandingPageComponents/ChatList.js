@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useBlogs } from "@/app/context/blogContext";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import "./boxMorph.css";
@@ -10,14 +8,15 @@ export default function ChatList({ selectedCategory }) {
   const { blogs, loading } = useBlogs();
   const [searchTerm, setSearchTerm] = useState("");
   const [hoveredId, setHoveredId] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   if (loading) {
     return <div>Loading blogs...</div>;
   }
 
   const categoryMap = {
-    innovation: "",
-    aboutus: "About Us",
+    innovation: "Innovation insights",
+    aboutus: "About us",
     services: "Our Services",
     industry: "Industry Vertical",
     blogs: "Blogs",
@@ -40,7 +39,8 @@ export default function ChatList({ selectedCategory }) {
 
   return (
     <>
-      <h1 className="text-xl mb-3">
+      {/* todo: we could put the heading here so that it just dynamically changes */}
+      <h1 className="titleTextLG text-center mb-5">
         {categoryMap[selectedCategory] || ""}
       </h1>
       <input
@@ -51,20 +51,23 @@ export default function ChatList({ selectedCategory }) {
         className="w-full p-2 border rounded mb-4"
       />
       <div className="space-y-4">
-        {/* Show different content based on selected category */}
         {selectedCategory === "aboutus" ? (
           <AsideAboutus />
         ) : (
           <>
-            {/* Show filtered blogs for all other categories */}
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((item) => (
                 <div
                   key={item.id}
-                  className={`boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md transition-all duration-350 ease-in-out w-full
-    ${hoveredId === item.id ? "" : ""}`}
-                  onMouseEnter={() => setHoveredId(item.id)}
-                  onMouseLeave={() => setHoveredId(null)}
+                  className="boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                  onMouseEnter={() => {
+                    setHoveredId(item.id);
+                    setIsHovered(true);
+                  }}
+                  onMouseLeave={() => {
+                    setIsHovered(false);
+                    setTimeout(() => setHoveredId(null), 500);
+                  }}
                 >
                   <img
                     src={item.image}
@@ -72,13 +75,12 @@ export default function ChatList({ selectedCategory }) {
                     className="w-16 h-16 rounded-lg object-cover transition-transform duration-300"
                   />
                   <div className="flex-1 ml-4">
-                    <h3 className="font-semibold text-gray-800">
+                    <h3 className="font-semibold text-gray-800 w-[95%]">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-500 max-h-[250px] overflow-y-auto">
-                      {hoveredId === item.id
-                        ? item.description
-                        : `${item.description.slice(0, 150)}...`}
+                    {/* Always render the full text and let CSS control the visibility */}
+                    <p className="text-sm text-gray-500 blog-description w-[95%]">
+                      {item.description}
                     </p>
                   </div>
                 </div>

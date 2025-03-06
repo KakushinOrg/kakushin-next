@@ -11,7 +11,7 @@ const TabsFeatures = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="p-2">
+    <section className="p-2 mt-20">
       <div className="mx-auto 2xl:w-6xl lg:w-2xl w-full px-0 md:px-4">
         {/* Render the tabs */}
         <Tabs selected={selected} setSelected={setSelected} />
@@ -92,17 +92,19 @@ const Tab = ({ selected, Icon, title, setSelected, tabNum }) => {
         className="relative z-0 flex w-full flex-row items-center justify-center gap-4 border-b-4 border-slate-200 bg-white p-6 transition-colors hover:bg-slate-100 md:flex-col min-h-40"
       >
         <span
-          className={`rounded-lg bg-gradient-to-br from-[#2692E3] from-10% to-[#1C6CA8] p-3 text-2xl text-white shadow-[#d4d0c3] transition-all duration-300 ${selected
+          className={`rounded-lg bg-gradient-to-br from-[#2692E3] from-10% to-[#1C6CA8] p-3 text-2xl text-white shadow-[#d4d0c3] transition-all duration-300 ${
+            selected
               ? "scale-100 opacity-100 shadow-lg"
               : "scale-90 opacity-50 shadow"
-            }`}
+          }`}
         >
           <Icon />
         </span>
 
         <span
-          className={`min-w-[150px] max-w-[200px] text-sm text-start text-slate-600 transition-opacity md:text-center ${selected ? "opacity-100" : "opacity-50"
-            }`}
+          className={`min-w-[150px] max-w-[200px] text-sm text-start text-slate-600 transition-opacity md:text-center ${
+            selected ? "opacity-100" : "opacity-50"
+          }`}
         >
           {title}
         </span>
