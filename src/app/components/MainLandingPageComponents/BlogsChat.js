@@ -1,30 +1,26 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
+import Navbar from "@/app/components/Navbar";
 
 export default function BlogsChat() {
   const [messages, setMessages] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
-  const [showPopup, setShowPopup] = useState(true);
-  const [navigate, setNavigate] = useState(false);
-  const router = useRouter();
   const messagesEndRef = useRef(null);
-  const [showSidebar, setShowSidebar] = useState(false);
 
   const questionsAndResponses = {
-    "Blogs Question 1":
+    "Blogs Chat questions? 1":
       "At Kakushin, our AI integration services are designed to empower startups by enhancing their technological capabilities. We focus on embedding AI into various business functions such as automated customer service, data analysis, and predictive analytics. Our approach involves understanding your specific business needs, designing an AI solution that fits those needs, and then implementing the solution while ensuring seamless integration with your existing systems. This process helps in optimizing operations, improving decision-making, and creating personalized customer experiences. We also provide ongoing support to ensure the AI systems evolve with your business.",
-    "Blogs Question 2":
+    "Blogs Chat questions? 2":
       "Developing a Minimum Viable Product (MVP) with Kakushin involves a structured and iterative process tailored to bring your startup idea to life efficiently. First, we start with a discovery phase where we define the core functionalities that address the main customer pain points. Next, we move into the design and prototyping phase, where we create the initial version of the product with essential features. This is followed by user testing, where feedback is gathered to refine the product. After implementing the necessary adjustments, we help you launch the MVP to the market. Throughout the process, our team ensures that the MVP not only meets market needs but also stays within budget and timeline constraints.",
-    "Blogs Question 3":
+    "Blogs Chat questions? 3":
       "Certainly! We have a range of successful projects across various industries that showcase our expertise. For instance, we recently helped a tech startup integrate AI into their operations, resulting in a 40% increase in efficiency. Another project involved developing an MVP for a fintech company, which has now secured its second round of funding due to the product’s success. We also assisted a health tech company in redesigning their digital platform, which dramatically improved user engagement. Details of these projects are available on our website, where you can explore case studies and testimonials from our clients.",
-    "Blogs Question 4":
+    "Blogs Chat questions? 4":
       "We would be delighted to discuss your project and see how Kakushin can assist you. You can schedule a meeting directly through our website by selecting a date and time that works best for you. During our meeting, we will discuss your project in detail, explore your specific needs, and determine how our services can best align with your goals. Please prepare any relevant materials or questions you may have, so we can make the most of our time together.",
-    "Blogs Question 5":
+    "Blogs Chat questions? 4":
       "The costs associated with our branding services can vary depending on the scope and complexity of your project. Typically, our branding packages start from $5,000 for basic branding, which includes logo design, color palette, and typography. For more comprehensive services that involve full brand strategy, identity design, and marketing materials, prices can range from $10,000 to $50,000. We offer customized quotes based on your specific requirements, ensuring that we provide a solution that fits your budget and meets your branding needs. Feel free to reach out for a detailed quote tailored to your project.",
   };
 
@@ -86,7 +82,7 @@ export default function BlogsChat() {
       <>
         {randomResponse}
         <br />
-        <a href="#contact" className="text-blue-600 underline">
+        <a href="contact" className="text-blue-600 underline">
           Contact Us
         </a>
       </>
@@ -109,13 +105,19 @@ export default function BlogsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-center items-center text-center px-8 lg:pt-0 pt-[3rem]">
-        {/* {showPopup && <AnimatedPopup onClose={() => setShowPopup(false)} />} */}
-        <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
-        <p className="text-gray-600 my-2">
-          I'm here to help you explore how we can boost your startup’s success
-          with our innovative solutions.
-        </p>
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
+        <div className="w-full lg:px-4 px-2">
+          <Navbar />
+        </div>
+
+        <div className="lg:mt-6">
+          <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
+          <p className="text-gray-600 my-2">
+            In This section you will can learn about the services that we provide, what we do you can ask
+            more question if you have any
+          </p>
+        </div>
+
         <div
           ref={chatContainerRef}
           className={`w-full ${

@@ -60,9 +60,9 @@ const Navbar = ({ isExpanded }) => {
 
   return (
     <section
-      className={`flex items-center justify-between text-white ${
+      className={`flex items-center justify-between text-white bg-transparent ${
         isExpanded ? "py-3" : "py-5"
-      } md:px-20 lg:pl-40 lg:pr-10 z-[999] bg-transparent bg-white shadow-sm w-full`}
+      } md:px-20 lg:pl-40 lg:pr-10 z-[999] bg-transparent w-full`}
     >
       <div className="text-xl font-bold">
         <Logo />

@@ -20,14 +20,14 @@ export default function MessageInput({ onSendMessage, isExpanded }) {
 
   return (
     <div
-      className={`w-[80%] flex items-center ${
-        isExpanded ? "mb-2" : "mb-10"
-      } p-2 bg-white border border-gray-300 rounded-lg  transition-all duration-300 ease-out`}
+      className={`w-full flex items-center ${
+        isExpanded ? "" : ""
+      } p-2 bg-white border border-gray-300 rounded-lg transition-all duration-300 ease-out`}
     >
       {/* <button className="px-4 py-2 rounded-full">
                 <MicIcon size={18} />
-            </button> */}
-      {/* <div className="h-6 w-px bg-gray-300 mx-2"></div> */}
+            </button>
+       <div className="h-6 w-px bg-gray-300 mx-2"></div> */}
       <input
         type="text"
         value={message}
