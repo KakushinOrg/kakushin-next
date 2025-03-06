@@ -1,15 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { MicIcon, SendHorizontal } from "lucide-react";
+import { SendHorizontal } from "lucide-react";
+import { FaRedo } from "react-icons/fa";
 
-export default function MessageInput({ onSendMessage, isExpanded }) {
+export default function MessageInput({
+  onSendMessage,
+  isExpanded,
+  onClear,
+  hasMessages,
+}) {
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
-    if (!message.trim()) return; // Prevent sending empty messages
+    if (!message.trim()) return;
     onSendMessage(message);
-    setMessage(""); // Clear input after sending
+    setMessage("");
   };
 
   const handleKeyPress = (e) => {
@@ -37,13 +43,24 @@ export default function MessageInput({ onSendMessage, isExpanded }) {
         className="flex-1 p-2 outline-none"
       />
       <div className="h-6 w-px bg-gray-300 mx-2"></div>
-      <button
-        className="px-4 py-2 rounded-full disabled:opacity-50"
-        onClick={handleSendMessage}
-        disabled={!message.trim()} // Disable button when input is empty
-      >
-        <SendHorizontal size={18} />
-      </button>
+      <div className="flex items-center justify-center">
+        {hasMessages && (
+          <button
+            onClick={onClear}
+            className="flex items-center justify-center gap-2 px-4 py-1 bg-red-50 hover:bg-red-100 text-red-500 rounded-full text-sm font-medium transition-colors"
+          >
+            <FaRedo size={14} />
+            <span>Clear</span>
+          </button>
+        )}
+        <button
+          className="px-4 py-2 rounded-full disabled:opacity-50"
+          onClick={handleSendMessage}
+          disabled={!message.trim()}
+        >
+          <SendHorizontal size={18} />
+        </button>
+      </div>
     </div>
   );
 }

@@ -60,23 +60,27 @@ export default function ChatList({ selectedCategory }) {
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((item) => (
                 <div
-              key={item.id}
-              className={`relative flex items-center p-3 bg-white border rounded-2xl shadow-md transition-all duration-350 ease-in-out w-full
-    ${hoveredId === item.id ? "scale-105 shadow-lg" : ""}`}
-              onMouseEnter={() => setHoveredId(item.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-16 h-16 rounded-lg object-cover transition-transform duration-300"
-              />
-              <div className="flex-1 ml-4">
-                <h3 className="font-semibold text-gray-800">{item.title}</h3>
-                <p className="text-sm text-gray-500 max-h-[250px] overflow-y-auto">
-                  {hoveredId === item.id ? item.description : `${item.description.slice(0, 150)}...`}
-                </p>
-              </div>
+                  key={item.id}
+                  className={`boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md transition-all duration-350 ease-in-out w-full
+    ${hoveredId === item.id ? "" : ""}`}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-16 h-16 rounded-lg object-cover transition-transform duration-300"
+                  />
+                  <div className="flex-1 ml-4">
+                    <h3 className="font-semibold text-gray-800">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 max-h-[250px] overflow-y-auto">
+                      {hoveredId === item.id
+                        ? item.description
+                        : `${item.description.slice(0, 150)}...`}
+                    </p>
+                  </div>
                 </div>
               ))
             ) : (

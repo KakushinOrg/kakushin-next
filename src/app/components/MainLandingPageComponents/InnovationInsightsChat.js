@@ -57,6 +57,15 @@ export default function InnovationInsightsChat() {
 
   const chatContainerRef = useRef(null);
 
+  // this is more for testing purposes
+  const clearMessages = () => {
+    setMessages([]);
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("chatMessages");
+    }
+    setIsExpanded(false);
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedMessages = localStorage.getItem("chatMessages");
@@ -143,20 +152,23 @@ export default function InnovationInsightsChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full ${isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
-            } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+          className={`w-full ${
+            isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
+          }  lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"
-                } items-start`}
+              className={`flex ${
+                msg.sender === "user" ? "justify-end" : "justify-start"
+              } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-2/5 ${msg.sender === "user"
-                  ? "bg-blue-100 text-blue-900 border rounded-full"
-                  : "bg-gray-100 text-gray-900 border rounded-full"
-                  }`}
+                className={`p-2 rounded-lg w-2/5 ${
+                  msg.sender === "user"
+                    ? "bg-blue-100 text-blue-900 border rounded-full"
+                    : "bg-gray-100 text-gray-900 border rounded-full"
+                }`}
               >
                 <p>
                   <b>{msg.sender === "user" ? "" : "Kakushin AI: "}</b>
@@ -178,10 +190,11 @@ export default function InnovationInsightsChat() {
             <button
               key={index}
               onClick={(e) => handleUserMessage(text, e)}
-              className={`px-4 py-2 border rounded-full shadow ${isThinking
-                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                : "bg-white hover:bg-gray-200"
-                }`}
+              className={`px-4 py-2 border rounded-full shadow ${
+                isThinking
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-white hover:bg-gray-200"
+              }`}
               disabled={isThinking}
             >
               {text}
@@ -190,6 +203,8 @@ export default function InnovationInsightsChat() {
         </div>
 
         <MessageInput
+          onClear={clearMessages}
+          hasMessages={messages.length > 0}
           onSendMessage={handleUserMessage}
           onFocus={() => setIsExpanded(true)}
           onBlur={() => setIsExpanded(messages.length > 0)}
