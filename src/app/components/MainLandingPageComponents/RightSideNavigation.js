@@ -15,7 +15,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import Image from "next/image";
 
 const menuLinks = [
   { name: "Home", link: "innovation" },
