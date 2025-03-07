@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import Image from "next/image";
 
 const menuLinks = [
   { name: "Home", link: "innovation" },
@@ -32,7 +33,14 @@ const iconMap = {
   Services: <WorkflowIcon size={24} />,
   "Industry Verticals": <ComputerIcon size={24} />,
   Blogs: <ClipboardTypeIcon size={24} />,
-  Elevate12: <ExternalLink size={24} />,
+  Elevate12: (
+    <Image
+      src="/icons/elevate-12-icon.svg"
+      alt="Elevate12 Icon"
+      width={24}
+      height={24}
+    />
+  ),
   Contact: <PhoneCallIcon size={24} />,
 };
 
