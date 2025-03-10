@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
-// todo might need to remove this
-import TabsFeatures from "@/app/components/TabComponent/tabComponent";
+import { useState, useMemo } from "react";
+// Uncomment if needed: import TabsFeatures from "@/app/components/TabComponent/tabComponent";
 import { whatWeDo } from "@/app/components/TabComponent/whatWeDoData";
 import { FiMonitor, FiSmartphone } from "react-icons/fi";
 import { GiArtificialIntelligence, GiGrowth } from "react-icons/gi";
@@ -19,9 +18,27 @@ const OurServices = () => {
     { Icon: GiGrowth },
   ];
 
+  const servicesWithHeights = useMemo(
+    () =>
+      whatWeDo.map((item) => ({
+        ...item,
+        randomMinHeight: Math.floor(Math.random() * 51) + 150,
+      })),
+    []
+  );
+
+  const leftColumn = [];
+  const rightColumn = [];
+  servicesWithHeights.forEach((item, index) => {
+    if (index % 2 === 0) {
+      leftColumn.push(item);
+    } else {
+      rightColumn.push(item);
+    }
+  });
+
   return (
     <section className="w-full" id="services">
-      {/* <TabsFeatures /> */}
       <div className="space-y-4">
         <p className="paragraph px-6 my-14">
           Businesses are multi-faceted and require each facet to operate in the
@@ -35,30 +52,64 @@ const OurServices = () => {
           for your business.
         </p>
         {whatWeDo.length > 0 ? (
-          whatWeDo.map((item, index) => (
-            <div
-              key={item.id}
-              className="boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
-              onMouseEnter={() => setHoveredId(item.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
-                {(() => {
-                  const Icon = FEATURES[index % FEATURES.length].Icon;
-                  return <Icon size={40} className="text-blue-500" />;
-                })()}
-              </div>
-              <div className="flex-1 ml-4">
-                <h3 className="font-semibold text-gray-800 w-[95%]">
-                  {item.title}
-                </h3>
-                {/* Always render the full text */}
-                <p className="text-sm text-gray-500 blog-description w-[95%]">
-                  {item.subTitle}
-                </p>
-              </div>
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Left Column */}
+            <div className="flex-1 space-y-4">
+              {leftColumn.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                  style={{ minHeight: `${item.randomMinHeight}px` }}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
+                    {(() => {
+                      const Icon = FEATURES[index % FEATURES.length].Icon;
+                      return <Icon size={40} className="text-blue-500" />;
+                    })()}
+                  </div>
+                  <div className="flex-1 ml-4">
+                    <h3 className="font-semibold text-gray-800 w-[95%]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 service-description w-[95%]">
+                      {item.subTitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))
+            {/* Right Column */}
+            <div className="flex-1 space-y-4">
+              {rightColumn.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                  style={{ minHeight: `${item.randomMinHeight}px` }}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
+                    {(() => {
+                      const Icon =
+                        FEATURES[(index + leftColumn.length) % FEATURES.length]
+                          .Icon;
+                      return <Icon size={40} className="text-blue-500" />;
+                    })()}
+                  </div>
+                  <div className="flex-1 ml-4">
+                    <h3 className="font-semibold text-gray-800 w-[95%]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 service-description w-[95%]">
+                      {item.subTitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <p className="text-gray-500">No results found.</p>
         )}

@@ -70,21 +70,21 @@ const Navbar = ({ isExpanded }) => {
 
       <div className="md:flex space-x-4 hidden">
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/profile.php?id=100087154231923"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img src="/icons/facebook.svg" alt="Facebook" className="w-4 h-4" />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/company/86423797"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-4 h-4" />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/kakushin.io?igsh=MXE0b3MyZjB0dDA3dw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
         >
