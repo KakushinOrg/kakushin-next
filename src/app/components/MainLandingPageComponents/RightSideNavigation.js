@@ -20,7 +20,7 @@ const menuLinks = [
   { name: "Home", link: "innovation" },
   { name: "About", link: "about" },
   { name: "Services", link: "services" },
-  { name: "Industry Verticals", link: "industry-vertical" },
+  { name: "Industry Verticals", link: "industry" },
   { name: "Blogs", link: "blogs" },
   { name: "Contact", link: "contact" },
   { name: "Elevate12", link: "https://elevate12.kakushin.io/" },
@@ -56,6 +56,7 @@ export default function RightSideNavigation({ setSelectedChat }) {
       document.documentElement.classList.add("dark");
       setDarkMode(true);
     }
+    setSelectedChat(activeTab);
   }, []);
 
   // Toggle theme
