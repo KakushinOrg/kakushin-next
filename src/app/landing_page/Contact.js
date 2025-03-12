@@ -71,7 +71,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#f4f4f7] md:mt-10 md:pt-8" id="contact">
+    <div
+      className="bg-[#f4f4f7] md:mt-10 md:pt-8 h-[80vh] flex justify-center items-center"
+      id="contact"
+    >
       <div>
         <div className="w-full flex flex-col md:mb-20 mb-10">
           <h2 className="largeText mb-5 text-center">get in touch</h2>

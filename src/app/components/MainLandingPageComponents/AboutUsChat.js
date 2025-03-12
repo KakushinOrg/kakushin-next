@@ -166,7 +166,7 @@ export default function AboutUsChat() {
         />
       </main>
 
-      <aside className="w-[35%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="w-[25%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <ChatList selectedCategory="aboutus" />
       </aside>
     </>

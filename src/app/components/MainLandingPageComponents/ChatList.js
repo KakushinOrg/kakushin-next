@@ -63,53 +63,27 @@ export default function ChatList({ selectedCategory }) {
         ) : (
           <>
             {filteredBlogs.length > 0 ? (
-              <div className="flex gap-4">
-                {/* Left Column */}
-                <div className="flex-1 space-y-4">
-                  {leftColumn.map((item) => (
-                    <div
-                      key={item.id}
-                      className="boxWhiteMorph relative flex flex-col p-3 bg-white border rounded-2xl shadow-md"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-40 object-cover rounded-lg transition-transform duration-300 mb-3"
-                      />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-800 mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 blog-description">
-                          {item.description}
-                        </p>
-                      </div>
+              <div className="space-y-4 md:px-20 px-5">
+                {filteredBlogs.map((item) => (
+                  <div
+                    key={item.id}
+                    className="boxWhiteMorph relative flex flex-col p-3 bg-white border rounded-2xl shadow-md"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-[70%] h-auto mx-auto object-contain rounded-[25px] transition-transform duration-300 mb-3"
+                    />
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 blog-description">
+                        {item.description}
+                      </p>
                     </div>
-                  ))}
-                </div>
-                {/* Right Column */}
-                <div className="flex-1 space-y-4">
-                  {rightColumn.map((item) => (
-                    <div
-                      key={item.id}
-                      className="boxWhiteMorph relative flex flex-col p-3 bg-white border rounded-2xl shadow-md"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-40 object-cover rounded-lg transition-transform duration-300 mb-3"
-                      />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-800 mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 blog-description">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             ) : (
               <p className="text-gray-500">No results found.</p>
