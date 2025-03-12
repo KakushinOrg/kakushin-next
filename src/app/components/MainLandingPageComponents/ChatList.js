@@ -1,55 +1,29 @@
 import { useState } from "react";
-import { useBlogs } from "@/app/context/blogContext";
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 import "./boxMorph.css";
 import AsideAboutus from "@/app/components/AsideComponents/asideAboutus";
 
 export default function ChatList({ selectedCategory }) {
-  const { blogs, loading } = useBlogs();
   const [searchTerm, setSearchTerm] = useState("");
 
-  if (loading) {
-    return <div>Loading blogs...</div>;
-  }
-
-  const categoryMap = {
-    innovation: "Innovation insights",
-    aboutus: "About us",
-    services: "Our Services",
-    industry: "Industry Vertical",
-    blogs: "Blogs",
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
   };
 
-  const formattedBlogs = blogs.map((blog) => ({
-    id: blog.blogID,
-    title: blog.title,
-    category: blog.category?.toLowerCase(),
-    description: documentToPlainTextString(blog.blogBody),
-    slug: blog.slug,
-    image: blog.blogMedia.fields.file.url.startsWith("//")
-      ? `https:${blog.blogMedia.fields.file.url}`
-      : blog.blogMedia.fields.file.url,
-  }));
+  const socialMediaImages = shuffleArray(
+    Array.from({ length: 10 }, (_, i) => ({
+      id: i + 1,
+      title: `Social Media Post ${i + 1}`,
+      image: `/images/socialMediaPosts/Social_Media-${i + 1}.jpg`,
+    }))
+  );
 
-  const filteredBlogs = formattedBlogs.filter((item) =>
+  const filteredSocialMediaPosts = socialMediaImages.filter((item) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const leftColumn = [];
-  const rightColumn = [];
-  filteredBlogs.forEach((item, index) => {
-    if (index % 2 === 0) {
-      leftColumn.push(item);
-    } else {
-      rightColumn.push(item);
-    }
-  });
-
   return (
     <>
-      <h1 className="titleTextLG text-center mb-5">
-        {categoryMap[selectedCategory] || ""}
-      </h1>
+      <h1 className="titleTextLG text-center mb-5">Social Media Posts</h1>
       <input
         type="text"
         placeholder="Search..."
@@ -62,26 +36,18 @@ export default function ChatList({ selectedCategory }) {
           <AsideAboutus />
         ) : (
           <>
-            {filteredBlogs.length > 0 ? (
+            {filteredSocialMediaPosts.length > 0 ? (
               <div className="space-y-4 md:px-20 px-5">
-                {filteredBlogs.map((item) => (
+                {filteredSocialMediaPosts.map((item) => (
                   <div
                     key={item.id}
-                    className="boxWhiteMorph relative flex flex-col p-3 bg-white border rounded-2xl shadow-md"
+                    className="boxWhiteMorph relative flex flex-col bg-white border rounded-[27px] shadow-md"
                   >
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-[70%] h-auto mx-auto object-contain rounded-[25px] transition-transform duration-300 mb-3"
+                      className="w-full h-auto mx-auto object-contain rounded-[25px] transition-transform duration-300"
                     />
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-500 blog-description">
-                        {item.description}
-                      </p>
-                    </div>
                   </div>
                 ))}
               </div>
