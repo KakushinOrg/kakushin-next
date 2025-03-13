@@ -138,13 +138,16 @@ export default function AboutUsChat() {
           )}
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3">
+        <div
+          className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3 overflow-y-auto"
+          style={{ maxWidth: "60%", maxHeight: "200px" }} // Adjust as needed
+        >
           {Object.keys(questionsAndResponses).length > 0 ? (
             Object.keys(questionsAndResponses).map((question, index) => (
               <button
                 key={index}
                 onClick={(e) => handleUserMessage(question, e)}
-                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow ${
+                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow w-fit ${
                   isThinking
                     ? "bg-gray-300 text-gray-400 cursor-not-allowed"
                     : "bg-white hover:bg-gray-200"

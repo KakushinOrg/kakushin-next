@@ -7,8 +7,8 @@ import {
   ComputerIcon,
   ClipboardTypeIcon,
   PhoneCallIcon,
-  MoonIcon,
-  Sun,
+  // MoonIcon,
+  // Sun,
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
@@ -186,7 +186,8 @@ export default function RightSideNavigation({ setSelectedChat }) {
           height={28}
           className="cursor-pointer"
         />
-        {darkMode ? (
+        {/* COMMENTING IT OUT UNTIL WE FIX DARK MODE */}
+        {/* {darkMode ? (
           <Sun
             size={28}
             className="cursor-pointer text-yellow-500"
@@ -198,7 +199,7 @@ export default function RightSideNavigation({ setSelectedChat }) {
             className="cursor-pointer text-gray-700"
             onClick={toggleTheme}
           />
-        )}
+        )} */}
       </div>
     </>
   );

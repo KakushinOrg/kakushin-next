@@ -37,10 +37,10 @@ export default function BlogsList() {
 
   return (
     <>
-      <h1 className="titleTextLG text-center mb-5">Our Blogs</h1>
+      <h1 className="titleTextLG text-center mb-5 mt-5">Our Blogs</h1>
       <>
         {filteredBlogs.length > 0 ? (
-          <div className=" gap-4">
+          <div className="px-8 gap-4 mt-4 pt-4">
             {/* Left Column */}
             <div className=" space-y-4">
               {filteredBlogs.map((item) => (
@@ -51,7 +51,7 @@ export default function BlogsList() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover rounded-lg transition-transform duration-300 mb-3"
+                    className="w-[80%] h-auto mx-auto object-cover rounded-lg transition-transform duration-300 mb-5 pb-2"
                   />
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-800 mb-2">

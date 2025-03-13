@@ -14,16 +14,29 @@ export default function IndustryVerticalChat() {
   const messagesEndRef = useRef(null);
 
   const questionsAndResponses = {
-    "Industry Vertical Chat questions? 1":
-      "At Kakushin, our AI integration services are designed to empower startups by enhancing their technological capabilities. We focus on embedding AI into various business functions such as automated customer service, data analysis, and predictive analytics. Our approach involves understanding your specific business needs, designing an AI solution that fits those needs, and then implementing the solution while ensuring seamless integration with your existing systems. This process helps in optimizing operations, improving decision-making, and creating personalized customer experiences. We also provide ongoing support to ensure the AI systems evolve with your business.",
-    "Industry Vertical Chat questions? 2":
-      "Developing a Minimum Viable Product (MVP) with Kakushin involves a structured and iterative process tailored to bring your startup idea to life efficiently. First, we start with a discovery phase where we define the core functionalities that address the main customer pain points. Next, we move into the design and prototyping phase, where we create the initial version of the product with essential features. This is followed by user testing, where feedback is gathered to refine the product. After implementing the necessary adjustments, we help you launch the MVP to the market. Throughout the process, our team ensures that the MVP not only meets market needs but also stays within budget and timeline constraints.",
-    "Industry Vertical Chat questions? 3":
-      "Certainly! We have a range of successful projects across various industries that showcase our expertise. For instance, we recently helped a tech startup integrate AI into their operations, resulting in a 40% increase in efficiency. Another project involved developing an MVP for a fintech company, which has now secured its second round of funding due to the product’s success. We also assisted a health tech company in redesigning their digital platform, which dramatically improved user engagement. Details of these projects are available on our website, where you can explore case studies and testimonials from our clients.",
-    "Industry Vertical Chat questions? 4":
-      "We would be delighted to discuss your project and see how Kakushin can assist you. You can schedule a meeting directly through our website by selecting a date and time that works best for you. During our meeting, we will discuss your project in detail, explore your specific needs, and determine how our services can best align with your goals. Please prepare any relevant materials or questions you may have, so we can make the most of our time together.",
-    "Industry Vertical Chat questions? 4":
-      "The costs associated with our branding services can vary depending on the scope and complexity of your project. Typically, our branding packages start from $5,000 for basic branding, which includes logo design, color palette, and typography. For more comprehensive services that involve full brand strategy, identity design, and marketing materials, prices can range from $10,000 to $50,000. We offer customized quotes based on your specific requirements, ensuring that we provide a solution that fits your budget and meets your branding needs. Feel free to reach out for a detailed quote tailored to your project.",
+    "How can Kakushin help startups develop and scale their products efficiently?":
+      "At Kakushin, we specialize in transforming ideas into scalable, market-ready products. Our approach includes AI-driven market analysis, proof-of-concept development, and strategic roadmap creation to guide startups from ideation to execution. Whether you're developing an MVP or looking to optimize an existing product, we provide full-stack development, API integration, DevOps, and expert QA services to ensure efficiency and reliability. Our Elevate12 program further supports startups by offering mentorship, funding strategies, and product refinement to help you scale effectively.",
+
+    "How does Kakushin leverage AI to drive innovation across industries?":
+      "AI is at the core of many of our solutions, enabling businesses to streamline operations, optimize decision-making, and deliver personalized user experiences. We develop custom AI models for various applications, from predictive analytics in finance to intelligent automation in healthcare. Our expertise extends to natural language processing (NLP), computer vision, and generative AI, allowing businesses to build smarter, more adaptive systems. By integrating AI with IoT and blockchain, we create cutting-edge solutions that enhance efficiency and open new market opportunities.",
+
+    "What role does Kakushin play in developing advanced HealthTech solutions?":
+      "Kakushin is redefining healthcare through technology by integrating AI, IoT, and predictive analytics into patient care and diagnostics. We have developed solutions such as AI-driven knee health monitoring algorithms, IoT-powered remote patient monitoring, and interactive diagnostic tools for medical education. These innovations help improve patient outcomes, enhance early detection, and support healthcare professionals with real-time data insights. Our HealthTech projects focus on making healthcare more accessible, data-driven, and patient-centric.",
+
+    "How does Kakushin support businesses in building a strong digital presence and brand identity?":
+      "A strong digital presence is essential for modern businesses, and Kakushin helps brands establish and amplify their identity through AI-enhanced branding strategies, UI/UX design, and multi-channel marketing approaches. We blend AI-powered analytics with creative design to optimize customer engagement, enhance brand recognition, and position businesses effectively in their markets. From logo design to digital storytelling, our expertise ensures that brands not only stand out but also connect deeply with their target audiences.",
+
+    "How does Kakushin support startups in integrating blockchain and Web3 technologies?":
+      "Kakushin helps startups harness the power of blockchain and Web3 by developing secure, decentralized applications (dApps), smart contracts, and tokenized ecosystems. Our blockchain solutions enhance transparency, security, and efficiency in industries ranging from finance to supply chain management. Whether you need DeFi platforms or blockchain-based identity verification, we provide tailored solutions that align with your business goals. We also guide startups through regulatory compliance and strategic adoption of decentralized technologies to ensure long-term scalability.",
+
+    "How can Kakushin help businesses leverage FinTech innovations?":
+      "The financial sector is rapidly evolving, and Kakushin is at the forefront of FinTech innovation. We develop AI-powered fraud detection systems, blockchain-based payment solutions, and embedded finance platforms that empower businesses to optimize financial operations. Our expertise extends to building seamless digital wallets, peer-to-peer lending platforms, and automated investment tools that enhance financial accessibility. By integrating cutting-edge security measures and regulatory compliance frameworks, we ensure FinTech solutions that are both innovative and trustworthy.",
+
+    "How does Kakushin contribute to the transformation of education through technology?":
+      "Education is evolving, and Kakushin is driving this transformation through AI-powered learning platforms, interactive tools, and adaptive educational experiences. Our solutions include AI-based tutoring systems, gamified learning apps, and AR/VR-enhanced simulations for immersive education. We help institutions, edtech startups, and training organizations build scalable, engaging, and personalized learning environments that cater to diverse learners. By integrating data analytics and machine learning, we optimize curriculum development and student engagement strategies.",
+
+    "How does Kakushin empower social impact initiatives and NGOs through technology?":
+      "Kakushin is committed to leveraging technology for social good. We develop AI-powered data analysis tools, digital outreach platforms, and blockchain-based transparency solutions to help NGOs and social enterprises maximize their impact. Our work includes environmental sustainability projects, community development initiatives, and digital transformation for non-profits. By integrating smart data-driven solutions, we enable organizations to track progress, optimize resource allocation, and enhance engagement with their communities and stakeholders.",
   };
 
   const generalResponses = [
@@ -210,17 +223,20 @@ export default function IndustryVerticalChat() {
           )}
           <div ref={messagesEndRef} />
         </div>
-        <div className="mt-10 flex flex-wrap gap-4 justify-center">
+        <div
+          className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3 overflow-y-auto"
+          style={{ maxWidth: "60%", maxHeight: "200px" }} // Adjust as needed
+        >
           {Object.keys(questionsAndResponses).map((text, index) => (
             <button
               key={index}
               onClick={(e) => handleUserMessage(text, e)}
-              className={`px-4 py-2 border rounded-full shadow ${
+              disabled={isThinking}
+              className={`w-fit px-4 py-2 border rounded-full shadow ${
                 isThinking
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "bg-white hover:bg-gray-200"
               }`}
-              disabled={isThinking}
             >
               {text}
             </button>
