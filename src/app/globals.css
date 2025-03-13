@@ -215,3 +215,17 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-track {
   background: #2d3748a2;
 }
+
+/* custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}

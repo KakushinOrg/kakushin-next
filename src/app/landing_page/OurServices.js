@@ -52,9 +52,9 @@ const OurServices = () => {
           for your business.
         </p>
         {whatWeDo.length > 0 ? (
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-row lg:flex-col gap-4">
             {/* Left Column */}
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 lg:w-full w-[50%] space-y-4">
               {leftColumn.map((item, index) => (
                 <div
                   key={item.id}
@@ -81,7 +81,7 @@ const OurServices = () => {
               ))}
             </div>
             {/* Right Column */}
-            <div className="flex-1 space-y-4">
+            <div className="flex-1 lg:w-full w-[50%] space-y-4">
               {rightColumn.map((item, index) => (
                 <div
                   key={item.id}
