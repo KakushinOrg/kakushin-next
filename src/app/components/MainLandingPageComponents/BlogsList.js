@@ -40,20 +40,20 @@ export default function BlogsList() {
       <h1 className="titleTextLG text-center mb-5 mt-5">Our Blogs</h1>
       <>
         {filteredBlogs.length > 0 ? (
-          <div className="px-8 gap-4 mt-4 pt-4">
+          <div className="gap-4 mt-4 pt-4">
             {/* Left Column */}
             <div className=" space-y-4">
               {filteredBlogs.map((item) => (
                 <div
                   key={item.id}
-                  className="boxWhiteMorph relative flex flex-col p-3 bg-white border rounded-2xl shadow-md"
+                  className="boxWhiteMorph relative flex flex-col pb-3 bg-white border rounded-2xl shadow-md"
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-[80%] h-auto mx-auto object-cover rounded-lg transition-transform duration-300 mb-5 pb-2"
+                    className="w-full h-[120px] mx-auto object-cover rounded-lg transition-transform duration-300 mb-2 pb-2"
                   />
-                  <div className="flex-1">
+                  <div className="flex-1 px-2">
                     <h3 className="font-semibold text-gray-800 mb-2">
                       {item.title}
                     </h3>

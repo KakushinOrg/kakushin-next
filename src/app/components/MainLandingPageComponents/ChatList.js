@@ -6,15 +6,33 @@ import AsideAboutus from "@/app/components/AsideComponents/asideAboutus";
 import BlogsList from "./BlogsList";
 import { motion } from "framer-motion";
 
-// Parent card scale on hover
+// We animate the container's maxHeight from 180px to 600px on hover.
+// Adjust "600" if you want a different expanded height.
 const cardVariants = {
-  rest: { scale: 1 }, // Default state
-  hover: { scale: 1.02 }, // Slight zoom on hover
+  rest: {
+    scale: 1,
+    maxHeight: 140,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  },
+  hover: {
+    scale: 1.02,
+    maxHeight: 300,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  },
 };
 
 // Title text fade/slide in
 const titleVariants = {
-  rest: { opacity: 0, y: 50 },
+  rest: {
+    opacity: 0,
+    y: 50,
+  },
   hover: {
     opacity: 1,
     y: 0,
@@ -57,11 +75,22 @@ export default function ChatList({ selectedCategory }) {
             </h1>
 
             {filteredSocialMediaPosts.length > 0 ? (
-              <div className="space-y-4 md:px-8 2xl:px-10 px-5 pt-10">
+              <div className="space-y-4 pt-10">
                 {filteredSocialMediaPosts.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="boxWhiteMorph relative flex flex-col bg-white border rounded-[27px] shadow-md md:w-full mx-auto overflow-hidden"
+                    className="
+                      boxWhiteMorph
+                      relative
+                      flex flex-col
+                      bg-white
+                      border
+                      rounded-[27px]
+                      shadow-md
+                      md:w-full
+                      mx-auto
+                      overflow-hidden
+                    "
                     variants={cardVariants}
                     initial="rest"
                     whileHover="hover"
@@ -82,7 +111,20 @@ export default function ChatList({ selectedCategory }) {
 
                     {/* Title that appears on hover */}
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-center py-3 text-lg font-semibold shadow-lg rounded-b-[27px]"
+                      className="
+                        absolute
+                        bottom-0
+                        left-0
+                        right-0
+                        bg-black/70
+                        text-white
+                        text-center
+                        py-3
+                        text-lg
+                        font-semibold
+                        shadow-lg
+                        rounded-b-[27px]
+                      "
                       variants={titleVariants}
                     >
                       {item.title}

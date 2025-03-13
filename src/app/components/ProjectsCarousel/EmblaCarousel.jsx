@@ -13,9 +13,9 @@ const BlogPostMasonry = () => {
   }, []);
 
   return (
-    <section className="p-4">
+    <section className="">
       {/* Use CSS columns for the masonry effect. */}
-      <div className="flex flex-col gap-4 mx-auto md:px-4 px-4">
+      <div className="flex flex-col gap-4 mx-auto">
         {postsWithHeights.map((post) => (
           <div
             key={post.id}

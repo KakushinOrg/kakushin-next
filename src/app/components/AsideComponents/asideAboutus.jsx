@@ -3,11 +3,11 @@ import { Achievements } from "@/app/landing_page/Achievements";
 
 const AsideAboutus = () => {
   return (
-    <section className="px-8">
+    <section className="">
       <h1 className="titleTextLG text-center mb-5 mt-5">About Us</h1>
 
       <div className="flex flex-col">
-        <div className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 m-4 rounded-[25px] w-full">
+        <div className="relative shrink-0 cursor-pointer bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[25px] w-full overflow-hidden transition-all duration-700 ease-in-out max-h-[150px] hover:max-h-[600px]  hover:-translate-y-1">
           <div className=" flex flex-col gap-5 items-start justify-center md:mb-10">
             <h2 className="titleTextLG mb-4">Our story</h2>
             <p className="paragraph">
@@ -34,7 +34,7 @@ const AsideAboutus = () => {
             </p>
           </div>
         </div>
-        <div className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 m-4 rounded-[25px] w-full">
+        <div className="relative shrink-0 cursor-pointer bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[25px] w-full overflow-hidden transition-all duration-700 ease-in-out max-h-[150px] hover:max-h-[600px]  hover:-translate-y-1">
           <div className="flex flex-col gap-5 items-start justify-center ">
             <h2 className="titleTextLG mb-4">Who we are</h2>
             <p className="paragraph">
