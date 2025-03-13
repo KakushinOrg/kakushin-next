@@ -91,7 +91,7 @@ export default function AboutUsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
+      <main className="relative flex-1 min-w-0 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -166,7 +166,7 @@ export default function AboutUsChat() {
         />
       </main>
 
-      <aside className="w-[25%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="max-w-[30%] w-[30%] min-w-[250px] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <ChatList selectedCategory="aboutus" />
       </aside>
     </>

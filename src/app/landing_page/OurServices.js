@@ -52,28 +52,60 @@ const OurServices = () => {
           for your business.
         </p>
         {whatWeDo.length > 0 ? (
-          <div className="flex flex-col gap-4 px-8">
-            {whatWeDo.map((item, index) => (
-              <div
-                key={item.id}
-                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
-                style={{ minHeight: `${item.randomMinHeight}px` }}
-                onMouseEnter={() => setHoveredId(item.id)}
-                onMouseLeave={() => setHoveredId(null)}
-              >
-                <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
-                  {(() => {
-                    const Icon = FEATURES[index % FEATURES.length].Icon;
-                    return <Icon size={40} className="text-blue-500" />;
-                  })()}
+          <div className="flex flex-row lg:flex-col gap-4">
+            {/* Left Column */}
+            <div className="flex-1 lg:w-full w-[50%] space-y-4">
+              {leftColumn.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                  style={{ minHeight: `${item.randomMinHeight}px` }}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
+                    {(() => {
+                      const Icon = FEATURES[index % FEATURES.length].Icon;
+                      return <Icon size={40} className="text-blue-500" />;
+                    })()}
+                  </div>
+                  <div className="flex-1 ml-4">
+                    <h3 className="font-semibold text-gray-800 w-[95%]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 service-description w-[95%]">
+                      {item.subTitle}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1 ml-4">
-                  <h3 className="font-semibold text-gray-800 w-[95%]">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 service-description w-[95%]">
-                    {item.subTitle}
-                  </p>
+              ))}
+            </div>
+            {/* Right Column */}
+            <div className="flex-1 lg:w-full w-[50%] space-y-4">
+              {rightColumn.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                  style={{ minHeight: `${item.randomMinHeight}px` }}
+                  onMouseEnter={() => setHoveredId(item.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
+                    {(() => {
+                      const Icon =
+                        FEATURES[(index + leftColumn.length) % FEATURES.length]
+                          .Icon;
+                      return <Icon size={40} className="text-blue-500" />;
+                    })()}
+                  </div>
+                  <div className="flex-1 ml-4">
+                    <h3 className="font-semibold text-gray-800 w-[95%]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 service-description w-[95%]">
+                      {item.subTitle}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
