@@ -151,7 +151,7 @@ export default function ServicesChat() {
               <button
                 key={index}
                 onClick={(e) => handleUserMessage(question, e)}
-                className={`px-4 py-2 border max-w-[15rem] text-gray-800 text-[14px] rounded-full shadow ${
+                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow ${
                   isThinking
                     ? "bg-gray-300 text-gray-400 cursor-not-allowed"
                     : "bg-white hover:bg-gray-200"
@@ -173,7 +173,7 @@ export default function ServicesChat() {
         />
       </main>
 
-      <aside className="w-[35%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="w-[25%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <h2 className="titleTextLG text-center mx-5 mb-5">What We Do</h2>
         <OurServices />
       </aside>

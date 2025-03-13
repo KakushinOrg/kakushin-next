@@ -91,7 +91,7 @@ export default function AboutUsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
+      <main className="relative flex-1 min-w-0 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -144,7 +144,7 @@ export default function AboutUsChat() {
               <button
                 key={index}
                 onClick={(e) => handleUserMessage(question, e)}
-                className={`px-4 py-2 border max-w-[15rem] text-gray-800 text-[14px] rounded-full shadow ${
+                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow ${
                   isThinking
                     ? "bg-gray-300 text-gray-400 cursor-not-allowed"
                     : "bg-white hover:bg-gray-200"
@@ -166,7 +166,7 @@ export default function AboutUsChat() {
         />
       </main>
 
-      <aside className="w-[35%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="max-w-[30%] w-[30%] min-w-[250px] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <ChatList selectedCategory="aboutus" />
       </aside>
     </>

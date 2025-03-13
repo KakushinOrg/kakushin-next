@@ -234,7 +234,7 @@ export default function IndustryVerticalChat() {
         />
       </main>
 
-      <aside className="w-[35%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="w-[25%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
         <h2 className="titleTextLG text-center mx-5 mb-5">
           Industry Verticals
         </h2>
