@@ -57,11 +57,11 @@ export default function ChatList({ selectedCategory }) {
             </h1>
 
             {filteredSocialMediaPosts.length > 0 ? (
-              <div className="space-y-4 md:px-20 px-5 pt-10">
+              <div className="space-y-4 md:px-8 2xl:px-10 px-5 pt-10">
                 {filteredSocialMediaPosts.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="boxWhiteMorph relative flex flex-col bg-white border rounded-[27px] shadow-md md:w-[350px] mx-auto overflow-hidden"
+                    className="boxWhiteMorph relative flex flex-col bg-white border rounded-[27px] shadow-md md:w-full mx-auto overflow-hidden"
                     variants={cardVariants}
                     initial="rest"
                     whileHover="hover"

@@ -52,7 +52,7 @@ const OurServices = () => {
           for your business.
         </p>
         {whatWeDo.length > 0 ? (
-          <div className="flex flex-col gap-4 px-8">
+          <div className="flex flex-col gap-4 ">
             {whatWeDo.map((item, index) => (
               <div
                 key={item.id}
