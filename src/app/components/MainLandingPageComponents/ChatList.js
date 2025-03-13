@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./boxMorph.css";
 import AsideAboutus from "@/app/components/AsideComponents/asideAboutus";
+import BlogsList from "./BlogsList";
 
 export default function ChatList({ selectedCategory }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,19 +24,22 @@ export default function ChatList({ selectedCategory }) {
 
   return (
     <>
-      <h1 className="titleTextLG text-center mb-5">Social Media Posts</h1>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full p-2 border rounded mb-4"
-      />
       <div className="space-y-4">
         {selectedCategory === "aboutus" ? (
           <AsideAboutus />
+        ) : selectedCategory === "blogs" ? (
+          <BlogsList />
         ) : (
           <>
+            <h1 className="titleTextLG text-center mb-5">Social Media Posts</h1>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-2 border rounded mb-4"
+            />
+
             {filteredSocialMediaPosts.length > 0 ? (
               <div className="space-y-4 md:px-20 px-5">
                 {filteredSocialMediaPosts.map((item) => (
