@@ -15,11 +15,11 @@ const BlogPostMasonry = () => {
   return (
     <section className="">
       {/* Use CSS columns for the masonry effect. */}
-      <div className="flex flex-col gap-4 mx-auto">
+      <div className="flex flex-col gap-2 mx-auto">
         {postsWithHeights.map((post) => (
           <div
             key={post.id}
-            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[25px]"
+            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
             style={{ minHeight: post.randomHeight }}
           >
             <Post {...post} />

@@ -46,12 +46,12 @@ export default function BlogsList() {
               {filteredBlogs.map((item) => (
                 <div
                   key={item.id}
-                  className="boxWhiteMorph relative flex flex-col pb-3 bg-white border rounded-2xl shadow-md"
+                  className="boxWhiteMorph relative flex flex-col pb-3 bg-white border rounded-[10px] shadow-md"
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-[120px] mx-auto object-cover rounded-lg transition-transform duration-300 mb-2 pb-2"
+                    className="w-full h-[120px] mx-auto object-cover rounded-[10px] transition-transform duration-300 mb-2 pb-2"
                   />
                   <div className="flex-1 px-2">
                     <h3 className="font-semibold text-gray-800 mb-2">

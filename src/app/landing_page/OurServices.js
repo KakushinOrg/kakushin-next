@@ -56,7 +56,7 @@ const OurServices = () => {
             {whatWeDo.map((item, index) => (
               <div
                 key={item.id}
-                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-2xl shadow-md w-full"
+                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-[10px] shadow-md w-full"
                 style={{ minHeight: `${item.randomMinHeight}px` }}
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}

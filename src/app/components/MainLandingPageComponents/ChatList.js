@@ -80,16 +80,7 @@ export default function ChatList({ selectedCategory }) {
                   <motion.div
                     key={item.id}
                     className="
-                      boxWhiteMorph
-                      relative
-                      flex flex-col
-                      bg-white
-                      border
-                      rounded-[27px]
-                      shadow-md
-                      md:w-full
-                      mx-auto
-                      overflow-hidden
+                      boxWhiteMorph relative flex flex-col  bg-white border rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden
                     "
                     variants={cardVariants}
                     initial="rest"
@@ -105,25 +96,14 @@ export default function ChatList({ selectedCategory }) {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-auto mx-auto object-contain rounded-[25px]"
+                        className="w-full h-auto mx-auto object-contain rounded-[5px]"
                       />
                     </a>
 
                     {/* Title that appears on hover */}
                     <motion.div
                       className="
-                        absolute
-                        bottom-0
-                        left-0
-                        right-0
-                        bg-black/70
-                        text-white
-                        text-center
-                        py-3
-                        text-lg
-                        font-semibold
-                        shadow-lg
-                        rounded-b-[27px]
+                        absolute bottom-0 left-0 right-0 bg-black/70 text-white text-center py-3 text-lg font-semibold shadow-lg rounded-b-[10px]
                       "
                       variants={titleVariants}
                     >
