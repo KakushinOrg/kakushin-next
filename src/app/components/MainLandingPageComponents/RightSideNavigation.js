@@ -7,8 +7,6 @@ import {
   ComputerIcon,
   ClipboardTypeIcon,
   PhoneCallIcon,
-  // MoonIcon,
-  // Sun,
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
@@ -45,30 +43,7 @@ const iconMap = {
 
 export default function RightSideNavigation({ setSelectedChat }) {
   const [activeTab, setActiveTab] = useState("Home");
-  const [darkMode, setDarkMode] = useState(false);
-
   const manualNavigationRef = useRef(false);
-
-  // Load theme from localStorage (default: light)
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    }
-  }, []);
-
-  // Toggle theme
-  const toggleTheme = () => {
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-    setDarkMode(!darkMode);
-  };
 
   const getSectionId = (item) => {
     if (item.link.includes("#")) {
@@ -98,7 +73,6 @@ export default function RightSideNavigation({ setSelectedChat }) {
       threshold: 0.5,
     });
 
-    // Observe each section on the page
     menuLinks.forEach((item) => {
       const sectionId = getSectionId(item);
       const section = document.getElementById(sectionId);
@@ -108,19 +82,13 @@ export default function RightSideNavigation({ setSelectedChat }) {
     return () => observer.disconnect();
   }, []);
 
-  // Handle click: set manual flag and update active tab
   const handleClick = (item) => {
-    // Special case for Elevate12 - open the external link
     if (item.name === "Elevate12") {
       window.open(item.link, "_blank");
       return;
     }
-
-    // For other menu items, handle as before
     setSelectedChat(item.link);
     setActiveTab(item.name);
-
-    // Reset the flag after a short delay to re-enable the scroll spy
     setTimeout(() => {
       manualNavigationRef.current = false;
     }, 800);
@@ -186,20 +154,6 @@ export default function RightSideNavigation({ setSelectedChat }) {
           height={28}
           className="cursor-pointer"
         />
-        {/* COMMENTING IT OUT UNTIL WE FIX DARK MODE */}
-        {/* {darkMode ? (
-          <Sun
-            size={28}
-            className="cursor-pointer text-yellow-500"
-            onClick={toggleTheme}
-          />
-        ) : (
-          <MoonIcon
-            size={28}
-            className="cursor-pointer text-gray-700"
-            onClick={toggleTheme}
-          />
-        )} */}
       </div>
     </>
   );
