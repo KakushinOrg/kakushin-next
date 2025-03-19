@@ -74,7 +74,7 @@ const Contact = () => {
 
   return (
     <div
-      className="bg-[#0A192E] md:mt-10 md:pt-8 h-[80vh] flex justify-center items-center"
+      className="bg-[#0A192E] md:mt-10 md:pt-8 h-full md:h-[80vh] flex justify-center items-center"
       id="contact"
     >
       <div>
@@ -87,7 +87,7 @@ const Contact = () => {
 
         <div className="flex flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
           <form
-            className="flex flex-col md:flex-row justify-center items-end gap-10"
+            className="flex flex-col md:flex-row justify-center items-center lg:items-end gap-10"
             onSubmit={handleSubmit}
           >
             <TextField

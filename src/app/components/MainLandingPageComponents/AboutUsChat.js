@@ -1,31 +1,32 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ChatList from "./ChatList";
+import { useRouter } from "next/navigation";
 import MessageInput from "./MessageInput";
 import Navbar from "@/app/components/Navbar";
-import { FetchWhoWeAreQandA } from "@/app/lib/getBlogData";
+import ChatList from "./ChatList";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function AboutUsChat() {
+export default function InnovationInsightsChat() {
   const [messages, setMessages] = useState([]);
-  const [questionsAndResponses, setQuestionsAndResponses] = useState({});
   const [isExpanded, setIsExpanded] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const messagesEndRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    async function loadQnA() {
-      const data = await FetchWhoWeAreQandA();
-      const qnaObj = {};
-      data.forEach((item) => {
-        qnaObj[item.Question] = item.Answer;
-      });
-      setQuestionsAndResponses(qnaObj);
-    }
-    loadQnA();
-  }, []);
-
-  const getRandomResponse = (array) =>
-    array[Math.floor(Math.random() * array.length)];
+  const questionsAndResponses = {
+    "Tell me more about your AI integration services.":
+      "At Kakushin, our AI integration services are designed to empower startups by enhancing their technological capabilities. We focus on embedding AI into various business functions such as automated customer service, data analysis, and predictive analytics. Our approach involves understanding your specific business needs, designing an AI solution that fits those needs, and then implementing the solution while ensuring seamless integration with your existing systems. This process helps in optimizing operations, improving decision-making, and creating personalized customer experiences. We also provide ongoing support to ensure the AI systems evolve with your business.",
+    "I need help with developing an MVP. What’s the process?":
+      "Developing a Minimum Viable Product (MVP) with Kakushin involves a structured and iterative process tailored to bring your startup idea to life efficiently. First, we start with a discovery phase where we define the core functionalities that address the main customer pain points. Next, we move into the design and prototyping phase, where we create the initial version of the product with essential features. This is followed by user testing, where feedback is gathered to refine the product. After implementing the necessary adjustments, we help you launch the MVP to the market. Throughout the process, our team ensures that the MVP not only meets market needs but also stays within budget and timeline constraints.",
+    "Can I see examples of successful projects?":
+      "Certainly! We have a range of successful projects across various industries that showcase our expertise. For instance, we recently helped a tech startup integrate AI into their operations, resulting in a 40% increase in efficiency. Another project involved developing an MVP for a fintech company, which has now secured its second round of funding due to the product’s success. We also assisted a health tech company in redesigning their digital platform, which dramatically improved user engagement. Details of these projects are available on our website, where you can explore case studies and testimonials from our clients.",
+    "I want to schedule a meeting to discuss my project.":
+      "We would be delighted to discuss your project and see how Kakushin can assist you. You can schedule a meeting directly through our website by selecting a date and time that works best for you. During our meeting, we will discuss your project in detail, explore your specific needs, and determine how our services can best align with your goals. Please prepare any relevant materials or questions you may have, so we can make the most of our time together.",
+    "What are the typical costs associated with your branding services?":
+      "The costs associated with our branding services can vary depending on the scope and complexity of your project. Typically, our branding packages start from $5,000 for basic branding, which includes logo design, color palette, and typography. For more comprehensive services that involve full brand strategy, identity design, and marketing materials, prices can range from $10,000 to $50,000. We offer customized quotes based on your specific requirements, ensuring that we provide a solution that fits your budget and meets your branding needs. Feel free to reach out for a detailed quote tailored to your project.",
+  };
 
   const generalResponses = [
     "Thanks for reaching out! Can you specify a bit more about which service you’re interested in? That way, I can provide the exact information you need.",
@@ -53,6 +54,50 @@ export default function AboutUsChat() {
     "Oh, that’s an interesting topic! Not something we cover, but let’s dive into something amusing: Watermelon snow exists! It's a phenomenon where algae turn mountain snow pink, giving it a watermelon-like appearance.",
   ];
 
+  // Mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // For testing purposes: clear chat messages
+  const clearMessages = () => {
+    setMessages([]);
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("chatMessages");
+    }
+    setIsExpanded(false);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedMessages = localStorage.getItem("chatMessages");
+      if (savedMessages) {
+        setMessages(JSON.parse(savedMessages));
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && messages.length > 0) {
+      localStorage.setItem("chatMessages", JSON.stringify(messages));
+    }
+    if (messages.length > 0) {
+      setIsExpanded(true);
+      chatContainerRef.current?.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [messages]);
+
+  const getRandomResponse = (array) =>
+    array[Math.floor(Math.random() * array.length)];
+
   const findClosestMatch = (input) => {
     const lowerInput = input.toLowerCase();
     for (let question of Object.keys(questionsAndResponses)) {
@@ -69,7 +114,7 @@ export default function AboutUsChat() {
       <>
         {randomResponse}
         <br />
-        <a href="contact" className="text-blue-600 underline">
+        <a href="#contact" className="text-blue-600 underline">
           Contact Us
         </a>
       </>
@@ -79,9 +124,9 @@ export default function AboutUsChat() {
   const handleUserMessage = (text, event) => {
     if (event) event.preventDefault();
     if (!text.trim()) return;
-    setMessages((prev) => [...prev, { text, sender: "user" }]);
+    const newMessage = { text, sender: "user" };
+    setMessages((prev) => [...prev, newMessage]);
     setIsThinking(true);
-
     setTimeout(() => {
       setIsThinking(false);
       const response = findClosestMatch(text);
@@ -89,22 +134,52 @@ export default function AboutUsChat() {
     }, 1500);
   };
 
+  const chatContainerRef = useRef(null);
+
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem] bg-[#0A192E] px-4 md:px-8">
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] bg-[#0A192E] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
-
-        <div className="lg:mt-6 text-white">
-          <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
-          <p className="text-white my-2">
-            In this section you will hear all about us and what we do. You can
-            ask more questions if you have any.
-          </p>
-        </div>
+        <AnimatePresence>
+          {messages.length === 0 && (
+            <motion.div
+              key="Innovation-insights-message"
+              variants={{
+                initial: { opacity: 1, y: 0 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+              }}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-white"
+            >
+              <div className="lg:block hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  I'm here to help you explore how we can boost your startup’s
+                  success with our innovative solutions.
+                </p>
+              </div>
+              <div className="lg:hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  I'm here to help you explore how we can boost your startup’s
+                  success with our innovative solutions.
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div
+          ref={chatContainerRef}
           className={`w-full ${
             isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
           } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
@@ -117,7 +192,7 @@ export default function AboutUsChat() {
               } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-2/5 ${
+                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
                   msg.sender === "user"
                     ? "bg-blue-100 text-blue-900 border rounded-full"
                     : "bg-gray-100 text-gray-900 border rounded-full"
@@ -136,33 +211,86 @@ export default function AboutUsChat() {
               <p className="text-gray-500">Kakushin AI is thinking...</p>
             </div>
           )}
+          <div ref={messagesEndRef} />
         </div>
 
-        <div
-          className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3 overflow-y-auto"
-          style={{ maxWidth: "60%", maxHeight: "200px" }} // Adjust as needed
-        >
-          {Object.keys(questionsAndResponses).length > 0 ? (
-            Object.keys(questionsAndResponses).map((question, index) => (
+        {/* Desktop view: inline question buttons */}
+        {!isMobile && (
+          <div className="mt-10 mb-5 flex flex-wrap gap-4 justify-center h-40 overflow-y-auto sm:h-auto sm:flex-wrap">
+            {Object.keys(questionsAndResponses).map((text, index) => (
               <button
                 key={index}
-                onClick={(e) => handleUserMessage(question, e)}
-                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow w-fit ${
+                onClick={(e) => handleUserMessage(text, e)}
+                className={`px-4 py-2 border rounded-full shadow ${
                   isThinking
-                    ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-white hover:bg-gray-200"
                 }`}
                 disabled={isThinking}
               >
-                {question}
+                {text}
               </button>
-            ))
-          ) : (
-            <p>Loading questions...</p>
-          )}
-        </div>
+            ))}
+          </div>
+        )}
+
+        {/* Mobile view: popup modal with questions */}
+        {isMobile && showPopup && (
+          <AnimatePresence>
+            <motion.div
+              key="mobile-popup"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 flex justify-center items-center z-50"
+            >
+              <div
+                className="fixed inset-0 bg-black opacity-50"
+                onClick={() => setShowPopup(false)}
+              ></div>
+              <div className="bg-[#0A192E] p-6 rounded-lg shadow-lg z-10 max-w-sm mx-auto">
+                <h2 className="text-xl font-bold mb-4 text-white">
+                  Select a question
+                </h2>
+                <div className="flex flex-col gap-2 h-[30rem] overflow-y-auto">
+                  {Object.keys(questionsAndResponses).map((text, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        handleUserMessage(text, e);
+                        setShowPopup(false);
+                      }}
+                      className="px-4 py-2 border rounded-full shadow bg-white hover:bg-gray-200"
+                      disabled={isThinking}
+                    >
+                      {text}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="mt-4 text-white underline"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {isMobile && (
+          <button
+            onClick={() => setShowPopup(true)}
+            className="text-white my-5 p-2 block lg:hidden border-white border-[2px] rounded-lg"
+          >
+            Questions
+          </button>
+        )}
 
         <MessageInput
+          onClear={clearMessages}
+          hasMessages={messages.length > 0}
           onSendMessage={handleUserMessage}
           onFocus={() => setIsExpanded(true)}
           onBlur={() => setIsExpanded(messages.length > 0)}
@@ -170,7 +298,7 @@ export default function AboutUsChat() {
       </main>
 
       <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
-        <ChatList selectedCategory="aboutus" />
+        <ChatList selectedCategory="innovation" />
       </aside>
     </>
   );

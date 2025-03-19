@@ -9,14 +9,19 @@ import {
   FetchOurServicesQandA,
   FetchServiceGeneralInquiries,
 } from "@/app/lib/getBlogData";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ServicesChat() {
   const [messages, setMessages] = useState([]);
   const [questionsAndResponses, setQuestionsAndResponses] = useState({});
-  const [generalResponses, setGeneralResponses] = useState([]); // Will be fetched from Contentful
+  const [generalResponses, setGeneralResponses] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Mobile detection and modal state
+  const [isMobile, setIsMobile] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     async function loadQnA() {
@@ -30,7 +35,6 @@ export default function ServicesChat() {
     loadQnA();
   }, []);
 
-  // todo: might need to add it to 1 useEffect
   useEffect(() => {
     async function loadGeneralInquiries() {
       const data = await FetchServiceGeneralInquiries();
@@ -39,6 +43,16 @@ export default function ServicesChat() {
       }
     }
     loadGeneralInquiries();
+  }, []);
+
+  // Mobile detection effect
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const getRandomResponse = (array) =>
@@ -97,18 +111,46 @@ export default function ServicesChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem] bg-[#0A192E] px-4 md:px-8">
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] bg-[#0A192E] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
 
-        <div className="lg:mt-6 text-white">
-          <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
-          <p className="text-white my-2">
-            In this section you will hear all about our services. You can ask
-            more questions if you have any.
-          </p>
-        </div>
+        <AnimatePresence>
+          {messages.length === 0 && (
+            <motion.div
+              key="Service-chat-message"
+              variants={{
+                initial: { opacity: 1, y: 0 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+              }}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-white"
+            >
+              <div className="lg:block hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  In this section you will hear all about our services. You can
+                  ask more questions if you have any.
+                </p>
+              </div>
+              <div className="lg:hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  In this section you will hear all about our services. You can
+                  ask more questions if you have any.
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div
           ref={messagesEndRef}
@@ -124,7 +166,7 @@ export default function ServicesChat() {
               } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-2/5 ${
+                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
                   msg.sender === "user"
                     ? "bg-blue-100 text-blue-900 border rounded-full"
                     : "bg-gray-100 text-gray-900 border rounded-full"
@@ -145,26 +187,90 @@ export default function ServicesChat() {
           )}
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3">
-          {Object.keys(questionsAndResponses).length > 0 ? (
-            Object.keys(questionsAndResponses).map((question, index) => (
-              <button
-                key={index}
-                onClick={(e) => handleUserMessage(question, e)}
-                className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow ${
-                  isThinking
-                    ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-                    : "bg-white hover:bg-gray-200"
-                }`}
-                disabled={isThinking}
-              >
-                {question}
-              </button>
-            ))
-          ) : (
-            <p>Loading questions...</p>
-          )}
-        </div>
+        {/* Desktop view: inline question buttons */}
+        {!isMobile && (
+          <div className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3">
+            {Object.keys(questionsAndResponses).length > 0 ? (
+              Object.keys(questionsAndResponses).map((question, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => handleUserMessage(question, e)}
+                  className={`px-4 py-2 border text-gray-800 text-[14px] rounded-full shadow ${
+                    isThinking
+                      ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+                      : "bg-white hover:bg-gray-200"
+                  }`}
+                  disabled={isThinking}
+                >
+                  {question}
+                </button>
+              ))
+            ) : (
+              <p>Loading questions...</p>
+            )}
+          </div>
+        )}
+
+        {/* Mobile view: popup modal with questions */}
+        {isMobile && showPopup && (
+          <AnimatePresence>
+            <motion.div
+              key="mobile-popup"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 flex justify-center items-center z-50"
+            >
+              <div
+                className="fixed inset-0 bg-black opacity-50"
+                onClick={() => setShowPopup(false)}
+              ></div>
+              <div className="bg-[#0A192E] p-6 rounded-lg shadow-lg z-10 max-w-sm mx-auto">
+                <h2 className="text-xl font-bold mb-4 text-white">
+                  Select a question
+                </h2>
+                <div className="flex flex-col gap-2">
+                  {Object.keys(questionsAndResponses).length > 0 ? (
+                    Object.keys(questionsAndResponses).map(
+                      (question, index) => (
+                        <button
+                          key={index}
+                          onClick={(e) => {
+                            handleUserMessage(question, e);
+                            setShowPopup(false);
+                          }}
+                          className="px-4 py-2 border rounded-full shadow bg-white hover:bg-gray-200"
+                          disabled={isThinking}
+                        >
+                          {question}
+                        </button>
+                      )
+                    )
+                  ) : (
+                    <p className="text-white">Loading questions...</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="mt-4 text-white underline"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {/* Mobile view: button to trigger the popup */}
+        {isMobile && (
+          <button
+            onClick={() => setShowPopup(true)}
+            className="text-white my-5 p-2 block lg:hidden border-white border-[2px] rounded-lg"
+          >
+            Questions
+          </button>
+        )}
 
         <MessageInput
           onSendMessage={handleUserMessage}

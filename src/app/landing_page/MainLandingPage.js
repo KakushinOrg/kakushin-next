@@ -10,11 +10,11 @@ import ServicesChat from "../components/MainLandingPageComponents/ServicesChat";
 import AboutUsChat from "../components/MainLandingPageComponents/AboutUsChat";
 import IndustryVerticalChat from "../components/MainLandingPageComponents/IndustryVerticalChat";
 import BlogsChat from "../components/MainLandingPageComponents/BlogsChat";
-import { X, Menu } from "lucide-react";
+// import { X, Menu } from "lucide-react";
 
 export default function MainLandingPage() {
   const [showPopup, setShowPopup] = useState(true);
-  const [showSidebar, setShowSidebar] = useState(false);
+  // const [showSidebar, setShowSidebar] = useState(false);
   const [selectedChat, setSelectedChat] = useState("innovation");
 
   return (
@@ -41,8 +41,11 @@ export default function MainLandingPage() {
           </div>
         </div>
       )}
-
-      <div className="bg-white">
+      <RightSideNavigation
+        setSelectedChat={setSelectedChat}
+        selectedChat={selectedChat}
+      />
+      {/* <div className="bg-white lg:hidden">
         <button
           className="lg:hidden fixed top-4 bg-gray-800 text-white p-2 rounded-full z-[1000] transition-all duration-300"
           onClick={() => setShowSidebar(!showSidebar)}
@@ -57,12 +60,9 @@ export default function MainLandingPage() {
                   showSidebar ? "translate-x-0" : "translate-x-full"
                 } lg:translate-x-0`}
         >
-          <RightSideNavigation
-            setSelectedChat={setSelectedChat}
-            selectedChat={selectedChat}
-          />
+         
         </aside>
-      </div>
+      </div> */}
     </div>
   );
 }

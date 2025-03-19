@@ -6,12 +6,18 @@ import MessageInput from "./MessageInput";
 import Navbar from "@/app/components/Navbar";
 import OurProjects from "@/app/landing_page/OurProjects";
 import BlogPostCarousel from "../ProjectsCarousel/EmblaCarousel";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function IndustryVerticalChat() {
   const [messages, setMessages] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const messagesEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
+
+  // Mobile detection and modal state
+  const [isMobile, setIsMobile] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const questionsAndResponses = {
     "How can Kakushin help startups develop and scale their products efficiently?":
@@ -120,7 +126,15 @@ export default function IndustryVerticalChat() {
         "Urban is a lifestyle app that curates personalized experiences in city environments. It helps users discover local events, exclusive dining options, and hidden gems, making urban exploration easy and enriching.",
     },
   ];
-  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -142,7 +156,6 @@ export default function IndustryVerticalChat() {
         return questionsAndResponses[question];
       }
     }
-
     const randomResponse =
       Math.random() > 0.5
         ? getRandomResponse(generalResponses)
@@ -162,31 +175,59 @@ export default function IndustryVerticalChat() {
   const handleUserMessage = (text, event) => {
     if (event) event.preventDefault();
     if (!text.trim()) return;
-
     setMessages((prev) => [...prev, { text, sender: "user" }]);
     setIsThinking(true);
-
     setTimeout(() => {
       setIsThinking(false);
       const response = findClosestMatch(text);
       setMessages((prev) => [...prev, { text: response, sender: "bot" }]);
     }, 1500);
   };
+
   const OPTIONS = { slidesToScroll: "auto" };
+
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem] bg-[#0A192E] px-4 md:px-8">
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] bg-[#0A192E] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
-
-        <div className="lg:mt-6 text-white">
-          <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
-          <p className="text-white my-2">
-            In This section you will can learn about the services that we
-            provide, what we do you can ask more question if you have any
-          </p>
-        </div>
+        <AnimatePresence>
+          {messages.length === 0 && (
+            <motion.div
+              key="Industry-vertical-message"
+              variants={{
+                initial: { opacity: 1, y: 0 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+              }}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-white"
+            >
+              <div className="lg:block hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  In this section, you will hear all about us and what we do.
+                  You can ask more questions if you have any.
+                </p>
+              </div>
+              <div className="lg:hidden">
+                <h1 className="text-xl font-bold">
+                  Hello and welcome to Kakushin!
+                </h1>
+                <p className="text-white my-2">
+                  In this section you can learn about the services that we
+                  provide, what we do, and you can ask more questions if you
+                  have any.
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div
           ref={chatContainerRef}
@@ -202,7 +243,7 @@ export default function IndustryVerticalChat() {
               } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-2/5 ${
+                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
                   msg.sender === "user"
                     ? "bg-blue-100 text-blue-900 border rounded-full"
                     : "bg-gray-100 text-gray-900 border rounded-full"
@@ -223,25 +264,84 @@ export default function IndustryVerticalChat() {
           )}
           <div ref={messagesEndRef} />
         </div>
-        <div
-          className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3 overflow-y-auto"
-          style={{ maxWidth: "60%", maxHeight: "200px" }} // Adjust as needed
-        >
-          {Object.keys(questionsAndResponses).map((text, index) => (
-            <button
-              key={index}
-              onClick={(e) => handleUserMessage(text, e)}
-              disabled={isThinking}
-              className={`w-fit px-4 py-2 border rounded-full shadow ${
-                isThinking
-                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-white hover:bg-gray-200"
-              }`}
+
+        {/* Desktop view: inline question buttons */}
+        {!isMobile && (
+          <div
+            className="mt-10 flex flex-wrap gap-4 justify-center mb-4 mx-3 overflow-y-auto"
+            style={{ maxWidth: "60%", maxHeight: "200px" }}
+          >
+            {Object.keys(questionsAndResponses).map((text, index) => (
+              <button
+                key={index}
+                onClick={(e) => handleUserMessage(text, e)}
+                disabled={isThinking}
+                className={`w-fit px-4 py-2 border rounded-full shadow ${
+                  isThinking
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : "bg-white hover:bg-gray-200"
+                }`}
+              >
+                {text}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Mobile view: popup modal with questions */}
+        {isMobile && showPopup && (
+          <AnimatePresence>
+            <motion.div
+              key="mobile-popup"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 flex justify-center items-center z-50"
             >
-              {text}
-            </button>
-          ))}
-        </div>
+              <div
+                className="fixed inset-0 bg-black opacity-50"
+                onClick={() => setShowPopup(false)}
+              ></div>
+              <div className="bg-[#0A192E] p-6 rounded-lg shadow-lg z-10 max-w-sm mx-auto">
+                <h2 className="text-xl font-bold mb-4 text-white">
+                  Select a question
+                </h2>
+                <div className="flex flex-col gap-2 h-[30rem] overflow-y-auto">
+                  {Object.keys(questionsAndResponses).map((text, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        handleUserMessage(text, e);
+                        setShowPopup(false);
+                      }}
+                      className="px-4 py-2 border rounded-full shadow bg-white hover:bg-gray-200"
+                      disabled={isThinking}
+                    >
+                      {text}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="mt-4 text-white underline"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+
+        {/* Mobile view: button to trigger the popup */}
+        {isMobile && (
+          <button
+            onClick={() => setShowPopup(true)}
+            className="text-white my-5 p-2 block lg:hidden border-white border-[2px] rounded-lg"
+          >
+            Questions
+          </button>
+        )}
 
         <MessageInput
           onSendMessage={handleUserMessage}

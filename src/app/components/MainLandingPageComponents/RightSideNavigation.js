@@ -8,6 +8,8 @@ import {
   ClipboardTypeIcon,
   PhoneCallIcon,
   ExternalLink,
+  Menu,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
@@ -42,123 +44,66 @@ const iconMap = {
 
 export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
   const [activeTab, setActiveTab] = useState("Home");
+  const [showSidebar, setShowSidebar] = useState(false);
   const manualNavigationRef = useRef(false);
 
-  // If the selected chat is "contact", force activeTab to "Contact"
   useEffect(() => {
     if (selectedChat === "contact") {
       setActiveTab("Contact");
     }
   }, [selectedChat]);
 
-  const getSectionId = (item) => {
-    if (item.link.includes("#")) {
-      return item.link.split("#")[1];
-    }
-    return item.name.toLowerCase();
-  };
-
-  useEffect(() => {
-    const handleIntersect = (entries) => {
-      if (manualNavigationRef.current) return;
-
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const intersectingId = entry.target.id;
-          const activeItem = menuLinks.find(
-            (item) => getSectionId(item) === intersectingId
-          );
-          if (activeItem) {
-            setActiveTab(activeItem.name);
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, {
-      threshold: 0.5,
-    });
-
-    menuLinks.forEach((item) => {
-      const sectionId = getSectionId(item);
-      const section = document.getElementById(sectionId);
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const handleClick = (item) => {
     if (item.name === "Elevate12") {
       window.open(item.link, "_blank");
-      return;
-    }
-    if (item.name === "Contact") {
-      setSelectedChat("contact");
     } else {
       setSelectedChat(item.link);
     }
     setActiveTab(item.name);
-    setTimeout(() => {
-      manualNavigationRef.current = false;
-    }, 800);
+    setShowSidebar(false);
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center space-y-6 flex-1 justify-center">
-        <LayoutGroup>
-          <AnimatePresence>
-            <motion.ul
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 20 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="space-y-4"
-            >
-              {menuLinks.map((item) => (
-                <li key={item.name} className="relative group">
-                  <div className="relative w-12 h-12 flex items-center justify-center">
-                    {activeTab === item.name && (
-                      <motion.div
-                        layoutId="activeIndicator"
-                        className="absolute inset-0 bg-[#8d1c22] rounded-full"
-                        transition={{
-                          type: "spring",
-                          stiffness: 500,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                    <button
-                      onClick={() => handleClick(item)}
-                      className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#8d1c22]"
-                    >
-                      {iconMap[item.name] || (
-                        <ExternalLink color="white" fill="white" size={24} />
-                      )}
-                    </button>
-                    <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                      {item.name}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </motion.ul>
-          </AnimatePresence>
-        </LayoutGroup>
-      </div>
+    <div className="relative">
+      <button
+        className="lg:hidden fixed top-4 right-4 bg-gray-800 text-white p-2 rounded-full z-[1000] transition-all duration-300"
+        onClick={() => setShowSidebar(!showSidebar)}
+      >
+        {showSidebar ? <X size={24} /> : <Menu size={24} />}
+      </button>
 
-      <div className="flex flex-col items-center space-y-4 mb-5">
-        <Image
-          onClick={() => window.open("https://wa.me/35796590911", "_blank")}
-          alt="Whatsapp"
-          src="/icons/whatsapp.svg"
-          width={28}
-          height={28}
-          className="cursor-pointer"
-        />
-      </div>
-    </>
+      <aside
+        className={`fixed top-0 right-0 h-full bg-[#0a192e] border-l border-[#114074] z-[999] transition-transform duration-300 ${
+          showSidebar ? "translate-x-0" : "translate-x-full"
+        } lg:translate-x-0 lg:w-16 flex flex-col items-center`}
+      >
+        <div className="flex flex-col items-center space-y-6 flex-1 justify-center">
+          {menuLinks.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => handleClick(item)}
+              className={`w-12 h-12 flex items-center justify-center rounded-full ${
+                activeTab === item.name ? "bg-[#8d1c22]" : "hover:bg-[#8d1c22]"
+              }`}
+            >
+              {iconMap[item.name] || (
+                <ExternalLink color="white" fill="white" size={24} />
+              )}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center space-y-4 mb-5">
+          <Image
+            onClick={() => window.open("https://wa.me/35796590911", "_blank")}
+            alt="Whatsapp"
+            src="/icons/whatsapp.svg"
+            width={28}
+            height={28}
+            className="cursor-pointer"
+          />
+        </div>
+      </aside>
+    </div>
   );
 }
