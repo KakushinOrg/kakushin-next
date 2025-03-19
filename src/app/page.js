@@ -1,21 +1,5 @@
-// todo cleanup unusded imports
-import Hero from "./landing_page/Hero";
-import About from "./landing_page/About";
-import OurServices from "./landing_page/OurServices";
-import SuccessSolutions from "./landing_page/SuccessSolutions";
-import { Achievements } from "./landing_page/Achievements";
-import BlogsSection from "./landing_page/BlogsSection";
-import Contact from "./landing_page/Contact";
-import dynamic from "next/dynamic";
-import TestimonialCarousel from "./components/TestimonialCarousel/testimonialCarousel";
 import MainLandingPage from "./landing_page/MainLandingPage";
 import { BlogProvider } from "@/app/context/blogContext";
-
-const ConsultationForm = dynamic(() =>
-  import("./landing_page/ConsultationForm")
-);
-const OurProjects = dynamic(() => import("./landing_page/OurProjects"));
-const Testimonials = dynamic(() => import("./landing_page/Testimonials"));
 
 export const metadata = {
   title: "Welcome to Kakushin",
@@ -46,16 +30,6 @@ export default function Home() {
     <BlogProvider>
       <div className="overflow-x-hidden">
         <MainLandingPage />
-        {/* todo: cleanup */}
-        {/* <Hero /> */}
-        {/* <About /> */}
-        {/* <OurServices /> */}
-        {/* <OurProjects /> */}
-        {/* <Testimonials /> */}
-        {/* <Achievements /> */}
-        {/* <BlogsSection /> */}
-        {/* Remove this one if we donot want to keep the scroll one */}
-        {/* <Contact /> */}
       </div>
     </BlogProvider>
   );
