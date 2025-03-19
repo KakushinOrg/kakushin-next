@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 
 export default function AnimatedPopup({ onClose }) {
   const messages = [
-    "🚀 Tell me more about your AI integration services.",
-    "🔍 I need help with developing an MVP. What’s the process?",
-    "📂 Can I see examples of successful projects?",
-    "📅 I want to schedule a meeting to discuss my project.",
-    "💰 What are the typical costs associated with your branding services?",
+    "Tell me more about your AI integration services.",
+    "I need help with developing an MVP. What’s the process?",
+    "Can I see examples of successful projects?",
+    "I want to schedule a meeting to discuss my project.",
+    "What are the typical costs associated with your branding services?",
   ];
 
   const [index, setIndex] = useState(0);
@@ -55,7 +55,7 @@ export default function AnimatedPopup({ onClose }) {
         </button>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          💡 Quick Questions
+          Quick Questions
         </h2>
         <p className="text-gray-600 text-sm mb-4">
           We’re here to help! Here are some common questions:

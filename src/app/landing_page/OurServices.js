@@ -38,7 +38,7 @@ const OurServices = () => {
   });
 
   return (
-    <section className="w-full" id="services">
+    <section className="w-full text-white" id="services">
       <div className="space-y-4">
         <p className="paragraph px-6 my-14">
           Businesses are multi-faceted and require each facet to operate in the

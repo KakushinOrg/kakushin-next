@@ -28,7 +28,7 @@ export default function MessageInput({
     <div
       className={`w-full flex items-center ${
         isExpanded ? "" : ""
-      } p-2 bg-white border border-gray-300 rounded-lg transition-all duration-300 ease-out`}
+      } p-2 bg-[#fcfcfc] border border-gray-300 rounded-lg transition-all duration-300 ease-out`}
     >
       {/* <button className="px-4 py-2 rounded-full">
                 <MicIcon size={18} />

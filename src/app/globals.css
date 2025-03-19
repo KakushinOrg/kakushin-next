@@ -34,7 +34,6 @@ body {
 }
 .titleTextLG {
   position: relative;
-  color: #414141;
   font-size: 25px;
   font-weight: 700;
   line-height: 42px;
@@ -88,7 +87,6 @@ body {
 .paragraph {
   font-size: 16px;
   line-height: 25px;
-  color: #434343;
   opacity: 0.8;
   text-align: left;
   max-width: 900px;

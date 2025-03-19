@@ -10,7 +10,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
@@ -25,11 +24,11 @@ const menuLinks = [
 ];
 
 const iconMap = {
-  Home: <MessageSquare size={24} />,
-  About: <PersonStanding size={24} />,
-  Services: <WorkflowIcon size={24} />,
-  "Industry Verticals": <ComputerIcon size={24} />,
-  Blogs: <ClipboardTypeIcon size={24} />,
+  Home: <MessageSquare color="white" size={24} />,
+  About: <PersonStanding color="white" size={24} />,
+  Services: <WorkflowIcon color="white" size={24} />,
+  "Industry Verticals": <ComputerIcon color="white" size={24} />,
+  Blogs: <ClipboardTypeIcon color="white" size={24} />,
   Elevate12: (
     <Image
       src="/icons/elevate-12-icon.svg"
@@ -38,7 +37,7 @@ const iconMap = {
       height={24}
     />
   ),
-  Contact: <PhoneCallIcon size={24} />,
+  Contact: <PhoneCallIcon color="white" size={24} />,
 };
 
 export default function RightSideNavigation({ setSelectedChat }) {
@@ -96,14 +95,6 @@ export default function RightSideNavigation({ setSelectedChat }) {
 
   return (
     <>
-      <div className="w-12 h-12 flex mt-1 items-center justify-center mb-6">
-        <img
-          src="../../icons/asiL.svg"
-          alt="Logo"
-          className="w-full h-full object-contain"
-        />
-      </div>
-
       <div className="flex flex-col items-center space-y-6 flex-1 justify-center">
         <LayoutGroup>
           <AnimatePresence>
@@ -120,7 +111,7 @@ export default function RightSideNavigation({ setSelectedChat }) {
                     {activeTab === item.name && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute inset-0 bg-gray-300 rounded-full"
+                        className="absolute inset-0 bg-[#8d1c22] rounded-full"
                         transition={{
                           type: "spring",
                           stiffness: 500,
@@ -130,9 +121,11 @@ export default function RightSideNavigation({ setSelectedChat }) {
                     )}
                     <button
                       onClick={() => handleClick(item)}
-                      className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-300"
+                      className="relative z-10 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#8d1c22]"
                     >
-                      {iconMap[item.name] || <ExternalLink size={24} />}
+                      {iconMap[item.name] || (
+                        <ExternalLink color="white" fill="white" size={24} />
+                      )}
                     </button>
                     <span className="absolute right-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                       {item.name}

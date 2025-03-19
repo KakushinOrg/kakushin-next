@@ -122,14 +122,14 @@ export default function BlogsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem]">
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[3rem] bg-[#0A192E] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
 
-        <div className="lg:mt-6">
+        <div className="lg:mt-6 text-white">
           <h1 className="text-xl font-bold">Hello and welcome to Kakushin!</h1>
-          <p className="text-gray-600 my-2">
+          <p className="text-white my-2">
             In this section you can learn about the services that we provide.
             Ask any questions if you have any!
           </p>
@@ -193,7 +193,7 @@ export default function BlogsChat() {
         />
       </main>
 
-      <aside className="w-[27.5%] bg-white mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block">
+      <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
         <ChatList selectedCategory="blogs" />
       </aside>
     </>

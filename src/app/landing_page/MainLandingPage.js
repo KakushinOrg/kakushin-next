@@ -48,7 +48,7 @@ export default function MainLandingPage() {
         </button>
 
         <aside
-          className={`md:w-16 bg-white flex flex-col items-center border-l z-[999] right-0 top-0 h-full fixed transition-transform duration-300 
+          className={`md:w-16 bg-[#0a192e] flex flex-col items-center border-l border-[#114074] z-[999] right-0 top-0 h-full fixed transition-transform duration-300 
                 ${
                   showSidebar ? "translate-x-0" : "translate-x-full"
                 } lg:translate-x-0`}

@@ -70,8 +70,8 @@ export default function ChatList({ selectedCategory }) {
           <BlogsList />
         ) : (
           <>
-            <h1 className="titleTextLG text-center mb-5 mt-5">
-              Social Media Posts
+            <h1 className="titleTextLG text-center mb-5 mt-5 text-white">
+              Latest News
             </h1>
 
             {filteredSocialMediaPosts.length > 0 ? (
@@ -80,7 +80,7 @@ export default function ChatList({ selectedCategory }) {
                   <motion.div
                     key={item.id}
                     className="
-                      boxWhiteMorph relative flex flex-col  bg-white border rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden
+                      boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden
                     "
                     variants={cardVariants}
                     initial="rest"

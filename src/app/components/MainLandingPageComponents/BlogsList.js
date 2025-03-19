@@ -37,7 +37,9 @@ export default function BlogsList() {
 
   return (
     <>
-      <h1 className="titleTextLG text-center mb-5 mt-5">Our Blogs</h1>
+      <h1 className="titleTextLG text-center mb-5 mt-5 text-white">
+        Innovation Insights{" "}
+      </h1>
       <>
         {filteredBlogs.length > 0 ? (
           <div className="gap-4 mt-4 pt-4">
