@@ -74,12 +74,16 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
 
   return (
     <div className="flex flex-col items-center py-8 sm:py-4 sm:px-3 mt-10 shadow-md border-white border-[2px] rounded-md shadow-gray-400 mx-4 h-[8.5rem]">
-      <div className="p-2  w-full">
+      <div className="p-2 w-40">
         <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl text-white">
           <span ref={ref}></span>
           {suffix}
         </p>
-        <p className="max-w-40 text-center text-white">{subheading}</p>
+        <div className="w-full ">
+          <p className="max-w-[10ch] text-center text-white mx-auto">
+            {subheading}
+          </p>
+        </div>
       </div>
     </div>
   );
