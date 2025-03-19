@@ -157,14 +157,13 @@ const Contact = () => {
               />
             </div>
             <h2 className="mt-5">Mail Us</h2>
-            <p>
-              <Link
-                href="mailto:iokakushin@gmail.com"
-                className="cursor-pointer text-blue-800 underline"
-                target="_blank"
-              >
-                Send Email
-              </Link>
+            <p
+              onClick={() =>
+                window.open("mailto:iokakushin@gmail.com", "_blank")
+              }
+              className="cursor-pointer text-blue-800 underline"
+            >
+              Send Emailsss
             </p>
           </div>
 
