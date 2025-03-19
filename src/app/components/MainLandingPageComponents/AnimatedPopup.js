@@ -45,19 +45,17 @@ export default function AnimatedPopup({ onClose }) {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.5 }}
-        className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md text-center relative"
+        className="bg-[#0a192e] p-6 rounded-xl shadow-xl text-white w-[90%] max-w-md text-center relative"
       >
         <button
-          className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
+          className="absolute top-3 right-3 text-white hover:text-red-500"
           onClick={onClose}
         >
-          <XCircle size={24} />
+          <XCircle color="white" size={24} />
         </button>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Quick Questions
-        </h2>
-        <p className="text-gray-600 text-sm mb-4">
+        <h2 className="text-2xl font-bold  mb-2">Quick Questions</h2>
+        <p className="text-gray-50 text-sm mb-4">
           We’re here to help! Here are some common questions:
         </p>
 
@@ -68,7 +66,7 @@ export default function AnimatedPopup({ onClose }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5 }}
-            className="text-lg font-semibold text-gray-700 px-4"
+            className="text-lg font-semibold px-4"
           >
             {messages[index]}
           </motion.p>
@@ -80,10 +78,10 @@ export default function AnimatedPopup({ onClose }) {
           className="mt-5 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700"
           onClick={onClose}
         >
-          Get in Touch 💬
+          Get in Touch
         </motion.button>
         {/* TODO: ADD ICON TO RIGHT */}
-        <p className="text-gray-800 text-lg mb-4 mt-8">
+        <p className="text-gray-50 text-lg mb-4 mt-8">
           Click on the menu items to explore
         </p>
       </motion.div>

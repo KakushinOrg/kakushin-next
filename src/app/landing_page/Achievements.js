@@ -73,12 +73,12 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
   }, [num, decimals, isInView]);
 
   return (
-    <div className="flex w-fit flex-col items-center py-8 sm:py-4 sm:px-3 mt-10 shadow-[0.625rem_0.625rem_0.875rem_0_rgb(225,226,228),-0.5rem_-0.5rem_1.125rem_0_rgb(255,255,255)]">
-      <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl">
+    <div className="flex w-fit flex-col items-center py-8 sm:py-4 sm:px-3 mt-10 shadow-md border-white border-[2px] rounded-md shadow-gray-400">
+      <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl text-white">
         <span ref={ref}></span>
         {suffix}
       </p>
-      <p className="max-w-40 text-center text-neutral-600">{subheading}</p>
+      <p className="max-w-40 text-center text-white">{subheading}</p>
     </div>
   );
 };
