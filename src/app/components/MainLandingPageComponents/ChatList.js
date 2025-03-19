@@ -1,13 +1,11 @@
-"use client"; // Ensures this runs only on the client
-
+"use client";
 import { useState, useEffect } from "react";
 import "./boxMorph.css";
 import AsideAboutus from "@/app/components/AsideComponents/asideAboutus";
 import BlogsList from "./BlogsList";
 import { motion } from "framer-motion";
 
-// We animate the container's maxHeight from 180px to 600px on hover.
-// Adjust "600" if you want a different expanded height.
+// Animate container's maxHeight on hover.
 const cardVariants = {
   rest: {
     scale: 1,
@@ -19,7 +17,7 @@ const cardVariants = {
   },
   hover: {
     scale: 1.02,
-    maxHeight: 300,
+    maxHeight: 450,
     transition: {
       duration: 0.4,
       ease: "easeInOut",
@@ -27,7 +25,7 @@ const cardVariants = {
   },
 };
 
-// Title text fade/slide in
+// Title text fade/slide in.
 const titleVariants = {
   rest: {
     opacity: 0,
@@ -44,17 +42,30 @@ export default function ChatList({ selectedCategory }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [socialMediaImages, setSocialMediaImages] = useState([]);
 
-  useEffect(() => {
-    // Shuffle array to randomize images
-    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+  // Define the corresponding LinkedIn post links in the desired order.
+  const socialMediaLinks = [
+    "https://www.linkedin.com/posts/kakushiniq2_startupmindset-kakushin-buildsmart-activity-7307679350298931201-coLZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_kakushin-startupsupport-websiteoptimization-activity-7305873174984822784-LBkY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_kakushin-aitransformation-humancenteredtech-activity-7304853559001440256-_CNN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_startupfunding-pitchdeck-investorready-activity-7302272160570466308-1D8D?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_healthtech-aiinhealthcare-wearables-activity-7301164257843318784-klKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_the-fintech-game-is-being-rewritten-the-activity-7298269008535945216-IqmD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_leadership-executivegrowth-businesssuccess-activity-7292545292065767426-F--v?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_kakushin-businessvalidation-empoweryouridea-activity-7288475410474921984-oNFM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_kakushin-startupsuccess-businessconsulting-activity-7287829261162270720-gTav?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+    "https://www.linkedin.com/posts/kakushiniq2_businessplan-entrepreneurship-startups-activity-7287104426736062464-zudw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
+  ];
 
+  useEffect(() => {
+    // Create the images array and attach the corresponding link to each image.
     const images = Array.from({ length: 10 }, (_, i) => ({
       id: i + 1,
       title: `Social Media Post ${i + 1}`,
-      image: `/images/socialMediaPosts/Social_Media-${i + 1}.jpg`,
+      image: `/images/socialMediaPosts/Post ${i + 1}.jpg`,
+      link: socialMediaLinks[i],
     }));
 
-    setSocialMediaImages(shuffleArray(images));
+    setSocialMediaImages(images);
   }, []);
 
   const filteredSocialMediaPosts = socialMediaImages.filter((item) =>
@@ -62,62 +73,44 @@ export default function ChatList({ selectedCategory }) {
   );
 
   return (
-    <>
-      <div className="space-y-4">
-        {selectedCategory === "aboutus" ? (
-          <AsideAboutus />
-        ) : selectedCategory === "blogs" ? (
-          <BlogsList />
-        ) : (
-          <>
-            <h1 className="titleTextLG text-center mb-5 mt-5 text-white">
-              Latest News
-            </h1>
+    <div className="space-y-4">
+      {selectedCategory === "aboutus" ? (
+        <AsideAboutus />
+      ) : selectedCategory === "blogs" ? (
+        <BlogsList />
+      ) : (
+        <>
+          <h1 className="titleTextLG text-center mb-5 mt-5 text-white">
+            Latest News
+          </h1>
 
-            {filteredSocialMediaPosts.length > 0 ? (
-              <div className="space-y-4 pt-10">
-                {filteredSocialMediaPosts.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    className="
-                      boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden
-                    "
-                    variants={cardVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                  >
-                    {/* Wrap the image in a link to LinkedIn */}
-                    <a
-                      href="https://www.linkedin.com/company/kakushiniq2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-auto mx-auto object-contain rounded-[5px]"
-                      />
-                    </a>
-
-                    {/* Title that appears on hover */}
-                    <motion.div
-                      className="
-                        absolute bottom-0 left-0 right-0 bg-black/70 text-white text-center py-3 text-lg font-semibold shadow-lg rounded-b-[10px]
-                      "
-                      variants={titleVariants}
-                    >
-                      {item.title}
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-gray-500">No results found.</p>
-            )}
-          </>
-        )}
-      </div>
-    </>
+          {filteredSocialMediaPosts.length > 0 ? (
+            <div className="space-y-4 pt-10">
+              {filteredSocialMediaPosts.map((item) => (
+                <motion.div
+                  key={item.id}
+                  className="boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden"
+                  variants={cardVariants}
+                  initial="rest"
+                  whileHover="hover"
+                  animate="rest"
+                >
+                  {/* Wrap the image in a link to the specific LinkedIn post */}
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-auto mx-auto object-contain rounded-[5px]"
+                    />
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500">No results found.</p>
+          )}
+        </>
+      )}
+    </div>
   );
 }
