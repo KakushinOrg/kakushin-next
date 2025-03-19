@@ -5,11 +5,11 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1e1e1e]">
-      <div className="flex justify-center items-center py-5">
+    <footer className="bg-[#1e1e1e] border-t-2 border-[#114074]">
+      <div className="flex justify-center items-center py-5 bg-[#0a192e]">
         <Logo color="white" className="h-14" />
       </div>
-      <div className="bg-[#1e1e1e] flex justify-center items-center gap-10 py-5 border-b-2 border-t-2 border-gray-50/10">
+      <div className="bg-[#0a192e] flex justify-center items-center gap-10 py-5 border-b-2 border-t-2 border-[#114074]">
         <Link
           href="https://www.facebook.com/profile.php?id=100087154231923"
           target="_blank"
@@ -49,21 +49,8 @@ const Footer = () => {
             height={18}
           />
         </Link>
-        <Link
-          href="http://www.youtube.com/channel/UC52etC2bqDY4K-fHF4OUgYQ"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            alt="Youtube"
-            className="inline-block mx-2"
-            src="/icons/youtube.svg"
-            width={18}
-            height={18}
-          />
-        </Link>
       </div>
-      <div className="flex justify-center flex-col items-center py-5">
+      <div className="flex justify-center flex-col items-center py-5 bg-[#0a192e]">
         <p className="text-white text-sm">
           © 2024 Kakushin. All rights reserved.
         </p>

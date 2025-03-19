@@ -56,7 +56,7 @@ const OurServices = () => {
             {whatWeDo.map((item, index) => (
               <div
                 key={item.id}
-                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 bg-white border rounded-[10px] shadow-md w-full"
+                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 text-white border rounded-[10px] shadow-md w-full"
                 style={{ minHeight: `${item.randomMinHeight}px` }}
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
@@ -68,10 +68,10 @@ const OurServices = () => {
                   })()}
                 </div>
                 <div className="flex-1 ml-4">
-                  <h3 className="font-semibold text-gray-800 w-[95%]">
+                  <h3 className="font-semibold text-white w-[95%]">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 service-description w-[95%]">
+                  <p className="text-sm text-gray-50 service-description w-[95%]">
                     {item.subTitle}
                   </p>
                 </div>

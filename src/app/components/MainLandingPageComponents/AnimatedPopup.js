@@ -84,7 +84,7 @@ export default function AnimatedPopup({ onClose }) {
         </motion.button>
         {/* TODO: ADD ICON TO RIGHT */}
         <p className="text-gray-800 text-lg mb-4 mt-8">
-          Click on the menu items to explore →
+          Click on the menu items to explore
         </p>
       </motion.div>
     </div>

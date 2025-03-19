@@ -24,8 +24,7 @@ body {
 /* Typographies */
 .largeText {
   position: relative;
-  color: #414141;
-  opacity: 0.2;
+  opacity: 0.9;
   letter-spacing: -3px;
   font-weight: 700;
   font-size: 100px;
@@ -207,7 +206,7 @@ html.dark .MuiInputLabel-root {
 }
 
 html.dark ::-webkit-scrollbar-thumb {
-  background: #ffffff;
+  background: white;
 }
 
 html.dark ::-webkit-scrollbar-track {

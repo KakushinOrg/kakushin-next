@@ -18,7 +18,7 @@ export default function MainLandingPage() {
   const [selectedChat, setSelectedChat] = useState("innovation");
 
   return (
-    <div className="flex h-screen bg-gray-100 relative">
+    <div className="flex h-screen bg-[#0a192e] relative">
       {showPopup && <AnimatedPopup onClose={() => setShowPopup(false)} />}
       {selectedChat === "innovation" && (
         <InnovationInsightsChat showPopup={showPopup} />

@@ -19,7 +19,7 @@ const BlogPostMasonry = () => {
         {postsWithHeights.map((post) => (
           <div
             key={post.id}
-            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
+            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 border-gray-50 border-2 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
             style={{ minHeight: post.randomHeight }}
           >
             <Post {...post} />
@@ -34,15 +34,15 @@ const Post = ({ iconURL, author, title, description }) => {
   return (
     <>
       <div className="flex justify-between items-center mb-2">
-        <div className="rounded-md border border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
+        <div className="rounded-md border border-neutral-500 px-1.5 py-1 text-xs uppercase text-white">
           {author}
         </div>
         <div>
           <Image width={35} height={35} src={iconURL} alt={iconURL} />
         </div>
       </div>
-      <p className="my-3.5 text-lg font-medium">{title}</p>
-      <p className="text-sm text-neutral-500">{description}</p>
+      <p className="my-3.5 text-lg font-medium text-white">{title}</p>
+      <p className="text-sm text-neutral-50">{description}</p>
     </>
   );
 };
