@@ -19,7 +19,12 @@ export default function MainLandingPage() {
 
   return (
     <div className="flex h-screen bg-[#0a192e] relative">
-      {showPopup && <AnimatedPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <AnimatedPopup
+          onClose={() => setShowPopup(false)}
+          onContact={(chat) => setSelectedChat(chat)}
+        />
+      )}
       {selectedChat === "innovation" && (
         <InnovationInsightsChat showPopup={showPopup} />
       )}
@@ -28,13 +33,12 @@ export default function MainLandingPage() {
       {selectedChat === "industry-vertical" && <IndustryVerticalChat />}
       {selectedChat === "blogs" && <BlogsChat />}
 
-      {/* contact us popup just my idea we can remove it if it doesnot look okay remove this one if we want to keep the scroll one */}
       {selectedChat === "contact" && (
-        <div className="w-full h-full relative">
-          <p className="mt-2 mb-5 text-gray-600">
+        <div id="contact" className="w-full h-full relative">
+          <div className="mt-2 mb-5 text-gray-600">
             <Contact />
             <Footer />
-          </p>
+          </div>
         </div>
       )}
 
@@ -53,7 +57,10 @@ export default function MainLandingPage() {
                   showSidebar ? "translate-x-0" : "translate-x-full"
                 } lg:translate-x-0`}
         >
-          <RightSideNavigation setSelectedChat={setSelectedChat} />
+          <RightSideNavigation
+            setSelectedChat={setSelectedChat}
+            selectedChat={selectedChat}
+          />
         </aside>
       </div>
     </div>

@@ -40,9 +40,16 @@ const iconMap = {
   Contact: <PhoneCallIcon color="white" size={24} />,
 };
 
-export default function RightSideNavigation({ setSelectedChat }) {
+export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
   const [activeTab, setActiveTab] = useState("Home");
   const manualNavigationRef = useRef(false);
+
+  // If the selected chat is "contact", force activeTab to "Contact"
+  useEffect(() => {
+    if (selectedChat === "contact") {
+      setActiveTab("Contact");
+    }
+  }, [selectedChat]);
 
   const getSectionId = (item) => {
     if (item.link.includes("#")) {
@@ -86,7 +93,11 @@ export default function RightSideNavigation({ setSelectedChat }) {
       window.open(item.link, "_blank");
       return;
     }
-    setSelectedChat(item.link);
+    if (item.name === "Contact") {
+      setSelectedChat("contact");
+    } else {
+      setSelectedChat(item.link);
+    }
     setActiveTab(item.name);
     setTimeout(() => {
       manualNavigationRef.current = false;

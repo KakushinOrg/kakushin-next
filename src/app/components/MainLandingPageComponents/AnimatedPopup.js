@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { XCircle } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-export default function AnimatedPopup({ onClose }) {
+export default function AnimatedPopup({ onClose, onContact }) {
   const messages = [
     "Tell me more about your AI integration services.",
     "I need help with developing an MVP. What’s the process?",
@@ -38,6 +38,25 @@ export default function AnimatedPopup({ onClose }) {
     };
   }, [pathname]);
 
+  // Handle "Get in Touch" to mimic the Contact button behavior.
+  const handleGetInTouch = () => {
+    console.log("Get in Touch button clicked");
+    if (onContact) {
+      console.log("Calling onContact with 'contact'");
+      onContact("contact");
+    } else {
+      console.warn(
+        "onContact prop is not provided. Attempting fallback scroll..."
+      );
+      // Fallback: scroll to element with id 'contact'
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    onClose();
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-lg z-50">
       <motion.div
@@ -54,7 +73,7 @@ export default function AnimatedPopup({ onClose }) {
           <XCircle color="white" size={24} />
         </button>
 
-        <h2 className="text-2xl font-bold  mb-2">Quick Questions</h2>
+        <h2 className="text-2xl font-bold mb-2">Quick Questions</h2>
         <p className="text-gray-50 text-sm mb-4">
           We’re here to help! Here are some common questions:
         </p>
@@ -76,11 +95,11 @@ export default function AnimatedPopup({ onClose }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="mt-5 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700"
-          onClick={onClose}
+          onClick={handleGetInTouch}
         >
           Get in Touch
         </motion.button>
-        {/* TODO: ADD ICON TO RIGHT */}
+
         <p className="text-gray-50 text-lg mb-4 mt-8">
           Click on the menu items to explore
         </p>
