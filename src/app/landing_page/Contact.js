@@ -161,6 +161,7 @@ const Contact = () => {
               <Link
                 href="mailto:iokakushin@gmail.com"
                 className="cursor-pointer text-blue-800 underline"
+                target="_blank"
               >
                 Send Email
               </Link>
