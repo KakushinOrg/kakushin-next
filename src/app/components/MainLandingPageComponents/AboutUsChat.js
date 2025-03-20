@@ -298,7 +298,7 @@ export default function InnovationInsightsChat() {
       </main>
 
       <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
-        <ChatList selectedCategory="innovation" />
+        <ChatList selectedCategory="aboutus" />
       </aside>
     </>
   );
