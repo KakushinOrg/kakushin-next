@@ -163,7 +163,7 @@ const Contact = () => {
               }
               className="cursor-pointer text-blue-800 underline"
             >
-              Send Emailsss
+              Send Email
             </p>
           </div>
 
