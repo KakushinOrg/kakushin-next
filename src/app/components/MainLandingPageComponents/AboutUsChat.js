@@ -16,16 +16,22 @@ export default function InnovationInsightsChat() {
   const [isMobile, setIsMobile] = useState(false);
 
   const questionsAndResponses = {
-    "Tell me more about your AI integration services.":
-      "At Kakushin, our AI integration services are designed to empower startups by enhancing their technological capabilities. We focus on embedding AI into various business functions such as automated customer service, data analysis, and predictive analytics. Our approach involves understanding your specific business needs, designing an AI solution that fits those needs, and then implementing the solution while ensuring seamless integration with your existing systems. This process helps in optimizing operations, improving decision-making, and creating personalized customer experiences. We also provide ongoing support to ensure the AI systems evolve with your business.",
-    "I need help with developing an MVP. What’s the process?":
-      "Developing a Minimum Viable Product (MVP) with Kakushin involves a structured and iterative process tailored to bring your startup idea to life efficiently. First, we start with a discovery phase where we define the core functionalities that address the main customer pain points. Next, we move into the design and prototyping phase, where we create the initial version of the product with essential features. This is followed by user testing, where feedback is gathered to refine the product. After implementing the necessary adjustments, we help you launch the MVP to the market. Throughout the process, our team ensures that the MVP not only meets market needs but also stays within budget and timeline constraints.",
-    "Can I see examples of successful projects?":
-      "Certainly! We have a range of successful projects across various industries that showcase our expertise. For instance, we recently helped a tech startup integrate AI into their operations, resulting in a 40% increase in efficiency. Another project involved developing an MVP for a fintech company, which has now secured its second round of funding due to the product’s success. We also assisted a health tech company in redesigning their digital platform, which dramatically improved user engagement. Details of these projects are available on our website, where you can explore case studies and testimonials from our clients.",
-    "I want to schedule a meeting to discuss my project.":
-      "We would be delighted to discuss your project and see how Kakushin can assist you. You can schedule a meeting directly through our website by selecting a date and time that works best for you. During our meeting, we will discuss your project in detail, explore your specific needs, and determine how our services can best align with your goals. Please prepare any relevant materials or questions you may have, so we can make the most of our time together.",
-    "What are the typical costs associated with your branding services?":
-      "The costs associated with our branding services can vary depending on the scope and complexity of your project. Typically, our branding packages start from $5,000 for basic branding, which includes logo design, color palette, and typography. For more comprehensive services that involve full brand strategy, identity design, and marketing materials, prices can range from $10,000 to $50,000. We offer customized quotes based on your specific requirements, ensuring that we provide a solution that fits your budget and meets your branding needs. Feel free to reach out for a detailed quote tailored to your project.",
+    "What does Kakushin do?":
+      "We’re a digital innovation partner for startups and businesses. We help turn your ideas into working solutions through product development (MVPs), branding, AI-powered tools, and growth strategy. Whether you’re just starting or scaling fast, we’ll help you move forward with clarity and confidence.",
+    "How can Kakushin help my startup grow?":
+      "We focus on sustainable, strategic growth. From validating your concept to launching your MVP, creating a brand people trust, and integrating tools that scale with you — we’ve helped over 90 startups grow smart. Let’s do the same for you.",
+    "What AI services do you offer?":
+      "We build intelligent tools to help you work smarter. Our AI solutions include custom automation, chatbots, predictive systems, recommender engines, and integrations that boost efficiency that is tailored to your business.",
+    "How can I build an MVP with Kakushin?":
+      "We take your idea from napkin sketch to launch-ready MVP. We guide you through strategy, design, development, and testing. You’ll get a product that’s lean, usable, and ready to attract investors or first customers - fast.",
+    "Can you show me some of your past work?":
+      "Yes! We’ve worked with startups in health tech, fintech, fashion, education, and more. Our portfolio includes MVPs that secured funding, brands that turned heads, and platforms still scaling globally. Just ask — we’re happy to share real examples.",
+    "I’d like to book a call.":
+      "Let’s talk about your goals. Click the button to choose a time that works for you. We’ll listen, understand your needs, and guide you through what we can offer with no pressure, no fluff.",
+    "How much do your branding services cost?":
+      "Our branding packages are flexible and tailored to your needs. From brand identity to strategy, we’ll match your stage and goals. Prices vary depending on scope, but we’re happy to walk you through options transparently.",
+    "Do you have any package deals?":
+      "Yes, we offer startup-friendly bundles. Whether you're launching, growing, or pivoting, we have curated service combos like MVP + branding or AI + UX, designed to save you time and money.",
   };
 
   const generalResponses = [

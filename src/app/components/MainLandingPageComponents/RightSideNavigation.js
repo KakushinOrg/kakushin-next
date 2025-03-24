@@ -16,9 +16,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 const menuLinks = [
-  { name: "Home", link: "innovation" },
   { name: "About", link: "about" },
   { name: "Services", link: "services" },
+  { name: "Home", link: "innovation" },
   { name: "Industry Verticals", link: "industry-vertical" },
   { name: "Blogs", link: "blogs" },
   { name: "Contact", link: "contact" },

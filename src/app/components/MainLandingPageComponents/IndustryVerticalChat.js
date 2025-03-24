@@ -20,29 +20,16 @@ export default function IndustryVerticalChat() {
   const [showPopup, setShowPopup] = useState(false);
 
   const questionsAndResponses = {
-    "How can Kakushin help startups develop and scale their products efficiently?":
-      "At Kakushin, we specialize in transforming ideas into scalable, market-ready products. Our approach includes AI-driven market analysis, proof-of-concept development, and strategic roadmap creation to guide startups from ideation to execution. Whether you're developing an MVP or looking to optimize an existing product, we provide full-stack development, API integration, DevOps, and expert QA services to ensure efficiency and reliability. Our Elevate12 program further supports startups by offering mentorship, funding strategies, and product refinement to help you scale effectively.",
-
-    "How does Kakushin leverage AI to drive innovation across industries?":
-      "AI is at the core of many of our solutions, enabling businesses to streamline operations, optimize decision-making, and deliver personalized user experiences. We develop custom AI models for various applications, from predictive analytics in finance to intelligent automation in healthcare. Our expertise extends to natural language processing (NLP), computer vision, and generative AI, allowing businesses to build smarter, more adaptive systems. By integrating AI with IoT and blockchain, we create cutting-edge solutions that enhance efficiency and open new market opportunities.",
-
-    "What role does Kakushin play in developing advanced HealthTech solutions?":
-      "Kakushin is redefining healthcare through technology by integrating AI, IoT, and predictive analytics into patient care and diagnostics. We have developed solutions such as AI-driven knee health monitoring algorithms, IoT-powered remote patient monitoring, and interactive diagnostic tools for medical education. These innovations help improve patient outcomes, enhance early detection, and support healthcare professionals with real-time data insights. Our HealthTech projects focus on making healthcare more accessible, data-driven, and patient-centric.",
-
-    "How does Kakushin support businesses in building a strong digital presence and brand identity?":
-      "A strong digital presence is essential for modern businesses, and Kakushin helps brands establish and amplify their identity through AI-enhanced branding strategies, UI/UX design, and multi-channel marketing approaches. We blend AI-powered analytics with creative design to optimize customer engagement, enhance brand recognition, and position businesses effectively in their markets. From logo design to digital storytelling, our expertise ensures that brands not only stand out but also connect deeply with their target audiences.",
-
-    "How does Kakushin support startups in integrating blockchain and Web3 technologies?":
-      "Kakushin helps startups harness the power of blockchain and Web3 by developing secure, decentralized applications (dApps), smart contracts, and tokenized ecosystems. Our blockchain solutions enhance transparency, security, and efficiency in industries ranging from finance to supply chain management. Whether you need DeFi platforms or blockchain-based identity verification, we provide tailored solutions that align with your business goals. We also guide startups through regulatory compliance and strategic adoption of decentralized technologies to ensure long-term scalability.",
-
-    "How can Kakushin help businesses leverage FinTech innovations?":
-      "The financial sector is rapidly evolving, and Kakushin is at the forefront of FinTech innovation. We develop AI-powered fraud detection systems, blockchain-based payment solutions, and embedded finance platforms that empower businesses to optimize financial operations. Our expertise extends to building seamless digital wallets, peer-to-peer lending platforms, and automated investment tools that enhance financial accessibility. By integrating cutting-edge security measures and regulatory compliance frameworks, we ensure FinTech solutions that are both innovative and trustworthy.",
-
-    "How does Kakushin contribute to the transformation of education through technology?":
-      "Education is evolving, and Kakushin is driving this transformation through AI-powered learning platforms, interactive tools, and adaptive educational experiences. Our solutions include AI-based tutoring systems, gamified learning apps, and AR/VR-enhanced simulations for immersive education. We help institutions, edtech startups, and training organizations build scalable, engaging, and personalized learning environments that cater to diverse learners. By integrating data analytics and machine learning, we optimize curriculum development and student engagement strategies.",
-
-    "How does Kakushin empower social impact initiatives and NGOs through technology?":
-      "Kakushin is committed to leveraging technology for social good. We develop AI-powered data analysis tools, digital outreach platforms, and blockchain-based transparency solutions to help NGOs and social enterprises maximize their impact. Our work includes environmental sustainability projects, community development initiatives, and digital transformation for non-profits. By integrating smart data-driven solutions, we enable organizations to track progress, optimize resource allocation, and enhance engagement with their communities and stakeholders.",
+    "How can Kakushin help my startup grow faster?":
+      "By focusing on what matters most: traction, clarity, and scalability. We help you make the right tech and brand decisions to support rapid, sustainable growth and avoid expensive mistakes early on.",
+    "How do you use AI to solve business challenges?":
+      "We turn your data into actions. Whether it’s automating tasks, predicting trends, or improving user experiences, we build AI tools that make your operations smarter, not just flashier.",
+    "Do you work with healthcare or medtech companies?":
+      "Yes, we’ve worked with health tech startups and medical platforms. We’ve designed patient dashboards, wearable integration tools, and HIPAA-aligned systems. We understand the importance of compliance and usability in health innovation.",
+    "How can you help me build a strong digital brand?":
+      "We align design with emotion and purpose. We help you define your story, stand out visually, and stay consistent across platforms so your users remember you and come back for more.",
+    "Do you work with NGOs or social impact startups?":
+      "Absolutely! We love working on purpose-driven missions. We’ve helped nonprofits and impact-driven startups use digital tools to grow their reach, funding, and influence. Let’s amplify your cause together.",
   };
 
   const generalResponses = [

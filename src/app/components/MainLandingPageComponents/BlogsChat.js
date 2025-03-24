@@ -38,13 +38,17 @@ export default function BlogsChat() {
 
   const questionsAndResponses = {
     "What are the biggest technology trends shaping startups today?":
-      "The startup ecosystem is evolving rapidly, driven by key technology trends that are reshaping industries. Artificial Intelligence (AI) and Machine Learning are enhancing automation, predictive analytics, and customer personalization. Blockchain and Web3 are revolutionizing finance, data security, and decentralized applications. The Internet of Things (IoT) is enabling smarter, connected devices in healthcare, logistics, and smart cities. Sustainable innovation is also gaining traction, with businesses adopting green technologies, circular economy models, and eco-friendly solutions. The rise of digital transformation in all sectors means startups that embrace these technologies early gain a significant competitive advantage.",
-    "How is AI transforming industries beyond tech startups?":
-      "AI is no longer just a tool for tech companies—it’s driving innovation across diverse industries. In healthcare, AI-powered diagnostics and predictive analytics are improving patient outcomes. Finance is leveraging AI for fraud detection, automated trading, and personalized banking services. Retail and e-commerce are using AI-driven recommendation engines and chatbots to enhance customer experiences. AI is also optimizing manufacturing with smart automation and predictive maintenance. Even in education, AI-based learning platforms are personalizing student experiences. Startups that integrate AI into traditional sectors are driving some of the most significant industry transformations today.",
-    "What role does sustainability play in modern startups?":
-      "Sustainability is becoming a core business strategy rather than just a trend. Consumers and investors are increasingly favoring startups that prioritize eco-friendly solutions, carbon reduction, and ethical supply chains. Green technologies, such as AI-powered energy optimization, biodegradable packaging, and circular economy business models, are becoming critical areas for innovation. Governments are also providing incentives and funding for startups working on clean energy and sustainable practices. Companies that integrate sustainability into their business model from the start not only future-proof their operations but also attract funding and build stronger brand loyalty.",
-    "What are the major challenges startups face in today’s digital economy?":
-      "While technology opens up vast opportunities, startups also face significant challenges. Market saturation means startups must differentiate themselves with unique value propositions. Access to funding is becoming more competitive, requiring clear business models and scalable strategies. Data privacy regulations such as GDPR and AI ethics concerns require businesses to adopt transparent, compliant practices. Additionally, talent shortages in key areas like AI, blockchain, and cybersecurity make hiring the right team more challenging. Despite these hurdles, startups that focus on innovation, agility, and customer-centric solutions continue to thrive in the digital economy.",
+      "AI, no-code tools, personalization, automation, and user-centric design are leading the charge. Want to stay ahead of the curve? Let us help you tap into these trends strategically.",
+    "How is AI changing the business world?":
+      "From smarter operations to better customer experiences, AI is becoming a business essential. We help you integrate it without overwhelm, starting from your real needs.",
+    "How important is sustainability for startups?":
+      "It’s no longer optional. Investors, users, and partners are all looking at impact. We help you align your digital strategy with sustainability, without greenwashing.",
+    "What are the biggest challenges for startups today?":
+      "Standing out, scaling smart, and staying lean. We’ve seen them all and we’re here to help you navigate them with the right support.",
+    "Any tips for pitching to investors?":
+      "Yes: clarity wins. Make sure you clearly communicate the problem you're solving, your solution, traction so far, and your long-term vision. We also help you craft compelling pitch decks and prepare with realistic mockups and practice sessions including the most common investor questions so you can pitch with confidence.",
+    "How can I prepare my business for funding?":
+      "Start with your foundation: strong brand, clear value, and a working product. We’ll help you get funding-ready with a clean roadmap, compelling visuals, and an investor-focused MVP.",
   };
 
   const serviceKeywords = [

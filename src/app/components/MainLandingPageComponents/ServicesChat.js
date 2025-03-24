@@ -13,7 +13,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function ServicesChat() {
   const [messages, setMessages] = useState([]);
-  const [questionsAndResponses, setQuestionsAndResponses] = useState({});
   const [generalResponses, setGeneralResponses] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
@@ -22,28 +21,6 @@ export default function ServicesChat() {
   // Mobile detection and modal state
   const [isMobile, setIsMobile] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    async function loadQnA() {
-      const data = await FetchOurServicesQandA();
-      const qnaObj = {};
-      data.forEach((item) => {
-        qnaObj[item.Question] = item.Answer;
-      });
-      setQuestionsAndResponses(qnaObj);
-    }
-    loadQnA();
-  }, []);
-
-  useEffect(() => {
-    async function loadGeneralInquiries() {
-      const data = await FetchServiceGeneralInquiries();
-      if (data && data.length > 0) {
-        setGeneralResponses(data[0].generalInquiries);
-      }
-    }
-    loadGeneralInquiries();
-  }, []);
 
   // Mobile detection effect
   useEffect(() => {
@@ -57,6 +34,19 @@ export default function ServicesChat() {
 
   const getRandomResponse = (array) =>
     array[Math.floor(Math.random() * array.length)];
+
+  const questionsAndResponses = {
+    "What services do you offer?":
+      "We offer full-stack digital growth solutions. From MVP development and AI integration to UX/UI design, branding, marketing, and pitch decks — if it helps you grow, we’ve got it covered.",
+    "What’s the process for working with Kakushin?":
+      "Simple and collaborative. 1) Discovery call → 2) Strategy session → 3) Proposal → 4) Execution → 5) Review & Launch. We involve you at every step so you're always in the loop and confident in the outcome.",
+    "Can you help me build an MVP?":
+      "Absolutely. We’ve developed MVPs that got funded and scaled. We build with speed and strategy — not fluff. You’ll walk away with a functional product ready for users or investors.",
+    "Do you do branding or marketing?":
+      "Yes, and we go beyond logos. We craft brand identities, voice, visuals, and campaigns that connect with your audience and make you unforgettable. Whether you’re starting fresh or rebranding, we’ll make you shine.",
+    "What AI services do you provide?":
+      "Smart solutions for modern businesses. Think automation, personalization, intelligent dashboards, and digital transformation tools. We help you unlock the power of AI even if you’re not a tech company.",
+  };
 
   const funResponses = [
     "Interesting question! While that’s not directly related to Kakushin, here’s something fun: Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still edible!",
