@@ -164,20 +164,24 @@ export default function InnovationInsightsChat() {
             >
               <div className="lg:block hidden">
                 <h1 className="text-xl font-bold">
-                  Hello and welcome to Kakushin!
+                  Hi there! Welcome to Kakushin, your partner in innovation.
                 </h1>
-                <p className="text-white my-2">
-                  I'm here to help you explore how we can boost your startup’s
-                  success with our innovative solutions.
+                <p className="text-white my-2 max-w-[65ch] mx-auto">
+                  We help startups and businesses build digital products, design
+                  standout brands, and integrate AI solutions tailored to their
+                  needs. Want to know how it works? Just click a question below
+                  or type your own!
                 </p>
               </div>
               <div className="lg:hidden">
                 <h1 className="text-xl font-bold">
-                  Hello and welcome to Kakushin!
+                  Hi there! Welcome to Kakushin, your partner in innovation.
                 </h1>
                 <p className="text-white my-2">
-                  I'm here to help you explore how we can boost your startup’s
-                  success with our innovative solutions.
+                  We help startups and businesses build digital products, design
+                  standout brands, and integrate AI solutions tailored to their
+                  needs. Want to know how it works? Just click a question below
+                  or type your own!
                 </p>
               </div>
             </motion.div>
