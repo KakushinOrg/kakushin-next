@@ -219,8 +219,10 @@ export default function IndustryVerticalChat() {
         <div
           ref={chatContainerRef}
           className={`w-full ${
-            isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
-          } lg:h-2/4 mt-6 p-4 overflow-auto transition-all duration-300`}
+            isExpanded || messages.length > 0
+              ? "lg:h-[60%] h-[37rem]"
+              : "lg:h-2/4 h-[27rem]"
+          }  mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
@@ -230,11 +232,13 @@ export default function IndustryVerticalChat() {
               } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
+                className={`p-2 rounded-lg lg:my-[10px] my-[5px] w-[80%] lg:w-[60%] ${
                   msg.sender === "user"
-                    ? "bg-blue-100 text-blue-900 border rounded-full"
-                    : "bg-gray-100 text-gray-900 border rounded-full"
-                }`}
+                    ? "text-gray-300 font-bold"
+                    : "text-gray-300 "
+                } flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                } items-start `}
               >
                 <p>
                   <b>{msg.sender === "user" ? "" : "Kakushin AI: "}</b>
@@ -337,8 +341,8 @@ export default function IndustryVerticalChat() {
         />
       </main>
 
-      <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
-        <h2 className="titleTextLG text-center mx-5 mb-5 text-white">
+      <aside className="w-full lg:w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar border-[#114074]">
+        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-white">
           Industry Verticals
         </h2>
         <BlogPostCarousel projects={projects} options={OPTIONS} />

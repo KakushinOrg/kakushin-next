@@ -43,7 +43,7 @@ const iconMap = {
 };
 
 export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState("About");
   const [showSidebar, setShowSidebar] = useState(false);
   const manualNavigationRef = useRef(false);
 

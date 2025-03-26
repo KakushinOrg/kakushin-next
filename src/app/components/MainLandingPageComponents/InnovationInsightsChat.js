@@ -199,11 +199,13 @@ export default function InnovationInsightsChat() {
               } items-start`}
             >
               <div
-                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
+                className={`p-2 rounded-lg lg:my-[10px] my-[5px] w-[80%] lg:w-[60%] ${
                   msg.sender === "user"
-                    ? "bg-blue-100 text-blue-900 border rounded-full"
-                    : "bg-gray-100 text-gray-900 border rounded-full"
-                }`}
+                    ? "text-gray-300 font-bold"
+                    : "text-gray-300 "
+                } flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                } items-start `}
               >
                 <p>
                   <b>{msg.sender === "user" ? "" : "Kakushin AI: "}</b>
@@ -301,7 +303,7 @@ export default function InnovationInsightsChat() {
         />
       </main>
 
-      <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
+      <aside className="w-full lg:w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar border-[#114074]">
         <ChatList selectedCategory="innovation" />
       </aside>
     </>

@@ -4,12 +4,14 @@ import { Achievements } from "@/app/landing_page/Achievements";
 const AsideAboutus = () => {
   return (
     <section className="">
-      <h1 className="titleTextLG text-center mb-5 mt-5 text-white">About Us</h1>
+      <h1 className="titleTextLG text-center mb-14 lg:mb-5 mt-5 text-white">
+        About Us
+      </h1>
 
       <div className="flex flex-col">
-        <div className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden transition-all duration-700 ease-in-out max-h-[150px] hover:max-h-[600px]  hover:-translate-y-1">
+        <div className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px]  md:transition-all md:duration-700 md:ease-in-out  md:hover:max-h-[600px]  md:hover:-translate-y-1">
           <div className=" flex flex-col gap-5 items-start justify-center md:mb-10">
-            <h2 className="titleTextLG mb-4">Our story</h2>
+            <h2 className="titleTextLG mb-4 lg:mx-0 mx-auto">Our story</h2>
             <p className="paragraph">
               At Kakushin, we specialize in empowering{" "}
               <span className="font-semibold text-[18px]">
@@ -34,9 +36,9 @@ const AsideAboutus = () => {
             </p>
           </div>
         </div>
-        <div className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden transition-all duration-700 ease-in-out max-h-[150px] hover:max-h-[600px]  hover:-translate-y-1">
+        <div className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px]  md:transition-all md:duration-700 md:ease-in-out  md:hover:max-h-[600px]  md:hover:-translate-y-1">
           <div className="flex flex-col gap-5 items-start justify-center ">
-            <h2 className="titleTextLG mb-4">Who we are</h2>
+            <h2 className="titleTextLG mb-4 lg:mx-0 mx-auto">Who we are</h2>
             <p className="paragraph">
               Our expertise extends across diverse sectors, including health
               tech, EdTech, and environmental initiatives. We’re passionate

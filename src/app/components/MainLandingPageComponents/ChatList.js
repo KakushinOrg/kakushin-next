@@ -5,7 +5,7 @@ import AsideAboutus from "@/app/components/AsideComponents/asideAboutus";
 import BlogsList from "./BlogsList";
 import { motion } from "framer-motion";
 
-// Animate container's maxHeight on hover.
+// Animate container's maxHeight on hover (desktop only).
 const cardVariants = {
   rest: {
     scale: 1,
@@ -41,6 +41,7 @@ const titleVariants = {
 export default function ChatList({ selectedCategory }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [socialMediaImages, setSocialMediaImages] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Define the corresponding LinkedIn post links in the desired order.
   const socialMediaLinks = [
@@ -56,8 +57,19 @@ export default function ChatList({ selectedCategory }) {
     "https://www.linkedin.com/posts/kakushiniq2_businessplan-entrepreneurship-startups-activity-7287104426736062464-zudw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEPMamUB63WWsfdK_SOlgIlswn8O0x6vdrQ",
   ];
 
+  // Update social media images on mount.
   useEffect(() => {
-    // Create the images array and attach the corresponding link to each image.
+    // Set mobile state based on window width.
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     const images = Array.from({ length: 10 }, (_, i) => ({
       id: i + 1,
       title: `Social Media Post ${i + 1}`,
@@ -86,25 +98,48 @@ export default function ChatList({ selectedCategory }) {
 
           {filteredSocialMediaPosts.length > 0 ? (
             <div className="space-y-4 pt-10">
-              {filteredSocialMediaPosts.map((item) => (
-                <motion.div
-                  key={item.id}
-                  className="boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden"
-                  variants={cardVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                >
-                  {/* Wrap the image in a link to the specific LinkedIn post */}
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-auto mx-auto object-contain rounded-[5px]"
-                    />
-                  </a>
-                </motion.div>
-              ))}
+              {filteredSocialMediaPosts.map((item) =>
+                isMobile ? (
+                  <motion.div
+                    key={item.id}
+                    className="boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden"
+                    style={{ maxHeight: "none" }}
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-auto mx-auto object-contain rounded-[5px]"
+                      />
+                    </a>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={item.id}
+                    className="boxWhiteMorph relative flex flex-col bg-[#114074] border-[#114074] border-[2px] rounded-[10px] shadow-md md:w-full mx-auto overflow-hidden"
+                    variants={cardVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-auto mx-auto object-contain rounded-[5px]"
+                      />
+                    </a>
+                  </motion.div>
+                )
+              )}
             </div>
           ) : (
             <p className="text-gray-500">No results found.</p>

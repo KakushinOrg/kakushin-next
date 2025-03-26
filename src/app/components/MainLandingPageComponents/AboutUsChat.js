@@ -164,7 +164,7 @@ export default function InnovationInsightsChat() {
             >
               <div className="lg:block hidden">
                 <h1 className="text-xl font-bold">
-                  Hi there! Welcome to Kakushin, your partner in innovation.
+                  Hi there! Welcome to kakushin, your partner in innovation.
                 </h1>
                 <p className="text-white my-2 max-w-[65ch] mx-auto">
                   We help startups and businesses build digital products, design
@@ -175,7 +175,7 @@ export default function InnovationInsightsChat() {
               </div>
               <div className="lg:hidden">
                 <h1 className="text-xl font-bold">
-                  Hi there! Welcome to Kakushin, your partner in innovation.
+                  Hi there! Welcome to kakushin, your partner in innovation.
                 </h1>
                 <p className="text-white my-2">
                   We help startups and businesses build digital products, design
@@ -191,24 +191,28 @@ export default function InnovationInsightsChat() {
         <div
           ref={chatContainerRef}
           className={`w-full ${
-            isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
-          } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+            isExpanded || messages.length > 0
+              ? "lg:h-[60%] h-[37rem]"
+              : "lg:h-2/4 h-[27rem]"
+          }  mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
               key={index}
               className={`flex ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
-              } items-start`}
+              } items-start `}
             >
               <div
-                className={`p-2 rounded-lg w-full lg:w-2/5 lg:my-0 my-[5px] ${
+                className={`p-2 rounded-lg lg:my-[10px] my-[5px] w-[80%] lg:w-[60%] ${
                   msg.sender === "user"
-                    ? "bg-blue-100 text-blue-900 border rounded-full"
-                    : "bg-gray-100 text-gray-900 border rounded-full"
-                }`}
+                    ? "text-gray-300 font-bold"
+                    : "text-gray-300 "
+                } flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                } items-start `}
               >
-                <p>
+                <p className="w-fit">
                   <b>{msg.sender === "user" ? "" : "Kakushin AI: "}</b>
                   {msg.text}
                 </p>
@@ -307,7 +311,7 @@ export default function InnovationInsightsChat() {
         />
       </main>
 
-      <aside className="w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar hidden lg:block border-[#114074]">
+      <aside className="w-full lg:w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar border-[#114074]">
         <ChatList selectedCategory="aboutus" />
       </aside>
     </>

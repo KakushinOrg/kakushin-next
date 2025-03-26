@@ -15,10 +15,10 @@ import BlogsChat from "../components/MainLandingPageComponents/BlogsChat";
 export default function MainLandingPage() {
   const [showPopup, setShowPopup] = useState(true);
   // const [showSidebar, setShowSidebar] = useState(false);
-  const [selectedChat, setSelectedChat] = useState("innovation");
+  const [selectedChat, setSelectedChat] = useState("about");
 
   return (
-    <div className="flex h-screen bg-[#0a192e] relative">
+    <div className="flex lg:flex-row flex-col bg-[#0a192e] relative lg:h-screen gap-12">
       {showPopup && (
         <AnimatedPopup
           onClose={() => setShowPopup(false)}

@@ -93,6 +93,14 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .paragraph {
+    font-size: 18px;
+    line-height: 25px;
+    opacity: 0.8;
+    text-align: left;
+    max-width: 900px;
+  }
+
   .largeText {
     font-size: 60px;
     line-height: 50px;

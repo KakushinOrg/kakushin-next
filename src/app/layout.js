@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
       <body className={`${lato.variable} antialiased`}>
         {/* <Navbar /> */}
         {children}
-        {/* <Footer /> */}
+        <div className="block lg:hidden">
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -1,6 +1,4 @@
 "use client";
-import { useState, useMemo } from "react";
-// Uncomment if needed: import TabsFeatures from "@/app/components/TabComponent/tabComponent";
 import { whatWeDo } from "@/app/components/TabComponent/whatWeDoData";
 import { FiMonitor, FiSmartphone } from "react-icons/fi";
 import { GiArtificialIntelligence, GiGrowth } from "react-icons/gi";
@@ -8,8 +6,6 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 import "./services.css";
 
 const OurServices = () => {
-  const [hoveredId, setHoveredId] = useState(null);
-
   const FEATURES = [
     { Icon: FiMonitor },
     { Icon: FiSmartphone },
@@ -17,25 +13,6 @@ const OurServices = () => {
     { Icon: HiOutlineLightBulb },
     { Icon: GiGrowth },
   ];
-
-  const servicesWithHeights = useMemo(
-    () =>
-      whatWeDo.map((item) => ({
-        ...item,
-        randomMinHeight: Math.floor(Math.random() * 51) + 150,
-      })),
-    []
-  );
-
-  const leftColumn = [];
-  const rightColumn = [];
-  servicesWithHeights.forEach((item, index) => {
-    if (index % 2 === 0) {
-      leftColumn.push(item);
-    } else {
-      rightColumn.push(item);
-    }
-  });
 
   return (
     <section className="w-full text-white" id="services">
@@ -52,28 +29,27 @@ const OurServices = () => {
           for your business.
         </p>
         {whatWeDo.length > 0 ? (
-          <div className="flex flex-col gap-4 ">
+          <div className="flex flex-col gap-4">
             {whatWeDo.map((item, index) => (
               <div
                 key={item.id}
-                className="transition ease-in-out boxWhiteMorph relative flex items-center p-3 text-white border rounded-[10px] shadow-md w-full"
-                style={{ minHeight: `${item.randomMinHeight}px` }}
-                onMouseEnter={() => setHoveredId(item.id)}
-                onMouseLeave={() => setHoveredId(null)}
+                className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px] md:transition-all md:duration-700 md:ease-in-out md:hover:max-h-[600px] md:hover:-translate-y-1"
               >
-                <div className="w-16 h-16 flex items-center justify-center transition-transform duration-300">
-                  {(() => {
-                    const Icon = FEATURES[index % FEATURES.length].Icon;
-                    return <Icon size={40} className="text-blue-500" />;
-                  })()}
-                </div>
-                <div className="flex-1 ml-4">
+                <div className="flex flex-col gap-5 items-start justify-center">
+                  <div className="w-16 h-full flex items-center justify-center transition-transform duration-300 md:mx-0 mx-auto">
+                    {(() => {
+                      const Icon = FEATURES[index % FEATURES.length].Icon;
+                      return <Icon size={40} className="text-blue-500" />;
+                    })()}
+                  </div>
                   <h3 className="font-semibold text-white w-[95%]">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-50 service-description w-[95%]">
-                    {item.subTitle}
-                  </p>
+                  <div>
+                    <p className="text-base text-gray-50 w-[95%]">
+                      {item.subTitle}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
