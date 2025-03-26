@@ -170,7 +170,7 @@ export default function InnovationInsightsChat() {
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
-                  or type your own!
+                  or type your own.
                 </p>
               </div>
               <div className="lg:hidden">
@@ -181,7 +181,7 @@ export default function InnovationInsightsChat() {
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
-                  or type your own!
+                  or type your own.
                 </p>
               </div>
             </motion.div>
