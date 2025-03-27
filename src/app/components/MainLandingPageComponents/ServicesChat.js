@@ -189,7 +189,7 @@ export default function ServicesChat() {
                 <button
                   key={index}
                   onClick={(e) => handleUserMessage(question, e)}
-                  className={`px-4 py-2 text-gray-800 rounded-full shadow ${
+                  className={`px-4 py-2 text-[#DCE0F9] rounded-full shadow  ${
                     isThinking
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                       : "bg-[#404559] hover:bg-[#576685] text-[#DCE0F9]"
