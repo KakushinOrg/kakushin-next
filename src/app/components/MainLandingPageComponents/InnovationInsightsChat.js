@@ -145,7 +145,7 @@ export default function InnovationInsightsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] bg-[#0A192E] px-4 md:px-8">
+      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -230,10 +230,10 @@ export default function InnovationInsightsChat() {
               <button
                 key={index}
                 onClick={(e) => handleUserMessage(text, e)}
-                className={`px-4 py-2 border rounded-full shadow ${
+                className={`px-4 py-2 rounded-full shadow ${
                   isThinking
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    : "bg-white hover:bg-gray-200"
+                    : "bg-[#404559] hover:bg-[#576685] text-[#DCE0F9]"
                 }`}
                 disabled={isThinking}
               >
@@ -270,7 +270,7 @@ export default function InnovationInsightsChat() {
                         handleUserMessage(text, e);
                         setShowPopup(false);
                       }}
-                      className="px-4 py-2 border rounded-full shadow bg-white hover:bg-gray-200"
+                      className="px-4 py-2 border rounded-full shadow bg-[#2E323B] hover:bg-[#464e5f] text-[#E1E4EB] hover:text-[#bec0c7]"
                       disabled={isThinking}
                     >
                       {text}
@@ -303,7 +303,7 @@ export default function InnovationInsightsChat() {
         />
       </main>
 
-      <aside className="w-full lg:w-[27.5%] bg-[#0a192e] mr-16 p-4 border-r h-full overflow-y-auto custom-scrollbar border-[#114074]">
+      <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
         <ChatList selectedCategory="innovation" />
       </aside>
     </>

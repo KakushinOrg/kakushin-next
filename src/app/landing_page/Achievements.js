@@ -73,7 +73,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
   }, [num, decimals, isInView]);
 
   return (
-    <div className="flex flex-col items-center py-3 sm:py-4 sm:px-3 mt-10 shadow-md border-white border-[2px] rounded-md shadow-gray-400 w-24 mx-auto md:mx-4 h-[8.5rem]">
+    <div className="flex flex-col items-center py-3 sm:py-4 sm:px-3 mt-10 shadow-md border-[rgba(255,255,255,0.3)] border-[1.5px] rounded-md w-24 lg:w-36 mx-auto md:mx-4 h-[8.5rem]">
       <div className="p-2 w-40">
         <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl text-white">
           <span ref={ref}></span>

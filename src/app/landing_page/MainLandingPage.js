@@ -18,7 +18,13 @@ export default function MainLandingPage() {
   const [selectedChat, setSelectedChat] = useState("about");
 
   return (
-    <div className="flex lg:flex-row flex-col bg-[#0a192e] relative lg:h-screen gap-12">
+    <div
+      className="flex lg:flex-row flex-col relative lg:h-screen gap-12"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, #171F2E 20%, #1A2033 70%, #171F2E 90%)",
+      }}
+    >
       {showPopup && (
         <AnimatedPopup
           onClose={() => setShowPopup(false)}

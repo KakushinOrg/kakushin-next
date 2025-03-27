@@ -19,7 +19,7 @@ const BlogPostMasonry = () => {
         {postsWithHeights.map((post) => (
           <div
             key={post.id}
-            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 border-gray-50 border-2 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
+            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 border-[rgba(255,255,255,0.3)] border-2 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
             style={{ minHeight: post.randomHeight }}
           >
             <Post {...post} />

@@ -73,7 +73,7 @@ export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
       </button>
 
       <aside
-        className={`fixed top-0 right-0 h-full bg-[#0a192e] border-l border-[#114074] z-[999] transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full bg-[#161B29] z-[999] transition-transform duration-300 ${
           showSidebar ? "translate-x-0" : "translate-x-full"
         } lg:translate-x-0 w-[3.8rem] lg:w-16 flex flex-col items-center`}
       >
@@ -83,7 +83,7 @@ export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
               key={item.name}
               onClick={() => handleClick(item)}
               className={`w-12 h-12 flex items-center justify-center rounded-full ${
-                activeTab === item.name ? "bg-[#8d1c22]" : "hover:bg-[#8d1c22]"
+                activeTab === item.name ? "bg-[#576685]" : "hover:bg-[#576685]"
               }`}
             >
               {iconMap[item.name] || (

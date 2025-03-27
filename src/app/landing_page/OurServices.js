@@ -33,7 +33,7 @@ const OurServices = () => {
             {whatWeDo.map((item, index) => (
               <div
                 key={item.id}
-                className="relative shrink-0 cursor-pointer border-[2px] border-white text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px] md:transition-all md:duration-700 md:ease-in-out md:hover:max-h-[600px] md:hover:-translate-y-1"
+                className="relative shrink-0 cursor-pointer border-[1.5px] border-[rgba(255,255,255,0.3)] text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px] md:transition-all md:duration-700 md:ease-in-out md:hover:max-h-[600px] md:hover:-translate-y-1"
               >
                 <div className="flex flex-col gap-5 items-start justify-center">
                   <div className="w-16 h-full flex items-center justify-center transition-transform duration-300 md:mx-0 mx-auto">
