@@ -75,7 +75,7 @@ export default function RightSideNavigation({ setSelectedChat, selectedChat }) {
       <aside
         className={`fixed top-0 right-0 h-full bg-[#0a192e] border-l border-[#114074] z-[999] transition-transform duration-300 ${
           showSidebar ? "translate-x-0" : "translate-x-full"
-        } lg:translate-x-0 lg:w-16 flex flex-col items-center`}
+        } lg:translate-x-0 w-[3.8rem] lg:w-16 flex flex-col items-center`}
       >
         <div className="flex flex-col items-center space-y-6 flex-1 justify-center">
           {menuLinks.map((item) => (

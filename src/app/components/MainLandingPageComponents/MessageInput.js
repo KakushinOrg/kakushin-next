@@ -50,7 +50,7 @@ export default function MessageInput({
             className="flex items-center justify-center gap-2 px-4 py-1 bg-red-50 hover:bg-red-100 text-red-500 rounded-full text-sm font-medium transition-colors"
           >
             <FaRedo size={14} />
-            <span>Clear</span>
+            <span className="hidden sm:block">Clear</span>
           </button>
         )}
         <button
