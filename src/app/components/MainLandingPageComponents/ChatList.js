@@ -92,7 +92,7 @@ export default function ChatList({ selectedCategory }) {
         <BlogsList />
       ) : (
         <>
-          <h1 className="titleTextLG text-center mb-5 mt-5 text-white">
+          <h1 className="titleTextLG text-center mb-5 mt-5 text-gray-300">
             Latest News
           </h1>
 

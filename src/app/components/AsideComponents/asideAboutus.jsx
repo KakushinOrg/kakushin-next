@@ -4,7 +4,7 @@ import { Achievements } from "@/app/landing_page/Achievements";
 const AsideAboutus = () => {
   return (
     <section className="">
-      <h1 className="titleTextLG text-center mb-14 lg:mb-5 mt-5 text-white">
+      <h1 className="titleTextLG text-center mb-14 lg:mb-5 mt-5 text-gray-300">
         About Us
       </h1>
 

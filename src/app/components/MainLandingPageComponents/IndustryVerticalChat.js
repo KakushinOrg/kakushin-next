@@ -342,7 +342,7 @@ export default function IndustryVerticalChat() {
       </main>
 
       <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
-        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-white">
+        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-gray-300">
           Industry Verticals
         </h2>
         <BlogPostCarousel projects={projects} options={OPTIONS} />
