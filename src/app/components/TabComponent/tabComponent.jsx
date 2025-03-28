@@ -2,16 +2,17 @@ import { FiMonitor, FiSmartphone } from "react-icons/fi";
 import { GiArtificialIntelligence, GiGrowth } from "react-icons/gi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AboutUsItem from "@/app/components/AboutUsAccordion/aboutUsAccordion";
 import { whatWeDo } from "@/app/components/TabComponent/whatWeDoData";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TabsFeatures = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="p-4">
-      <div className="mx-auto 2xl:w-6xl lg:w-2xl md:w-[70rem] sm:w-[35rem] w-full px-0 md:px-4">
+    <section className="p-2 mt-20">
+      <div className="mx-auto 2xl:w-6xl lg:w-2xl w-full px-0 md:px-4">
         {/* Render the tabs */}
         <Tabs selected={selected} setSelected={setSelected} />
 
@@ -36,20 +37,49 @@ const TabsFeatures = () => {
 };
 
 const Tabs = ({ selected, setSelected }) => {
+  const scrollContainerRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    }
+  };
   return (
-    <div className="flex overflow-x-scroll pb-4">
-      {whatWeDo.map((tab, index) => {
-        return (
+    <div className="relative flex items-center">
+      <button
+        onClick={scrollLeft}
+        className="absolute left-0 z-10 bg-transparent p-2 rounded-full hover:bg-gray-100"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <div
+        ref={scrollContainerRef}
+        className="flex overflow-hidden pb-4 scrollbar-hide scroll-smooth"
+      >
+        {whatWeDo.map((tab, index) => (
           <Tab
             key={index}
             setSelected={setSelected}
             selected={selected === index}
-            Icon={FEATURES[index]?.Icon || FiMonitor}
+            Icon={FEATURES[index]?.Icon}
             title={tab.title}
             tabNum={index}
           />
-        );
-      })}
+        ))}
+      </div>
+
+      <button
+        onClick={scrollRight}
+        className="absolute right-0 z-10 bg-transparent p-2 rounded-full hover:bg-gray-100"
+      >
+        <ChevronRight size={24} />
+      </button>
     </div>
   );
 };

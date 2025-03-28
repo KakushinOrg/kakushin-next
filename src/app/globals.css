@@ -12,6 +12,7 @@ html {
 }
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @layer utilities {
@@ -23,8 +24,7 @@ body {
 /* Typographies */
 .largeText {
   position: relative;
-  color: #414141;
-  opacity: 0.2;
+  opacity: 0.9;
   letter-spacing: -3px;
   font-weight: 700;
   font-size: 100px;
@@ -33,8 +33,7 @@ body {
 }
 .titleTextLG {
   position: relative;
-  color: #414141;
-  font-size: 45px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 42px;
 }
@@ -87,7 +86,6 @@ body {
 .paragraph {
   font-size: 16px;
   line-height: 25px;
-  color: #434343;
   opacity: 0.8;
   text-align: left;
   max-width: 900px;
@@ -95,6 +93,14 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .paragraph {
+    font-size: 18px;
+    line-height: 25px;
+    opacity: 0.8;
+    text-align: left;
+    max-width: 900px;
+  }
+
   .largeText {
     font-size: 60px;
     line-height: 50px;
@@ -115,4 +121,102 @@ body {
 
 .custom-fill {
   fill: #1e74b4;
+}
+
+/* scrollbar effect */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Small width */
+  height: 6px;
+  border-radius: 6px;
+  background: transparent; /* Hidden by default */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3); /* Subtle color */
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6); /* Darker on hover */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark {
+  background-color: #1a202c !important;
+  color: #ffffff !important;
+}
+
+html.dark body,
+html.dark div,
+html.dark main,
+html.dark aside,
+html.dark h1,
+html.dark h6,
+html.dark span,
+html.dark section,
+html.dark label,
+html.dark input,
+html.dark form,
+html.dark ul,
+html.dark p,
+html.dark h3,
+html.dark li,
+html.dark button {
+  background-color: #1a202c !important;
+  color: #ffffff !important;
+}
+html.dark h2 {
+  color: #ffffff !important;
+}
+html.dark div li button {
+  border: 2px solid #6e6e6e !important;
+}
+html.dark div li button:hover {
+  border: 2px solid #ce3838 !important;
+}
+
+html.dark main div div div p {
+  color: #ffffff !important;
+}
+html.dark form input {
+  color: #ffffff !important;
+}
+html.dark div img {
+  background-image: url("/public/icons/asiD.png");
+}
+html.dark div div div form TextField {
+  color: white !important ;
+}
+html.dark .MuiInputBase-input::placeholder {
+  color: white !important;
+  opacity: 1 !important;
+}
+
+html.dark .MuiInputBase-input {
+  color: white !important;
+}
+
+html.dark .MuiInputLabel-root {
+  color: white !important;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #2d3748a2;
 }

@@ -86,7 +86,7 @@ const AccordionItem = ({
         animate={{ height: isOpen ? height : 0 }}
         className="overflow-hidden"
       >
-        <div ref={ref} className="pb-4 text-sm text-gray-600">
+        <div ref={ref} className="pb-4 text-sm text-gray-600 max-w-[100ch]">
           {content}
           {hasLink ? (
             <a

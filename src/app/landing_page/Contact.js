@@ -14,25 +14,27 @@ const Contact = () => {
   const [everything, setEverything] = useState("");
 
   const textFieldStyles = {
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "goldenrod",
-      },
-      "&:hover fieldset": {
-        borderColor: "goldenrod",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "goldenrod",
-      },
-    },
+    // Make the label text white
     "& .MuiInputLabel-root": {
-      color: "black",
+      color: "white",
     },
+    // Keep it white when focused
     "& .MuiInputLabel-root.Mui-focused": {
-      color: "black",
+      color: "white",
+    },
+    // Make the actual input text white
+    "& .MuiInputBase-input": {
+      color: "white",
+    },
+    // Underline color (for variant="standard")
+    "& .MuiInput-underline:before": {
+      borderBottomColor: "white",
+    },
+    "& .MuiInput-underline:hover:before": {
+      borderBottomColor: "white",
     },
     "& .MuiInput-underline:after": {
-      borderBottomColor: "goldenrod",
+      borderBottomColor: "white",
     },
   };
 
@@ -71,16 +73,21 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#f4f4f7] md:mt-10 md:pt-8" id="contact">
+    <div
+      className="bg-[#0A192E] md:mt-10 md:pt-8 h-full md:h-[80vh] flex justify-center items-center"
+      id="contact"
+    >
       <div>
         <div className="w-full flex flex-col md:mb-20 mb-10">
-          <h2 className="largeText mb-5 text-center">get in touch</h2>
-          <h2 className="titleTextLG text-center">Contact</h2>
+          <h2 className="largeText mb-5 text-center text-white">
+            get in touch
+          </h2>
+          <h2 className="titleTextLG text-center text-white">Contact</h2>
         </div>
 
         <div className="flex flex-col md:gap-10 items-center justify-center md:mt-24 mt-14">
           <form
-            className="flex flex-col md:flex-row justify-center items-end gap-10"
+            className="flex flex-col md:flex-row justify-center items-center lg:items-end gap-10"
             onSubmit={handleSubmit}
           >
             <TextField
@@ -117,7 +124,7 @@ const Contact = () => {
         </div>
 
         <div className="py-24 flex flex-wrap flex-col gap-10 items-center md:flex-row md:items-start md:justify-evenly">
-          <div className="flex flex-wrap flex-col items-center">
+          <div className="flex flex-wrap flex-col items-center text-white">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
                 alt="Location"
@@ -136,7 +143,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap flex-col items-center">
+          <div className="flex flex-wrap flex-col items-center text-white">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4]">
               <Image
                 onClick={() =>
@@ -150,17 +157,17 @@ const Contact = () => {
               />
             </div>
             <h2 className="mt-5">Mail Us</h2>
-            <p>
-              <Link
-                href="mailto:iokakushin@gmail.com"
-                className="cursor-pointer text-blue-800 underline"
-              >
-                Send Email
-              </Link>
+            <p
+              onClick={() =>
+                window.open("mailto:iokakushin@gmail.com", "_blank")
+              }
+              className="cursor-pointer text-blue-800 underline"
+            >
+              Send Email
             </p>
           </div>
 
-          <div className="flex flex-wrap flex-col items-center">
+          <div className="flex flex-wrap flex-col items-center text-white">
             <div className="border-2 border-solid h-full p-5 rounded-[56%] border-[#1E74B4] cursor-pointer">
               <Image
                 onClick={() =>

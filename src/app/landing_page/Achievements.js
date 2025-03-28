@@ -32,13 +32,10 @@ const achievementsData = [
 
 export const Achievements = () => {
   return (
-    <div className="border-gray-100 border-y-2 bg-[#f4f4f7]">
-      <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
-        <div className="text-center mb-14 md:mb-32">
-          <h2 className="largeText mb-4">Our Achivements,</h2>
-          <h2 className="titleTextLG">So Far</h2>
-        </div>
-        <div className="flex flex-col items-center justify-center sm:flex-row">
+    <div className="px-2 py-4">
+      <div className="flex flex-col gap-5 items-start justify-center">
+        <h2 className="titleTextLG">Our Achievements</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-items-center gap-0 lg:gap-5">
           {achievementsData.map(
             (
               achievement,
@@ -76,12 +73,18 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
   }, [num, decimals, isInView]);
 
   return (
-    <div className="flex w-72 flex-col items-center py-8 sm:py-0">
-      <p className="mb-2 text-center text-7xl font-semibold sm:text-6xl">
-        <span ref={ref}></span>
-        {suffix}
-      </p>
-      <p className="max-w-48 text-center text-neutral-600">{subheading}</p>
+    <div className="flex flex-col items-center py-3 sm:py-4 sm:px-3 mt-10 shadow-md border-[rgba(255,255,255,0.3)] border-[1.5px] rounded-md w-24 lg:w-36 mx-auto md:mx-4 h-[8.5rem]">
+      <div className="p-2 w-40">
+        <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl text-white">
+          <span ref={ref}></span>
+          {suffix}
+        </p>
+        <div className="w-full ">
+          <p className="max-w-[10ch] text-center text-white mx-auto">
+            {subheading}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

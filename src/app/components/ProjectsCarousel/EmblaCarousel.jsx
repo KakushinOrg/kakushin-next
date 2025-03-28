@@ -1,89 +1,30 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import useMeasure from "react-use-measure";
+import React, { useMemo } from "react";
 import Image from "next/image";
 
-const CARD_WIDTH = 350;
-const MARGIN = 20;
-const CARD_SIZE = CARD_WIDTH + MARGIN;
-
-const BREAKPOINTS = {
-  sm: 640,
-  lg: 1024,
-};
-
-const BlogPostCarousel = () => {
-  const [ref, { width }] = useMeasure();
-  const [offset, setOffset] = useState(0);
-
-  const CARD_BUFFER =
-    width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
-
-  const CAN_SHIFT_LEFT = offset < 0;
-
-  const CAN_SHIFT_RIGHT =
-    Math.abs(offset) < CARD_SIZE * (posts.length - CARD_BUFFER);
-
-  const shiftLeft = () => {
-    if (!CAN_SHIFT_LEFT) {
-      return;
-    }
-    setOffset((pv) => (pv += CARD_SIZE));
-  };
-
-  const shiftRight = () => {
-    if (!CAN_SHIFT_RIGHT) {
-      return;
-    }
-    setOffset((pv) => (pv -= CARD_SIZE));
-  };
+const BlogPostMasonry = () => {
+  // Add a random minimum height (between 200px and 400px) to each post.
+  const postsWithHeights = useMemo(() => {
+    return posts.map((post) => ({
+      ...post,
+      randomHeight: Math.floor(Math.random() * 101) + 150,
+    }));
+  }, []);
 
   return (
-    <section className="bg-[#f4f4f7] py-8" ref={ref}>
-      <div className="relative overflow-hidden p-4">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center justify-between">
-            <h2 className="mb-4 text-4xl">The Team Blog</h2>
-
-            <div className="flex items-center gap-2">
-              <button
-                className={`rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
-                  CAN_SHIFT_LEFT ? "" : "opacity-30"
-                }`}
-                disabled={!CAN_SHIFT_LEFT}
-                onClick={shiftLeft}
-              >
-                <FiArrowLeft />
-              </button>
-              <button
-                className={`rounded-lg border-[1px] border-neutral-400 bg-white p-1.5 text-2xl transition-opacity ${
-                  CAN_SHIFT_RIGHT ? "" : "opacity-30"
-                }`}
-                disabled={!CAN_SHIFT_RIGHT}
-                onClick={shiftRight}
-              >
-                <FiArrowRight />
-              </button>
-            </div>
-          </div>
-          <motion.div
-            animate={{
-              x: offset,
-            }}
-            transition={{
-              ease: "easeInOut",
-            }}
-            className="flex"
+    <section className="">
+      {/* Use CSS columns for the masonry effect. */}
+      <div className="flex flex-col gap-2 mx-auto">
+        {postsWithHeights.map((post) => (
+          <div
+            key={post.id}
+            className="mb-4 break-inside-avoid cursor-pointer transition-all ease-out hover:-translate-y-1 border-[rgba(255,255,255,0.3)] border-2 drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]"
+            style={{ minHeight: post.randomHeight }}
           >
-            {posts.map((post) => {
-              return <Post key={post.id} {...post} />;
-            })}
-          </motion.div>
-        </div>
+            <Post {...post} />
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -91,36 +32,22 @@ const BlogPostCarousel = () => {
 
 const Post = ({ iconURL, author, title, description }) => {
   return (
-    <div
-      className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 bg-gray-50 hover:drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] drop-shadow-[0px_0px_7px_rgba(28,108,168,0.1)] p-4 m-4 rounded-[25px]"
-      style={{
-        width: CARD_WIDTH,
-        marginRight: MARGIN,
-      }}
-    >
-      {/* <Image
-        height={350}
-        width={350}
-        src={imgUrl}
-        className="mb-3 h-[200px] w-full rounded-lg object-cover"
-        alt={`An image for a fake blog post titled ${title}`}
-      /> */}
-      <div className="flex justify-between items-center">
-        <div className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
+    <>
+      <div className="flex justify-between items-center mb-2">
+        <div className="rounded-md border border-neutral-500 px-1.5 py-1 text-xs uppercase text-white">
           {author}
         </div>
-        <div className="">
+        <div>
           <Image width={35} height={35} src={iconURL} alt={iconURL} />
         </div>
       </div>
-
-      <p className="mt-1.5 text-lg font-medium">{title}</p>
-      <p className="text-sm text-neutral-500">{description}</p>
-    </div>
+      <p className="my-3.5 text-lg font-medium text-white">{title}</p>
+      <p className="text-sm text-neutral-50">{description}</p>
+    </>
   );
 };
 
-export default BlogPostCarousel;
+export default BlogPostMasonry;
 
 const posts = [
   {

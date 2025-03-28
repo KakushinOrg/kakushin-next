@@ -1,0 +1,24 @@
+.boxWhiteMorph {
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+.boxWhiteMorph:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-description {
+  overflow-y: hidden;
+  max-height: 5rem;
+  opacity: 0.7;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.boxWhiteMorph:hover .service-description {
+  max-height: 350px;
+  opacity: 1;
+  overflow-y: auto;
+}

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ProjectCarousel from "../components/ProjectsCarousel/ProjectsCarousel";
+import BlogPostCarousel from "../components/ProjectsCarousel/EmblaCarousel";
 
 let projects = [
   {
@@ -59,15 +60,17 @@ let projects = [
   },
 ];
 
+const OPTIONS = { slidesToScroll: "auto" };
 const OurProjects = () => {
   return (
     <section className="md:p-20 py-10 px-4 bg-[#f4f4f7]" id="industry-verticals">
       {/* title */}
-      <div className="text-center mb-14 md:mb-32">
-        <h2 className="largeText mb-4">we do magic</h2>
-        <h2 className="titleTextLG">Industry Verticals</h2>
-      </div>
-      <ProjectCarousel projects={projects} />
+      {/* <div className="text-center mb-14 md:mb-32"> */}
+        {/* <h2 className="largeText mb-4">we do magic</h2> */}
+        <h2 className="titleTextLG text-center">Industry Verticals</h2>
+      {/* </div> */}
+      <BlogPostCarousel projects={projects} options={OPTIONS} />
+      {/* <ProjectCarousel projects={projects} /> */}
     </section>
   );
 };

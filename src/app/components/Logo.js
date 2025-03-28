@@ -9,11 +9,7 @@ const Logo = ({ color, className }) => {
         <Image
           width={200}
           height={200}
-          src={
-            color === "white"
-              ? "/images/logo-footer-white.png"
-              : "/images/logo-footer-black.png"
-          }
+          src="/images/logo-footer-white.png"
           alt="Picture of the author"
           className={`w-auto h-8 ${className}`}
         />
