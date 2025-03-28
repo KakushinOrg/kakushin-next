@@ -21,7 +21,7 @@ export default function InnovationInsightsChat() {
     "How can Kakushin help my startup grow?":
       "We focus on sustainable, strategic growth. From validating your concept to launching your MVP, creating a brand people trust, and integrating tools that scale with you — we’ve helped over 90 startups grow smart. Let’s do the same for you.",
     "What AI services do you offer?":
-      "We build intelligent tools to help you work smarter. Our AI solutions include custom automation, chatbots, predictive systems, recommended engines, and integrations that boost efficiency is tailored to your business.",
+      "We build intelligent tools to help you work smarter. Our AI solutions include custom automation, chatbots, predictive systems, engines that recommend, and integrations that boost efficiency is tailored to your business.",
     "How can I build an MVP with Kakushin?":
       "We take your idea from napkin sketch to launch-ready MVP. We guide you through strategy, design, development, and testing. You’ll get a product that’s lean, usable, and ready to attract investors or first customers - fast.",
     "Can you show me some of your past work?":
