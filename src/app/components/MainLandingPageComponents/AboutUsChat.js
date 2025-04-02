@@ -231,7 +231,7 @@ export default function InnovationInsightsChat() {
 
         {/* Desktop view: inline question buttons */}
         {!isMobile && (
-          <div className="mt-10 mb-5 flex flex-wrap gap-4 justify-center h-40 overflow-y-auto sm:h-[8rem] sm:flex-wrap">
+          <div className="mt-10 flex pb-5 flex-wrap gap-4 justify-center h-40 overflow-y-auto sm:h-[8rem] sm:flex-wrap">
             {Object.keys(questionsAndResponses).map((text, index) => (
               <button
                 key={index}
