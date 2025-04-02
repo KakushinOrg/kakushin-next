@@ -34,7 +34,10 @@ export const Achievements = () => {
   return (
     <div className="px-2 py-4">
       <div className="flex flex-col gap-5 items-start justify-center">
-        <h2 className="titleTextLG">Our Achievements</h2>
+        <div className="mb-4 lg:mx-0 mx-auto">
+          <h2 className="titleTextLG">Our Achievements</h2>
+          <div className="w-20 h-[2px] bg-[#1c6ca8]"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-items-center gap-0 lg:gap-5">
           {achievementsData.map(
             (

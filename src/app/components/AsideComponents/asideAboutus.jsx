@@ -11,7 +11,10 @@ const AsideAboutus = () => {
       <div className="flex flex-col">
         <div className="relative shrink-0 cursor-pointer border-[1.5px] border-[rgba(255,255,255,0.3)] text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px]  md:transition-all md:duration-700 md:ease-in-out  md:hover:max-h-[600px]  md:hover:-translate-y-1">
           <div className=" flex flex-col gap-5 items-start justify-center md:mb-10">
-            <h2 className="titleTextLG mb-4 lg:mx-0 mx-auto">Our story</h2>
+            <div className="mb-4 lg:mx-0 mx-auto">
+              <h2 className="titleTextLG">Our story</h2>
+              <div className="w-20 h-[2px] bg-[#1c6ca8]"></div>
+            </div>
             <p className="paragraph">
               At Kakushin, we specialize in empowering{" "}
               <span className="font-semibold text-[18px]">
@@ -38,7 +41,10 @@ const AsideAboutus = () => {
         </div>
         <div className="relative shrink-0 cursor-pointer border-[1.5px] border-[rgba(255,255,255,0.3)] text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px]  md:transition-all md:duration-700 md:ease-in-out  md:hover:max-h-[600px]  md:hover:-translate-y-1">
           <div className="flex flex-col gap-5 items-start justify-center ">
-            <h2 className="titleTextLG mb-4 lg:mx-0 mx-auto">Who we are</h2>
+            <div className="mb-4 lg:mx-0 mx-auto">
+              <h2 className="titleTextLG">Who we are</h2>
+              <div className="w-20 h-[2px] bg-[#1c6ca8]"></div>
+            </div>
             <p className="paragraph">
               Our expertise extends across diverse sectors, including health
               tech, EdTech, and environmental initiatives. We’re passionate
@@ -55,6 +61,49 @@ const AsideAboutus = () => {
               At Kakushin, innovation meets purpose to transform visions into
               success stories.{" "}
             </p>
+          </div>
+        </div>
+        <div className="relative shrink-0 cursor-pointer transition-all ease-out hover:-translate-y-1 border-[1.5px] border-[rgba(255,255,255,0.3)] text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 rounded-[10px]">
+          <div className="flex flex-col gap-5 items-start justify-center ">
+            <div className="mb-4 lg:mx-0 mx-auto">
+              <h2 className="titleTextLG">What they say about us</h2>
+              <div className="w-20 h-[2px] bg-[#1c6ca8]"></div>
+            </div>
+
+            <div className="underline flex flex-col gap-4">
+              <a
+                href="https://thefounderspress.com/marketing-firm-kakushin-eyes-us-expansion/"
+                target="_blank"
+              >
+                Marketing Firm Kakushin Eyes US Expansion with Tech-Driven
+                Growth
+              </a>
+              <a
+                href="https://www.foundersbeta.com/female-founders/leaders-follow/"
+                target="_blank"
+              >
+                Top Female Founders & Leaders to Follow in 2024 - FoundersBeta
+              </a>
+              <a
+                href="https://www.foundersbeta.com/top-100/companies-2025/"
+                target="_blank"
+              >
+                Top 100 Companies to Watch in 2025 - FoundersBeta
+              </a>
+              <a
+                href="https://news.marketersmedia.com/kakushin-announces-tailored-development-solutions-to-empower-startups/89141380"
+                target="_blank"
+              >
+                Kakushin Announces Tailored Development Solutions to Empower
+                Startups
+              </a>
+              <a
+                href="https://apnews.com/press-release/marketersmedia/artificial-intelligence-7c38e5fee0c6aa346641675d11f5fe8f "
+                target="_blank"
+              >
+                Kakushin Unveils Custom Dev Services Designed to Boost Startups
+              </a>
+            </div>
           </div>
         </div>
       </div>

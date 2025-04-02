@@ -37,17 +37,7 @@ body {
   font-weight: 700;
   line-height: 42px;
 }
-.titleTextLG::before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 3px;
-  left: 50%;
-  width: 100px;
-  transform: translateX(-50%);
-  background: #1c6ca8;
-  bottom: -10px;
-}
+
 .titleTextSM {
   position: relative;
   color: #414141;
