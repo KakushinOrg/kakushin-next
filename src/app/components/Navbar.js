@@ -74,21 +74,21 @@ const Navbar = ({ isExpanded }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/icons/facebook.svg" alt="Facebook" className="w-4 h-4" />
+          <img src="/icons/facebook.svg" alt="Facebook" className="w-8 h-8" />
         </a>
         <a
           href="https://www.linkedin.com/company/86423797"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-4 h-4" />
+          <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
         </a>
         <a
           href="https://www.instagram.com/kakushin.io?igsh=MXE0b3MyZjB0dDA3dw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="/icons/instagram.svg" alt="Instagram" className="w-4 h-4" />
+          <img src="/icons/instagram.svg" alt="Instagram" className="w-8 h-8" />
         </a>
       </div>
       {/* <div className="text-xl font-bold">

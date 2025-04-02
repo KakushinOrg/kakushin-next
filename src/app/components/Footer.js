@@ -19,8 +19,8 @@ const Footer = () => {
             alt="Facebook"
             className="inline-block mx-2"
             src="/icons/facebook.svg"
-            width={15}
-            height={15}
+            width={25}
+            height={25}
           />
         </Link>
         <Link
@@ -32,8 +32,8 @@ const Footer = () => {
             alt="LinkedIn"
             className="inline-block mx-2"
             src="/icons/linkedin.svg"
-            width={15}
-            height={15}
+            width={25}
+            height={25}
           />
         </Link>
         <Link
@@ -45,14 +45,14 @@ const Footer = () => {
             alt="Instagram"
             className="inline-block mx-2"
             src="/icons/instagram.svg"
-            width={18}
-            height={18}
+            width={25}
+            height={25}
           />
         </Link>
       </div>
       <div className="flex justify-center flex-col items-center py-5 bg-[#0a192e]">
         <p className="text-white text-sm">
-          © 2024 Kakushin. All rights reserved.
+          © 2025 Kakushin. All rights reserved.
         </p>
         <p className="text-white text-sm">
           Made with{" "}
@@ -60,16 +60,16 @@ const Footer = () => {
             alt="Heart"
             className="inline-block mx-2"
             src="/icons/heart.svg"
-            width={10}
-            height={10}
+            width={20}
+            height={20}
           />
           and{" "}
           <Image
             alt="Coffee"
             className="inline-block mx-2"
             src="/icons/coffee.svg"
-            width={10}
-            height={10}
+            width={20}
+            height={20}
           />
         </p>
       </div>
