@@ -145,7 +145,7 @@ export default function ServicesChat() {
         <div
           ref={messagesEndRef}
           className={`w-full lg:h-[60%] ${
-            isExpanded ? "h-[30rem]" : "h-[16rem]"
+            isExpanded ? "h-[30rem]" : "h-[14rem]"
           } mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
