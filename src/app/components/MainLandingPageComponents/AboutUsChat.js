@@ -144,7 +144,10 @@ export default function InnovationInsightsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
+      <section
+        id="AboutUs"
+        className="relative flex-1 md:h-full h-screen flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8"
+      >
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -163,26 +166,26 @@ export default function InnovationInsightsChat() {
               className="text-white"
             >
               <div className="lg:block hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hi there! Welcome to kakushin, your partner in innovation.
-                </h1>
-                <p className="text-white my-2 max-w-[65ch] mx-auto">
+                </h4>
+                <h6 className="text-white my-2 max-w-[65ch] mx-auto">
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
                   or type your own.
-                </p>
+                </h6>
               </div>
               <div className="lg:hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hi there! Welcome to kakushin, your partner in innovation.
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white mb-2 mt-4">
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
                   or type your own.
-                </p>
+                </h6>
               </div>
             </motion.div>
           )}
@@ -190,11 +193,9 @@ export default function InnovationInsightsChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full ${
-            isExpanded || messages.length > 0
-              ? "lg:h-[60%] h-[37rem]"
-              : "lg:h-2/4 h-[27rem]"
-          }  mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+          className={`w-full lg:h-[60%] ${
+            isExpanded ? "h-[30rem]" : "h-[16rem]"
+          } mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
@@ -230,7 +231,7 @@ export default function InnovationInsightsChat() {
 
         {/* Desktop view: inline question buttons */}
         {!isMobile && (
-          <div className="mt-10 mb-5 flex flex-wrap gap-4 justify-center h-40 overflow-y-auto sm:h-auto sm:flex-wrap">
+          <div className="mt-10 mb-5 flex flex-wrap gap-4 justify-center h-40 overflow-y-auto sm:h-[8rem] sm:flex-wrap">
             {Object.keys(questionsAndResponses).map((text, index) => (
               <button
                 key={index}
@@ -309,9 +310,9 @@ export default function InnovationInsightsChat() {
           onFocus={() => setIsExpanded(true)}
           onBlur={() => setIsExpanded(messages.length > 0)}
         />
-      </main>
+      </section>
 
-      <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
+      <aside className="w-full lg:w-[27.5%] px-4 md:px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
         <ChatList selectedCategory="aboutus" />
       </aside>
     </>

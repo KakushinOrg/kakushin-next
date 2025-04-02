@@ -4,9 +4,9 @@ import { Achievements } from "@/app/landing_page/Achievements";
 const AsideAboutus = () => {
   return (
     <section className="">
-      <h1 className="titleTextLG text-center mb-14 lg:mb-5 mt-5 text-gray-300">
+      <h3 className="titleTextLG text-center mb-14 lg:mb-5 mt-5 text-gray-300">
         About Us
-      </h1>
+      </h3>
 
       <div className="flex flex-col">
         <div className="relative shrink-0 cursor-pointer border-[1.5px] border-[rgba(255,255,255,0.3)] text-white drop-shadow-[0px_0px_7px_rgba(28,108,168,0.2)] p-4 my-4 rounded-[10px] w-full overflow-hidden max-h-none md:max-h-[150px]  md:transition-all md:duration-700 md:ease-in-out  md:hover:max-h-[600px]  md:hover:-translate-y-1">

@@ -136,7 +136,10 @@ export default function BlogsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
+      <section
+        id="BlogsChat"
+        className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8"
+      >
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -156,22 +159,22 @@ export default function BlogsChat() {
               className="text-white"
             >
               <div className="lg:block hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hello and welcome to Kakushin!
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white my-2">
                   In this section, you will hear all about us and what we do.
                   You can ask more questions if you have any.
-                </p>
+                </h6>
               </div>
               <div className="lg:hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hello and welcome to Kakushin!
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white my-2">
                   In this section, you will hear all about us and what we do.
                   You can ask more questions if you have any.
-                </p>
+                </h6>
               </div>
             </motion.div>
           )}
@@ -296,9 +299,9 @@ export default function BlogsChat() {
           onFocus={() => setIsExpanded(true)}
           onBlur={() => setIsExpanded(messages.length > 0)}
         />
-      </main>
+      </section>
 
-      <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
+      <aside className="w-full lg:w-[27.5%] px-4 md:px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
         <ChatList selectedCategory="blogs" />
       </aside>
     </>
