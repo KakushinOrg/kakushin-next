@@ -136,7 +136,7 @@ export default function IndustryVerticalChat() {
     <>
       <section
         id="IndustryVertical"
-        className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8"
+        className="relative flex-1 md:h-full h-screen flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8"
       >
         <div className="w-full lg:px-4 px-2">
           <Navbar />
@@ -184,7 +184,9 @@ export default function IndustryVerticalChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full lg:h-[60%] h-[37rem] mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+          className={`w-full lg:h-[60%] ${
+            isExpanded ? "h-[30rem]" : "h-[16rem]"
+          } mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
@@ -300,7 +302,7 @@ export default function IndustryVerticalChat() {
       </section>
 
       <aside className="w-full lg:w-[27.5%] px-4 md:px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
-        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-gray-300">
+        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-gray-300 mt-4">
           Industry Verticals
         </h2>
         <BlogPostCarousel
