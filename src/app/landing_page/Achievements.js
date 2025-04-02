@@ -34,7 +34,10 @@ export const Achievements = () => {
   return (
     <div className="px-2 py-4">
       <div className="flex flex-col gap-5 items-start justify-center">
-        <h2 className="titleTextLG">Our Achievements</h2>
+        <div className="mb-4 lg:mx-0 mx-auto">
+          <h2 className="titleTextLG">Our Achievements</h2>
+          <div className="w-20 h-[2px] bg-[#1c6ca8]"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto justify-items-center gap-0 lg:gap-5">
           {achievementsData.map(
             (
@@ -73,7 +76,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }) => {
   }, [num, decimals, isInView]);
 
   return (
-    <div className="flex flex-col items-center py-3 sm:py-4 sm:px-3 mt-10 shadow-md border-[rgba(255,255,255,0.3)] border-[1.5px] rounded-md w-24 lg:w-36 mx-auto md:mx-4 h-[8.5rem]">
+    <div className="flex flex-col items-center py-3 sm:py-4 sm:px-3 mt-10 shadow-md border-[rgba(255,255,255,0.3)] border-[1.5px] rounded-md w-40 lg:w-36 mx-auto md:mx-4 h-[8.5rem]">
       <div className="p-2 w-40">
         <p className="mb-2 text-center text-4xl font-semibold sm:text-3xl text-white">
           <span ref={ref}></span>

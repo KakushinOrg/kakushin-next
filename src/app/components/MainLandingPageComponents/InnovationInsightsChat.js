@@ -145,7 +145,7 @@ export default function InnovationInsightsChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
+      <main className="relative flex-1 md:h-full h-screen flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -164,22 +164,22 @@ export default function InnovationInsightsChat() {
               className="text-white"
             >
               <div className="lg:block hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hello and welcome to Kakushin!
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white my-2">
                   I'm here to help you explore how we can boost your startup’s
                   success with our innovative solutions.
-                </p>
+                </h6>
               </div>
               <div className="lg:hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hello and welcome to Kakushin!
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white my-2 h-[9rem]">
                   I'm here to help you explore how we can boost your startup’s
                   success with our innovative solutions.
-                </p>
+                </h6>
               </div>
             </motion.div>
           )}
@@ -187,9 +187,9 @@ export default function InnovationInsightsChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full ${
-            isExpanded || messages.length > 0 ? "lg:h-[60%]" : "h-1/4"
-          } lg:h-2/4 mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
+          className={`w-full lg:h-[60%] ${
+            isExpanded ? "h-[30rem]" : "h-[16rem]"
+          } mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
             <div
@@ -303,7 +303,7 @@ export default function InnovationInsightsChat() {
         />
       </main>
 
-      <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
+      <aside className="w-full lg:w-[27.5%] px-4 md:px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
         <ChatList selectedCategory="innovation" />
       </aside>
     </>

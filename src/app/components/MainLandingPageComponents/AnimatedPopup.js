@@ -73,7 +73,7 @@ export default function AnimatedPopup({ onClose, onContact }) {
           <XCircle color="white" size={24} />
         </button>
 
-        <h2 className="text-2xl font-bold mb-2">Quick Questions</h2>
+        <h1 className="text-2xl font-bold mb-2">Quick Questions</h1>
         <p className="text-gray-50 text-sm mb-4">
           We’re here to help! Here are some common questions:
         </p>

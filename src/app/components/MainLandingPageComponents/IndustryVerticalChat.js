@@ -134,7 +134,10 @@ export default function IndustryVerticalChat() {
 
   return (
     <>
-      <main className="relative flex-1 flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8">
+      <section
+        id="IndustryVertical"
+        className="relative flex-1 md:h-full h-screen flex flex-col justify-around items-center text-center lg:pt-0 pt-[1rem] px-4 md:px-8"
+      >
         <div className="w-full lg:px-4 px-2">
           <Navbar />
         </div>
@@ -154,26 +157,26 @@ export default function IndustryVerticalChat() {
               className="text-white"
             >
               <div className="lg:block hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hi there! Welcome to Kakushin, your partner in innovation.
-                </h1>
-                <p className="text-white my-2 max-w-[65ch] mx-auto">
+                </h4>
+                <h6 className="text-white my-2 max-w-[65ch] mx-auto">
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
                   or type your own.
-                </p>
+                </h6>
               </div>
               <div className="lg:hidden">
-                <h1 className="text-xl font-bold">
+                <h4 className="text-xl font-bold">
                   Hi there! Welcome to Kakushin, your partner in innovation.
-                </h1>
-                <p className="text-white my-2">
+                </h4>
+                <h6 className="text-white my-2">
                   We help startups and businesses build digital products, design
                   standout brands, and integrate AI solutions tailored to their
                   needs. Want to know how it works? Just click a question below
                   or type your own.
-                </p>
+                </h6>
               </div>
             </motion.div>
           )}
@@ -181,10 +184,8 @@ export default function IndustryVerticalChat() {
 
         <div
           ref={chatContainerRef}
-          className={`w-full ${
-            isExpanded || messages.length > 0
-              ? "lg:h-[60%] h-[37rem]"
-              : "lg:h-2/4 h-[27rem]"
+          className={`w-full lg:h-[60%] ${
+            isExpanded ? "h-[30rem]" : "h-[16rem]"
           } mt-6 py-4 px-4 2xl:px-20 lg:px-12 overflow-auto transition-all duration-300`}
         >
           {messages.map((msg, index) => (
@@ -298,10 +299,10 @@ export default function IndustryVerticalChat() {
           onFocus={() => setIsExpanded(true)}
           onBlur={() => setIsExpanded(messages.length > 0)}
         />
-      </main>
+      </section>
 
-      <aside className="w-full lg:w-[27.5%] px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
-        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-gray-300">
+      <aside className="w-full lg:w-[27.5%] px-4 md:px-10 py-4 h-full overflow-y-auto custom-scrollbar bg-[#161B29]">
+        <h2 className="titleTextLG text-center mx-5 mb-14 lg:mb-5 text-gray-300 mt-4">
           Industry Verticals
         </h2>
         <BlogPostCarousel
