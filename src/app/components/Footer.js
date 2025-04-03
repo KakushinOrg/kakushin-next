@@ -6,8 +6,25 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-[#1e1e1e] border-t-2 border-[#114074]">
-      <div className="flex justify-center items-center py-5 bg-[#0a192e]">
+      <div className="flex flex-col justify-center items-center py-5 bg-[#0a192e]">
         <Logo color="white" className="h-14" />
+        <span className="h-[2px] w-[10rem] bg-[#114074] inline-block mt-10 mb-5"></span>
+        <div className="flex flex-wrap justify-center items-center gap-20 my-5">
+          <Image
+            className="w-[350px] h-auto"
+            src={"/images/UN_LOGO.png"}
+            alt="UN Logo"
+            width={350}
+            height={350}
+          />
+          <Image
+            className="w-[350px] h-auto"
+            src={"/images/SUPPORT_WOMEN_EMPOWERMENT.png"}
+            alt="SUPPORT_WOMEN_EMPOWERMENT_LOGO"
+            width={350}
+            height={350}
+          />
+        </div>
       </div>
       <div className="bg-[#0a192e] flex justify-center items-center gap-10 py-5 border-b-2 border-t-2 border-[#114074]">
         <Link
